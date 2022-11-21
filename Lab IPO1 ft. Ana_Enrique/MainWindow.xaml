@@ -7,7 +7,24 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="Hola xd" HorizontalAlignment="Left" Margin="316,189,0,0" VerticalAlignment="Top"/>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="102*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="122*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="184*"/>
+            <ColumnDefinition Width="326*"/>
+            <ColumnDefinition Width="107*"/>
+            <ColumnDefinition Width="183*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="210" Margin="0,102,0,0" Grid.RowSpan="9" Stroke="Black" VerticalAlignment="Top" Width="433"/>
     </Grid>
 </Window>
