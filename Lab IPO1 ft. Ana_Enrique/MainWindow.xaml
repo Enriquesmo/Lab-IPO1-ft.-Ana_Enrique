@@ -83,7 +83,7 @@
                     Content="Iniciar Sesión" 
                     FontSize="14" FontWeight="Bold" 
                     Background="#FF6189CF" Foreground="White" 
-                    Cursor="Hand" Click="btnLogin_Click" Margin="157,244,157,12"/>
+                    Cursor="Hand" Click="btnLogin_Click" Margin="165,246,149,10"/>
                 <Image x:Name="ImgCheckUsuario" 
                     HorizontalAlignment="Left" Width="30                " Margin="378,106,0,176"/>
                 <Image x:Name="ImgCheckPassword" HorizontalAlignment="Left" Width="30                " Margin="378,179,0,92"/>
