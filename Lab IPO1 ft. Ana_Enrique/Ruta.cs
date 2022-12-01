@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Lab_IPO1_ft.Ana_Enrique.Datos
+namespace Lab_IPO1_ft.Ana_Enrique
 {
     public class Ruta
     {
