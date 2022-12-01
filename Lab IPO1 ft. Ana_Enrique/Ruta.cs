@@ -21,19 +21,17 @@ namespace Lab_IPO1_ft.Ana_Enrique
         public bool seCome { set; get; }
         public Guia guia { get; set; }
         public string Descripcion { set; get; }
-        public Uri Imagenlista { set; get; }
         public string Origen { set; get; }
         public string Destino { set; get; }
         public DateTime FechayHora { get; set; }
         public bool Finalizada { set; get; }
-        public Uri mapa { set; get; }
-        public Ruta(string titulo, string prvin, Uri caratula, string
-        argumento, int duracion)
-        {
-            Nombre = titulo;
-            Provincia = prvin;
-            Imagenlista = caratula;
-            Descripcion = argumento;
+        public Uri Mapa { set; get; }
+        public List<string> incidencias { get; set; }
+        public Ruta(string nombre, string provincia, Uri mapa, string descripcion, int duracion) {
+            Nombre = nombre;
+            Provincia = provincia;
+            Mapa = mapa;
+            Descripcion = descripcion;
             Duracion = duracion;
             dificultad.Add("Baja");
             dificultad.Add("Media");
