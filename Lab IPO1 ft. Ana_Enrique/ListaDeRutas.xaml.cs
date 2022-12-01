@@ -19,9 +19,13 @@ namespace Lab_IPO1_ft.Ana_Enrique
     /// </summary>
     public partial class ListaDeRutas : Window
     {
+        List<Ruta> listadorutas;
         public ListaDeRutas()
         {
             InitializeComponent();
+            listadorutas= new List<Ruta>();
+            listadorutas = CargarContenidoXML();
+            Listarutas.ItemsSource = listadorutas;
         }
         private List<Ruta> CargarContenidoXML()
         {
