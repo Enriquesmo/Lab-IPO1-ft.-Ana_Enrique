@@ -8,24 +8,21 @@ namespace Lab_IPO1_ft.Ana_Enrique
 {
     public class PuntoDeInteres
     {
-
         public string Nombre { set; get; }
-        public List<string> tipologia { set; get; }
         public string Descripcion { set; get; }
-        public Uri mapa { set; get; }
+        public List<string> tipologia { set; get; }
         public List<Uri> galeria { set; get; }
-        public PuntoDeInteres(string titulo, string prvin, Uri caratula, string argumento, int duracion)
-            {
-                Nombre = titulo;
-                Provincia = prvin;
-                Imagenlista = caratula;
-                Descripcion = argumento;
-            Duracion = duracion;
-            tipologia.Add("");
-            tipologia.Add("");
-            tipologia.Add("");
-
-
+        public PuntoDeInteres(string nombre, string descripcion){
+            Nombre = nombre;
+            Descripcion = descripcion;
+            tipologia.Add("Mirador");
+            tipologia.Add("Área de avistamiento de aves");
+            tipologia.Add("Existencia de plantas autóctonas");
+            tipologia.Add("Cruce");
+            tipologia.Add("Margen de un río");
+            tipologia.Add("Puentes");
+            tipologia.Add("Pinturas rupestres");
+            tipologia.Add("Edificación de interés histórico");
         }
     }
 }
