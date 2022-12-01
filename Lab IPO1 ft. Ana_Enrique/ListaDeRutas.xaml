@@ -7,6 +7,41 @@
         mc:Ignorable="d"
         Title="ListaDeRutas" Height="450" Width="800">
     <Grid>
-        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="233*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="392*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="Listarutas">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="32" Height="37"
+                                           Source="{Binding Imagenlista}"/>
+                            <TextBlock Text="{Binding Nombre}"
+                                               VerticalAlignment="Center"
+                                               Margin="10,0,0,0"/>
+
+                        </StackPanel>
+                    </DataTemplate>
+
+                </ListBox.ItemTemplate>
+
+            </ListBox>
+            <GridSplitter Grid.Column="1" 
+                                  HorizontalAlignment="Stretch" 
+                                  Width="5"/>
+            <StackPanel x:Name="spDetallesRutas" 
+                                Grid.Column="2"
+                                Orientation="Vertical">
+                
+                <Image x:Name="mapa" Height="120" Width="100" 
+                               HorizontalAlignment="Left" Margin="5,5,5,5" Stretch="Fill"
+                               Source="{Binding SelectedItem.mapa, ElementName=Listarutas}"/>
+               
+
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

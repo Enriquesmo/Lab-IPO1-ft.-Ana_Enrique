@@ -67,10 +67,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Datos\Excursionista.cs" />
-    <Compile Include="Datos\Guia.cs" />
-    <Compile Include="Datos\PuntoDeInteres.cs" />
-    <Compile Include="Datos\Ruta.cs" />
+    <Compile Include="Excursionista.cs" />
+    <Compile Include="Guia.cs" />
+    <Compile Include="PuntoDeInteres.cs" />
+    <Compile Include="Ruta.cs" />
     <Compile Include="ListaDeRutas.xaml.cs">
       <DependentUpon>ListaDeRutas.xaml</DependentUpon>
     </Compile>
@@ -107,6 +107,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="fondoipo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Datos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

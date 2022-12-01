@@ -23,5 +23,29 @@ namespace Lab_IPO1_ft.Ana_Enrique
         {
             InitializeComponent();
         }
+        private List<Ruta> CargarContenidoXML()
+        {
+            List<Pelicula> listado = new List<Pelicula>();
+            // Cargar contenido de prueba
+            XmlDocument doc = new XmlDocument();
+            var fichero = Application.GetResourceStream(new Uri("Datos/peliculas.xml", UriKind.Relative));
+            doc.Load(fichero.Stream);
+            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
+            {
+                var nuevaPelicula = new Pelicula("", 0, null, "", 0);
+                nuevaPelicula.Titulo = node.Attributes["Titulo"].Value;
+                nuevaPelicula.Anio = Convert.ToInt32(node.Attributes["Anio"].Value);
+                nuevaPelicula.Duracion = Convert.ToInt32(node.Attributes["Duracion"].Value);
+                nuevaPelicula.Argumento = node.Attributes["Argumento"].Value;
+                nuevaPelicula.Caratula = new Uri(node.Attributes["Caratula"].Value, UriKind.Relative);
+                nuevaPelicula.Director = node.Attributes["Director"].Value;
+                nuevaPelicula.GeneroPelicula = node.Attributes["Genero"].Value;
+                nuevaPelicula.AltaEnVideoteca = Convert.ToDateTime(node.Attributes["AltaEnVideoteca"].Value);
+                nuevaPelicula.Visualizada = Convert.ToBoolean(node.Attributes["Visualizada"].Value);
+                nuevaPelicula.URL_IMDB = new Uri(node.Attributes["URL_IMDB"].Value, UriKind.Absolute);
+                listado.Add(nuevaPelicula);
+            }
+            return listado;
+        }
     }
 }
