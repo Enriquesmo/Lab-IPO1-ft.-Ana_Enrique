@@ -19,8 +19,8 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding Nombre}"
-                                               VerticalAlignment="Center"
-                                               Margin="10,0,0,0"/>
+                                               
+                                               />
 
                             </StackPanel>
                         </DataTemplate>
@@ -33,17 +33,48 @@
                                   Width="5"/>
                 <StackPanel x:Name="spDetallesRutas" 
                                 Grid.Column="2"
-                                Orientation="Vertical">
-                    <Image x:Name="imgParticipante" Height="190" Width="210" 
-                               Stretch="Fill"
-                               Source="{Binding SelectedItem.foto, ElementName=ListaParticipantes}">
-                        <Image.OpacityMask>
-                            <ImageBrush ImageSource="/fondoipo.jpg"/>
-                        </Image.OpacityMask>
-                    </Image>
+                                Orientation="Vertical" Margin="5,141,10,0" RenderTransformOrigin="0.5,0.5">
+                    <StackPanel.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="0"/>
+                            <RotateTransform/>
+                            <TranslateTransform X="0"/>
+                        </TransformGroup>
+                    </StackPanel.RenderTransform>
+                    <Canvas Height="280">
+                        <TextBox Canvas.Left="32" TextWrapping="Wrap" Text="TextBox" Canvas.Top="32" Width="310" Height="18"/>
+                        <Label Content="Label" Canvas.Left="32" Width="102"/>
+                        <Label Content="Label" Canvas.Left="32" Width="102" Canvas.Top="55"/>
+                        <Label Content="Label" Canvas.Left="32" Width="102" Canvas.Top="104"/>
+                        <Label Content="Label" Canvas.Left="209" Width="102" Canvas.Top="55"/>
+                        <Label Content="Label" Canvas.Left="32" Width="102" Canvas.Top="152"/>
+                        <TextBox Canvas.Left="32" TextWrapping="Wrap" Text="TextBox" Canvas.Top="81" Width="148" Height="18"/>
+                        <TextBox Canvas.Left="32" TextWrapping="Wrap" Text="TextBox" Canvas.Top="126" Width="120"/>
+                        <TextBox Canvas.Left="200" TextWrapping="Wrap" Text="TextBox" Canvas.Top="81" Width="142" Height="18"/>
+                        <ListBox Height="92" Width="131" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="35" Canvas.Top="183" RenderTransformOrigin="0.5,0.5">
+                            <ListBox.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="0.208"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </ListBox.RenderTransform>
+                        </ListBox>
+                        <Button Content="Button" Canvas.Left="300" Canvas.Top="165" Height="41" Width="88"/>
+                        <Button Content="Button" Canvas.Left="230" Canvas.Top="231" Height="30" Width="60"/>
+                        <Button Content="Button" Canvas.Left="392" Canvas.Top="231" Height="30" Width="70"/>
+                    </Canvas>
 
 
                 </StackPanel>
+                <Canvas Grid.Column="1" Grid.ColumnSpan="2" Margin="5,0,0,293">
+                    <Image Height="131" Canvas.Left="160" Canvas.Top="6" Width="152"/>
+                    <Button Content="Button" Canvas.Left="362" Canvas.Top="71" Width="65"/>
+                </Canvas>
+
+
             </Grid>
         </Grid>
     </Grid>
