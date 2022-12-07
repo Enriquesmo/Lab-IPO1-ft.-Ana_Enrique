@@ -12,7 +12,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         public string Nombre { set; get; }
         public string Provincia { set; get; }
         public int Duracion { set; get; }
-        public List<string> dificultad { get; }
+        public int dificultad { get; set; }
         public List<Excursionista> participantes { get; set; }
         public List<PuntoDeInteres> puntosInteres { get; set; }
         public string formaLlegada { get; set; }
@@ -26,16 +26,19 @@ namespace Lab_IPO1_ft.Ana_Enrique
         public DateTime FechayHora { get; set; }
         public bool Finalizada { set; get; }
         public Uri Mapa { set; get; }
+        public Uri Imagenlista { set; get; }
         public List<string> incidencias { get; set; }
+        public List<string> dificultades { get;set; }
         public Ruta(string nombre, string provincia, Uri mapa, string descripcion, int duracion) {
+            dificultades.Add("Baja");
+            dificultades.Add("Media");
+            dificultades.Add("Alta");
             Nombre = nombre;
             Provincia = provincia;
             Mapa = mapa;
             Descripcion = descripcion;
             Duracion = duracion;
-            dificultad.Add("Baja");
-            dificultad.Add("Media");
-            dificultad.Add("Alta");
+           
 
         }
     }
