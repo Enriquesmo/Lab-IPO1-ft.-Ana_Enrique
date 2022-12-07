@@ -43,13 +43,13 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 nuevaRuta.Duracion = Convert.ToInt32(node.Attributes["Duracion"].Value);
                 
                 nuevaRuta.dificultad = Convert.ToInt32(node.Attributes["dificultad"].Value);
-                nuevaRuta.participantes.Add(node.Attributes["participante"].Value);
-                nuevaRuta.puntosInteres.Add(node.Attributes["puntoInteres"].Value);
+                nuevaRuta.participantes.Add(Convert.ToInt32(node.Attributes["participante"].Value));
+                nuevaRuta.puntosInteres.Add((node.Attributes["puntoInteres"].Value).ToString());
                 nuevaRuta.formaLlegada = node.Attributes["formallegada"].Value.ToString();
                 nuevaRuta.formaVuelta = node.Attributes["formavuelta"].Value.ToString();
                 nuevaRuta.material.Add(node.Attributes["material"].Value);
                 nuevaRuta.seCome = Convert.ToBoolean(node.Attributes["seCome"].Value);
-                nuevaRuta.guia = node.Attributes["Guia"];
+                nuevaRuta.guia = Convert.ToInt32(node.Attributes["Guia"]);
                 nuevaRuta.Descripcion = node.Attributes["Argumento"].Value;
                 nuevaRuta.Origen = node.Attributes["Origen"].Value.ToString();
                 nuevaRuta.Destino = node.Attributes["Destino"].Value.ToString();

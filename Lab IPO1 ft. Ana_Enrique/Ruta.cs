@@ -14,13 +14,13 @@ namespace Lab_IPO1_ft.Ana_Enrique
         public string Provincia { set; get; }
         public int Duracion { set; get; }
         public int dificultad { get; set; }
-        public List<Excursionista> participantes { get; set; }
-        public List<PuntoDeInteres> puntosInteres { get; set; }
+        public List<int> participantes { get; set; } //id es telefono
+        public List<string> puntosInteres { get; set; }//id es nombre
         public string formaLlegada { get; set; }
         public string formaVuelta { get; set; }
         public List<string> material { get; set; }
         public bool seCome { set; get; }
-        public Guia guia { get; set; }
+        public int guia { get; set; } //id es telefono
         public string Descripcion { set; get; }
         public string Origen { set; get; }
         public string Destino { set; get; }
