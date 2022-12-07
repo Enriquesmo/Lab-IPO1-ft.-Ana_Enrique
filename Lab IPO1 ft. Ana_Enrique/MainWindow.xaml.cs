@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab_IPO1_ft.Ana_Enrique;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -71,6 +72,10 @@ namespace Eventos
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+
+            VentanaInicio.Visibility = Visibility.Hidden;
+            ListaDeRutas lista = new ListaDeRutas();
+            lista.Show();
             // La comprobación ya lleva implícita que las entradas
             // estén vacías
             VentanaInicio.Visibility=Visibility.Hidden;
@@ -132,6 +137,11 @@ namespace Eventos
         {
             VentanaInicio.Visibility = Visibility.Hidden;
             VentanaOlvidaste.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

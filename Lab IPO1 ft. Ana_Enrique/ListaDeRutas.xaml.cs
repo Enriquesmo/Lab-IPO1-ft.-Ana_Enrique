@@ -32,7 +32,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         {
             List<Ruta> listado = new List<Ruta>();
             // Cargar contenido de prueba
-            XmlDocument doc = new XmlDocument();
+           /* XmlDocument doc = new XmlDocument();
             var fichero = Application.GetResourceStream(new Uri("ListaDeRutas.xml", UriKind.Relative));
             doc.Load(fichero.Stream);
             foreach (XmlNode node in doc.DocumentElement.ChildNodes)
@@ -59,7 +59,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 nuevaRuta.Mapa = new Uri(node.Attributes["URL_IMDB"].Value, UriKind.Absolute);
                 nuevaRuta.incidencias.Add(node.Attributes["incidencia"].Value);
                 listado.Add(nuevaRuta);
-            }
+            } */
 
             //hay que terminarlo
             return listado;

@@ -1,0 +1,50 @@
+﻿<Window x:Class="Lab_IPO1_ft.Ana_Enrique.Participantes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab_IPO1_ft.Ana_Enrique"
+        mc:Ignorable="d"
+        Title="Participantes" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="233*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="392*"/>
+                </Grid.ColumnDefinitions>
+                <ListBox x:Name="ListaParticipantes" SelectionChanged="ListaParticipantes_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Nombre}"
+                                               VerticalAlignment="Center"
+                                               Margin="10,0,0,0"/>
+
+                            </StackPanel>
+                        </DataTemplate>
+
+                    </ListBox.ItemTemplate>
+
+                </ListBox>
+                <GridSplitter Grid.Column="1" 
+                                  HorizontalAlignment="Stretch" 
+                                  Width="5"/>
+                <StackPanel x:Name="spDetallesRutas" 
+                                Grid.Column="2"
+                                Orientation="Vertical">
+                    <Image x:Name="imgParticipante" Height="190" Width="210" 
+                               Stretch="Fill"
+                               Source="{Binding SelectedItem.foto, ElementName=ListaParticipantes}">
+                        <Image.OpacityMask>
+                            <ImageBrush ImageSource="/fondoipo.jpg"/>
+                        </Image.OpacityMask>
+                    </Image>
+
+
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

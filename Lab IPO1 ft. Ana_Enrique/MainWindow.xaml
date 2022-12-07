@@ -87,6 +87,7 @@
                 <Image x:Name="ImgCheckUsuario" 
                     HorizontalAlignment="Left" Width="30                " Margin="378,106,0,176"/>
                 <Image x:Name="ImgCheckPassword" HorizontalAlignment="Left" Width="30                " Margin="378,179,0,92"/>
+                <Button Content="Button" HorizontalAlignment="Left" Height="30" Margin="378,271,0,0" VerticalAlignment="Top" Width="45" Click="Button_Click"/>
 
             </Grid>
         </Viewbox>
