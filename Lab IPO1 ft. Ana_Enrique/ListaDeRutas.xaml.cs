@@ -64,5 +64,20 @@ namespace Lab_IPO1_ft.Ana_Enrique
             //hay que terminarlo
             return listado;
         }
+
+        private void Btn_Ayuda_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void txbBuscar_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void Listarutas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

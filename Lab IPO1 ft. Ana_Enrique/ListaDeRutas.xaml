@@ -17,7 +17,7 @@
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="392*"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="Listarutas" Grid.RowSpan="2" Margin="0,49,0,0"  d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListBox x:Name="Listarutas" Grid.RowSpan="2" Margin="0,49,0,0"  d:ItemsSource="{d:SampleData ItemCount=5}" BorderThickness="1,2,1,2" SnapsToDevicePixels="True" IsSynchronizedWithCurrentItem="True" Background="#FF97B994" SelectionChanged="Listarutas_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -26,7 +26,7 @@
                             <TextBlock Text="{Binding Nombre}"
                                                VerticalAlignment="Center"
                                                Margin="10,0,0,0"/>
-                            
+
                         </StackPanel>
                     </DataTemplate>
 
@@ -45,10 +45,11 @@
 
 
             </StackPanel>
-            <Rectangle Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="49" Stroke="Black" VerticalAlignment="Center" Width="800"/>
-            <Button x:Name="Btn_Ayuda" Grid.Column="2" Content="Button" HorizontalAlignment="Left" Margin="453,0,0,0" VerticalAlignment="Center" Height="49" Width="49"/>
-            <Button x:Name="Btn_BorrarRuta" Grid.Column="2" Content="Button" HorizontalAlignment="Left" Margin="404,0,0,0" VerticalAlignment="Center" Width="49" Height="49"/>
-            <Button x:Name="Btn_AñadirRuta" Grid.Column="2" Content="Button" HorizontalAlignment="Left" Margin="355,0,0,0" VerticalAlignment="Center" Height="49" Width="49"/>
+            <Rectangle Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="49" Stroke="Black" VerticalAlignment="Center" Width="800" Fill="#FFBBBFBC"/>
+            <Button x:Name="Btn_AñadirRuta" Content="+" HorizontalAlignment="Left" VerticalAlignment="Center" Height="49" Width="49" Margin="354,0,0,2" Grid.Column="2" Background="{x:Null}" BorderBrush="#FF7D7B7B" FontSize="36"/>
+            <Button x:Name="Btn_BorrarRuta" Content="-" HorizontalAlignment="Left" VerticalAlignment="Center" Width="49" Height="48" Margin="403,0,0,0" Grid.Column="2" Background="{x:Null}" BorderBrush="#FF7B7B7B" FontSize="30"/>
+            <Button x:Name="Btn_Ayuda" Content="?" HorizontalAlignment="Left" VerticalAlignment="Center" Height="48" Width="50" Click="Btn_Ayuda_Click" Margin="452,0,0,0" Grid.Column="2" Background="{x:Null}" FontSize="24" BorderBrush="#FF7B7B7B"/>
+            <TextBox x:Name="txbBuscar" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="16,0,0,0" TextWrapping="Wrap" Text="Buscar una ruta" VerticalAlignment="Center" Width="564" Height="29" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Foreground="#FF888181" KeyUp="txbBuscar_KeyUp"/>
         </Grid>
     </Grid>
 </Window>
