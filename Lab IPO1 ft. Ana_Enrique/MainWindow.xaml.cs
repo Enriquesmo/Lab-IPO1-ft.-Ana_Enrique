@@ -32,6 +32,7 @@ namespace Eventos
             InitializeComponent();
             VentanaOlvidaste.Visibility = Visibility.Hidden;
             VentanaContNueva.Visibility = Visibility.Hidden;
+
         }
 
         private void txtUsuario_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -49,14 +50,22 @@ namespace Eventos
 
         private void btnEnviarCod_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show( "Correo enviado", "Correo enviado", MessageBoxButton.OK);
+            MessageBox.Show( "Correo enviado\n El codigo es 123", "Correo enviado", MessageBoxButton.OK);
             pssCodigo1.IsEnabled=true;
         }
 
         private void btnComprobar_Click(object sender, RoutedEventArgs e)
         {
-            VentanaOlvidaste.Visibility = Visibility.Hidden;
-            VentanaContNueva.Visibility = Visibility.Visible;
+            if (pssCodigo1.Password == "123")
+            {
+                VentanaOlvidaste.Visibility = Visibility.Hidden;
+                VentanaContNueva.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MessageBox.Show("El codigo introducido no es correcto", "Incorrecto", MessageBoxButton.OK);
+            }
+            
         }
         private void passContrasena_KeyUp(object sender, KeyEventArgs e)
         {
@@ -69,20 +78,23 @@ namespace Eventos
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
 
-            VentanaInicio.Visibility = Visibility.Hidden;
-            ListaDeRutas lista = new ListaDeRutas();
-            lista.Show();
+            
+           
             // La comprobación ya lleva implícita que las entradas
             // estén vacías
-            VentanaInicio.Visibility=Visibility.Hidden;
-            VentanaOlvidaste.Visibility = Visibility.Visible;
+           
             if (ComprobarEntrada(txtUsuario.Text, usuario,
             txtUsuario, ImgCheckUsuario)
             &&
             ComprobarEntrada(passContrasena.Password, password,
             passContrasena, ImgCheckPassword))
             {
-                Application.Current.Shutdown();
+                
+                ListaDeRutas lista = new ListaDeRutas();
+                lista.Show();
+                this.Close();
+
+
             }
             
         }
@@ -159,6 +171,7 @@ namespace Eventos
                
                 VentanaContNueva.Visibility = Visibility.Hidden;
                 VentanaInicio.Visibility = Visibility.Visible;
+                password = txtContrasena1.Text;
 
             }
             else
