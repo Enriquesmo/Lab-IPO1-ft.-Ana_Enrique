@@ -10,7 +10,7 @@
         WindowStartupLocation="CenterScreen" 
         HorizontalContentAlignment="Stretch" 
         VerticalContentAlignment="Stretch" 
-        MinHeight="450" MinWidth="700" Closing="VentanaPrincipal_Closing" Closed="VentanaPrincipal_Closed"  >
+        MinHeight="450" MinWidth="700"   >
 
     <Grid x:Name="pnlDisenoPrincipal">
         <Grid.RowDefinitions>
@@ -44,7 +44,7 @@
                             Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Viewbox x:Name="VentanaInicio" Grid.Column="1" Grid.ColumnSpan="4" Margin="5,5,5,5" Grid.RowSpan="6" Grid.Row="1" Stretch="Fill">
+        <Viewbox x:Name="VentanaInicio" Grid.Column="1" Grid.ColumnSpan="4" Margin="5,5,5,5" Grid.RowSpan="6" Grid.Row="1" Stretch="Fill" d:IsHidden="True">
             <Grid Height="311.297454545455" Width="444.054054054054">
                 <Rectangle x:Name="FondoLogin" 
                     Fill="#FF405F3B" 
@@ -68,12 +68,6 @@
                     FontSize="14" Foreground="#FFFBFAFA" 
                     VerticalContentAlignment="Bottom" 
                     HorizontalContentAlignment="Stretch" Margin="71,134,222,140" />
-                <Label x:Name="lblRecordarContrasena" 
-                    Content="¿Olvidó su contraseña?" 
-                    FontStyle="Italic" FontWeight="Bold"
-                    Foreground="#FFA9C4F3"
-                    HorizontalContentAlignment="Right" 
-                    VerticalContentAlignment="Bottom" Margin="217,173,71,70" MouseLeftButtonDown="lblRecordarContrasena_MouseLeftButtonDown" />
                 <PasswordBox x:Name="passContrasena"
                     PasswordChar="*"
                     BorderThickness="2" 
@@ -87,53 +81,53 @@
                 <Image x:Name="ImgCheckUsuario" 
                     HorizontalAlignment="Left" Width="30                " Margin="378,106,0,176"/>
                 <Image x:Name="ImgCheckPassword" HorizontalAlignment="Left" Width="30                " Margin="378,179,0,92"/>
-                <Button Content="Button" HorizontalAlignment="Left" Height="30" Margin="378,271,0,0" VerticalAlignment="Top" Width="45" Click="Button_Click"/>
+                <Button x:Name="btnOlvidoPss" Content="¿Olvidó su contraseña?" HorizontalAlignment="Left" Margin="280,221,0,0" VerticalAlignment="Top" Height="20" Width="120" FontSize="10" FontStyle="Italic" FontWeight="Bold" Background="{x:Null}" Foreground="#FFA7C2F9" BorderBrush="{x:Null}" Click="btnOlvidoPss_Click"/>
 
             </Grid>
         </Viewbox>
-        <Viewbox x:Name="VentanaOlvidaste" Grid.Column="1" Grid.ColumnSpan="4" Margin="5,5,5,5" Grid.RowSpan="6" Grid.Row="1" Stretch="Fill" d:IsHidden="True">
+        <Viewbox x:Name="VentanaOlvidaste" Grid.Column="1" Grid.ColumnSpan="4" Margin="5,5,5,5" Grid.RowSpan="6" Grid.Row="1" Stretch="Fill" Visibility="Visible" d:IsHidden="True">
             <Grid Height="311.297454545455" Width="444.054054054054">
                 <Rectangle x:Name="FondoOlvidaste" 
                     Fill="#FF405F3B" 
                     RadiusX="10" RadiusY="10"/>
                 <Label x:Name="lblTituloOlvidaste"
-                    Content="Iniciar Sesión"  
-                    FontSize="20" 
+                    Content="Introduzca su email para reestablecer su contraseña"  
+                    FontSize="18" 
                     Foreground="#FFFDFBFB" 
-                    VerticalContentAlignment="Center" Margin="71,11,222,267"/>
+                    VerticalContentAlignment="Center" Margin="10,20,0,258" HorizontalContentAlignment="Left"/>
                 <Label x:Name="lblIntroduceCorreo" 
-                    Content="Usuario" 
+                    Content="Email" 
                     FontSize="14"
                     Foreground="#FFFBFAFA" 
                     VerticalContentAlignment="Bottom" 
-                    HorizontalContentAlignment="Stretch" Margin="71,44,222,239" />
+                    HorizontalContentAlignment="Stretch" Margin="71,51,222,232" />
                 <TextBox x:Name="txtIntroduceCorreo"  
                     BorderThickness="2" 
-                    VerticalContentAlignment="Center" KeyUp="txtUsuario_KeyUp" Margin="71,72,71,203" />
+                    VerticalContentAlignment="Center" KeyUp="txtUsuario_KeyUp" Margin="71,84,71,190" />
                 <Label x:Name="lblCodigo"  
-                    Content="Contraseña" 
+                    Content="Introduzca el código del email que le hemos enviado" 
                     FontSize="14" Foreground="#FFFBFAFA" 
                     VerticalContentAlignment="Bottom" 
-                    HorizontalContentAlignment="Stretch" Margin="71,157,222,117" />
-                <PasswordBox x:Name="lblCodigo1"
+                    HorizontalContentAlignment="Stretch" Margin="71,170,34,103" />
+                <PasswordBox x:Name="pssCodigo1"
                     PasswordChar="*"
                     BorderThickness="2" 
                     VerticalContentAlignment="Center" 
-                    IsEnabled="False" Margin="71,199,71,76" />
-                <Button x:Name="btnLogin1" 
-                    Content="Iniciar Sesión" 
+                    IsEnabled="False" Margin="71,213,71,62" />
+                <Button x:Name="btnComprobar" 
+                    Content="Comprobar" 
                     FontSize="14" FontWeight="Bold" 
                     Background="#FF6189CF" Foreground="White" 
-                    Cursor="Hand" Click="btnLogin_Click" Margin="162,246,162,30"/>
+                    Cursor="Hand" Click="btnComprobar_Click" Margin="162,266,162,10"/>
                 <Image x:Name="ImgCheckUsuario1" 
                     HorizontalAlignment="Left" Width="30                " Margin="378,106,0,176"/>
                 <Image x:Name="ImgCheckPassword1" HorizontalAlignment="Left" Width="30                " Margin="378,179,0,92"/>
-                <Button x:Name="btnLogin1_Copy" 
-                    Content="Iniciar Sesión" 
+                <Button x:Name="btnEnviarCod" 
+                    Content="Enviar código" 
                     FontSize="14" FontWeight="Bold" 
                     Background="#FF6189CF" Foreground="White" 
-                    Cursor="Hand" Click="btnLogin_Click" Margin="162,122,162,154"/>
-                <Button x:Name="btnCerrar" Content="X" HorizontalAlignment="Left" Height="30" Margin="395,28,0,0" VerticalAlignment="Top" Width="28">
+                    Cursor="Hand" Margin="167,138,157,138" Click="btnEnviarCod_Click"/>
+                <Button x:Name="btnCerrar" Content="X" Height="30" Margin="416,0,0,0" VerticalAlignment="Top" Foreground="White" Click="btnCerrar_Click" BorderBrush="{x:Null}">
                     <Button.Background>
                         <ImageBrush/>
                     </Button.Background>
@@ -141,49 +135,46 @@
 
             </Grid>
         </Viewbox>
-        <Viewbox x:Name="VentanaContNueva" Grid.Column="1" Grid.ColumnSpan="4" Margin="5,5,5,5" Grid.RowSpan="6" Grid.Row="1" Stretch="Fill" d:IsHidden="True">
+        <Viewbox x:Name="VentanaContNueva" Grid.Column="1" Grid.ColumnSpan="4" Margin="5,5,5,5" Grid.RowSpan="6" Grid.Row="1" Stretch="Fill" Visibility="Visible">
             <Grid Height="311.297454545455" Width="444.054054054054">
                 <Rectangle x:Name="FondoLogin2" 
                     Fill="#FF405F3B" 
                     RadiusX="10" RadiusY="10"/>
-                <Label x:Name="lblTituloLogin2"
-                    Content="Iniciar Sesión"  
+                <Label x:Name="lblTituloContrasena"
+                    Content="Reestablecer contraseña"  
                     FontSize="20" 
                     Foreground="#FFFDFBFB" 
-                    VerticalContentAlignment="Center" Margin="71,11,222,267"/>
-                <Label x:Name="lblUsuario2" 
-                    Content="Usuario" 
+                    VerticalContentAlignment="Center" Margin="71,11,136,267"/>
+                <Label x:Name="lblContrasena1" 
+                    Content="Nueva contraseña" 
                     FontSize="14"
                     Foreground="#FFFBFAFA" 
                     VerticalContentAlignment="Bottom" 
                     HorizontalContentAlignment="Stretch" Margin="71,54,222,222" />
-                <TextBox x:Name="txtUsuario2"  
+                <TextBox x:Name="txtContrasena1"  
                     BorderThickness="2" 
-                    VerticalContentAlignment="Center" KeyUp="txtUsuario_KeyUp" Margin="71,100,71,175" />
+                    VerticalContentAlignment="Center" Margin="71,100,71,175" />
                 <Label x:Name="lblContrasena2"  
-                    Content="Contraseña" 
+                    Content="Repita su nueva contraseña" 
                     FontSize="14" Foreground="#FFFBFAFA" 
                     VerticalContentAlignment="Bottom" 
-                    HorizontalContentAlignment="Stretch" Margin="71,134,222,140" />
-                <Label x:Name="lblRecordarContrasena2" 
-                    Content="¿Olvidó su contraseña?" 
-                    FontStyle="Italic" FontWeight="Bold"
-                    Foreground="#FFA9C4F3"
-                    HorizontalContentAlignment="Right" 
-                    VerticalContentAlignment="Bottom" Margin="217,173,71,70" />
-                <PasswordBox x:Name="passContrasena2"
-                    PasswordChar="*"
-                    BorderThickness="2" 
-                    VerticalContentAlignment="Center" 
-                    IsEnabled="False" Margin="71,173,71,102" />
-                <Button x:Name="btnLogin2" 
-                    Content="Iniciar Sesión" 
+                    HorizontalContentAlignment="Stretch" Margin="71,134,179,140" />
+                <Button x:Name="btnCambiarPss" 
+                    Content="Cambiar contraseña" 
                     FontSize="14" FontWeight="Bold" 
                     Background="#FF6189CF" Foreground="White" 
-                    Cursor="Hand" Click="btnLogin_Click" Margin="157,244,157,12"/>
+                    Cursor="Hand" Click="btnCambiarPss_Click" Margin="146,246,146,10"/>
                 <Image x:Name="ImgCheckUsuario2" 
                     HorizontalAlignment="Left" Width="30                " Margin="378,106,0,176"/>
                 <Image x:Name="ImgCheckPassword2" HorizontalAlignment="Left" Width="30                " Margin="378,179,0,92"/>
+                <Button x:Name="btnCerrar2" Content="X" Height="30" Margin="416,0,0,0" VerticalAlignment="Top" Foreground="White" Click="btnCerrar2_Click" BorderBrush="{x:Null}">
+                    <Button.Background>
+                        <ImageBrush/>
+                    </Button.Background>
+                </Button>
+                <TextBox x:Name="txtContrasena2"  
+                    BorderThickness="2" 
+                    VerticalContentAlignment="Center" Margin="71,181,71,94" />
 
             </Grid>
         </Viewbox>

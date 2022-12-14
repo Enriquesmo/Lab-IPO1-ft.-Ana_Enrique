@@ -30,6 +30,8 @@ namespace Eventos
         public MainWindow()
         {
             InitializeComponent();
+            VentanaOlvidaste.Visibility = Visibility.Hidden;
+            VentanaContNueva.Visibility = Visibility.Hidden;
         }
 
         private void txtUsuario_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -45,14 +47,17 @@ namespace Eventos
             }
         }
 
-      
-
-       
-        private void pnlDisenoPrincipal_MouseDown(object sender, MouseButtonEventArgs e)
+        private void btnEnviarCod_Click(object sender, RoutedEventArgs e)
         {
-           
+            MessageBox.Show( "Correo enviado", "Correo enviado", MessageBoxButton.OK);
+            pssCodigo1.IsEnabled=true;
         }
 
+        private void btnComprobar_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaOlvidaste.Visibility = Visibility.Hidden;
+            VentanaContNueva.Visibility = Visibility.Visible;
+        }
         private void passContrasena_KeyUp(object sender, KeyEventArgs e)
         {
             if (ComprobarEntrada(passContrasena.Password, password,
@@ -60,15 +65,6 @@ namespace Eventos
                 btnLogin.Focus();
         }
 
-        private void VentanaPrincipal_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            MessageBox.Show("Gracias por usar la aplicación", "Despedida1");
-        }
-
-        private void VentanaPrincipal_Closed(object sender, EventArgs e)
-        {
-            MessageBox.Show("Aun despues de cerrarnos, Muchas Gracias por usar la aplicación", "Despedida2");
-        }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -133,15 +129,44 @@ namespace Eventos
             }
         }
 
-        private void lblRecordarContrasena_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+
+        private void btnOlvidoPss_Click(object sender, RoutedEventArgs e)
         {
             VentanaInicio.Visibility = Visibility.Hidden;
             VentanaOlvidaste.Visibility = Visibility.Visible;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
+            VentanaOlvidaste.Visibility = Visibility.Hidden;
+            VentanaInicio.Visibility = Visibility.Visible;
             
+        }
+
+        private void btnCerrar2_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaContNueva.Visibility = Visibility.Hidden;
+            VentanaInicio.Visibility = Visibility.Visible;
+
+        }
+
+       
+
+        private void btnCambiarPss_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtContrasena1.Text == txtContrasena2.Text)
+            {
+               
+                VentanaContNueva.Visibility = Visibility.Hidden;
+                VentanaInicio.Visibility = Visibility.Visible;
+
+            }
+            else
+            {
+                txtContrasena1.Background= Brushes.Red;
+                txtContrasena2.Background= Brushes.Red;
+                MessageBox.Show("Las contraseñas no coinciden","Contraseñas",MessageBoxButton.OK);
+            }
         }
     }
 }
