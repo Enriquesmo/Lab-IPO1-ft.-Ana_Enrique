@@ -13,14 +13,15 @@ namespace Lab_IPO1_ft.Ana_Enrique
         public string Nombre { set; get; }
         public string Provincia { set; get; }
         public int Duracion { set; get; }
-        public int dificultad { get; set; }
-        public List<int> participantes { get; set; } //id es telefono
+        public String Dificultad { get; set; }
+        public List<Excursionista> participantes { get; set; }    //id es telefono
+        public int maxParticipantes { get; set; }                                    
         public List<string> puntosInteres { get; set; }//id es nombre
         public string formaLlegada { get; set; }
         public string formaVuelta { get; set; }
         public List<string> material { get; set; }
         public bool seCome { set; get; }
-        public int guia { get; set; } //id es telefono
+        public Guia guia { get; set; } //id es telefono
         public string Descripcion { set; get; }
         public string Origen { set; get; }
         public string Destino { set; get; }
@@ -29,18 +30,28 @@ namespace Lab_IPO1_ft.Ana_Enrique
         public Uri Mapa { set; get; }
         public Uri Imagenlista { set; get; }
         public List<string> incidencias { get; set; }
-        public List<string> dificultades { get;set; }
-        public Ruta(string nombre, string provincia, Uri mapa, string descripcion, int duracion) {
-            dificultades.Add("Baja");
-            dificultades.Add("Media");
-            dificultades.Add("Alta");
+
+        public Ruta(string nombre, string provincia, Uri mapa, string descripcion, int duracion, int dificultad, int maxPart, List<Excursionista> lista)
+        {
+            if (dificultad == 1)
+            {
+                Dificultad = "Facil";
+            }
+            else if (dificultad == 2)
+            {
+                Dificultad = "Media";
+            }
+            else
+            {
+                Dificultad = "Dificil";
+            }
             Nombre = nombre;
             Provincia = provincia;
             Mapa = mapa;
             Descripcion = descripcion;
             Duracion = duracion;
-           
-
-        }
+            maxParticipantes = maxPart;
+            participantes = lista;
+        } 
     }
 }

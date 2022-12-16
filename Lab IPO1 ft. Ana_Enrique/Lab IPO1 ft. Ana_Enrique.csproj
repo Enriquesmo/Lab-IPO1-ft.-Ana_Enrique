@@ -119,9 +119,6 @@
     <Folder Include="Datos\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="papelera.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="papelera.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

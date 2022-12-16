@@ -9,15 +9,18 @@
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="7*"/>
-                <RowDefinition Height="55*"/>
+                <RowDefinition Height="49*"/>
+                <RowDefinition Height="156*"/>
+                <RowDefinition Height="99*"/>
+                <RowDefinition Height="18*"/>
+                <RowDefinition Height="113*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="233*"/>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="392*"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="Listarutas" Grid.RowSpan="2" Margin="0,49,0,0"  d:ItemsSource="{d:SampleData ItemCount=5}" BorderThickness="1,2,1,2" SnapsToDevicePixels="True" IsSynchronizedWithCurrentItem="True" Background="#FF97B994" SelectionChanged="Listarutas_SelectionChanged">
+            <ListBox x:Name="Listarutas" Grid.RowSpan="4"   BorderThickness="1,2,1,2" SnapsToDevicePixels="True" IsSynchronizedWithCurrentItem="True" Background="#FF97B994" SelectionChanged="Listarutas_SelectionChanged" Grid.Row="1">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -35,20 +38,33 @@
             </ListBox>
             <GridSplitter 
                                   HorizontalAlignment="Stretch" 
-                                  Width="5" Grid.ColumnSpan="2" Margin="296,0,0,0" Grid.RowSpan="2"/>
+                                  Width="5" Grid.ColumnSpan="3" Margin="296,0,499,0" Grid.RowSpan="4" Grid.Row="1"/>
             <StackPanel x:Name="spDetallesRutas" 
                                 Grid.Column="1"
-                                Orientation="Vertical" Grid.ColumnSpan="2" Margin="5,49,0,0" Grid.RowSpan="2">
-                <Image x:Name="mapa" Height="120" Width="100" 
-                               Stretch="Fill"
-                               Source="{Binding SelectedItem.mapa, ElementName=Listarutas}"/>
+                                Orientation="Vertical" Grid.ColumnSpan="2" Margin="5,0,0,0" Grid.RowSpan="4" Grid.Row="1">
+                <Canvas Height="382" Width="492">
+                    <Image x:Name="mapa" Height="158" Width="148" 
+                               Stretch="Fill" Canvas.Left="262" Canvas.Top="2" Source="/fondoipo.jpg"/>
+                    <Label x:Name="lblDescripcion" Height="28" Width="80" Canvas.Left="14" Canvas.Top="158" Content="Descripcion"/>
+                    <Label x:Name="lblDescripcion2" Content="" Height="89" Canvas.Left="10" Canvas.Top="191" Width="472" BorderBrush="#FF7F7D7D" Background="#FFEF9C9C"/>
+                    <Label x:Name="lblApuntados" Content="Apuntados:" Canvas.Left="13" Canvas.Top="285"/>
+                    <Label x:Name="lblpartic2" Content="x/y" Canvas.Left="88" Canvas.Top="285"/>
+                    <Rectangle x:Name="btnInteres" Height="53" Stroke="Black" Canvas.Top="316" Width="472"/>
+                    <Button x:Name="btnRuta" Content="Info Ruta" Height="26" Canvas.Left="26" Canvas.Top="332" Width="56"/>
+                    <Button x:Name="btnParticipantes" Content="Participantes" Height="27" Canvas.Left="101" Canvas.Top="332" Width="75"/>
+                    <Button Content="Puntos Interes" Height="27" Canvas.Left="202" Canvas.Top="332" Width="88"/>
+                    <Label x:Name="lblNombreRuta" Content="Nombre Ruta:" Height="28" Width="88" Background="#FF81A577" Canvas.Top="81" Canvas.Left="26"/>
+                    <Button x:Name="btnFinalizar" Content="Finalizar" Height="26" Canvas.Left="336" Canvas.Top="332" Width="117"/>
+                    <Button x:Name="btnX" Content="X" Height="27" Width="24" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnX_Click"/>
+                    <Label x:Name="lblNombreruta2" Content="" Canvas.Left="120" Canvas.Top="83"/>
+                </Canvas>
 
 
             </StackPanel>
             <Rectangle Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="49" Stroke="Black" VerticalAlignment="Center" Width="800" Fill="#FFBBBFBC"/>
-            <Button x:Name="Btn_AñadirRuta" Content="+" HorizontalAlignment="Left" VerticalAlignment="Center" Height="49" Width="49" Margin="354,0,0,2" Grid.Column="2" Background="{x:Null}" BorderBrush="#FF7D7B7B" FontSize="36"/>
+            <Button x:Name="Btn_AñadirRuta" Content="+" HorizontalAlignment="Left" VerticalAlignment="Center" Height="49" Width="49" Margin="354,0,0,0" Grid.Column="2" Background="{x:Null}" BorderBrush="#FF7D7B7B" FontSize="36"/>
             <Button x:Name="Btn_BorrarRuta" Content="-" HorizontalAlignment="Left" VerticalAlignment="Center" Width="49" Height="48" Margin="403,0,0,0" Grid.Column="2" Background="{x:Null}" BorderBrush="#FF7B7B7B" FontSize="30"/>
-            <Button x:Name="Btn_Ayuda" Content="?" HorizontalAlignment="Left" VerticalAlignment="Center" Height="48" Width="50" Click="Btn_Ayuda_Click" Margin="452,0,0,0" Grid.Column="2" Background="{x:Null}" FontSize="24" BorderBrush="#FF7B7B7B"/>
+            <Button x:Name="Btn_Ayuda" Content="?" HorizontalAlignment="Left" VerticalAlignment="Center" Height="48" Width="50"  Margin="452,0,0,0" Grid.Column="2" Background="{x:Null}" FontSize="24" BorderBrush="#FF7B7B7B"/>
             <TextBox x:Name="txbBuscar" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="16,0,0,0" TextWrapping="Wrap" Text="Buscar una ruta" VerticalAlignment="Center" Width="564" Height="29" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Foreground="#FF888181" KeyUp="txbBuscar_KeyUp"/>
         </Grid>
     </Grid>

@@ -21,18 +21,24 @@ namespace Lab_IPO1_ft.Ana_Enrique
     public partial class ListaDeRutas : Window
     {
         List<Ruta> listadorutas;
+        List<Excursionista> particip;
         public ListaDeRutas()
         {
             InitializeComponent();
+            particip= new List<Excursionista>();
             listadorutas= new List<Ruta>();
-            listadorutas = CargarContenidoXML();
+            Ruta ruta1 = new Ruta("Ruta A", "Ciudad Real", null, "Descripcion de prueba 1, ruta en ciudad real", 10, 1, 20, particip);
+            Ruta ruta2 = new Ruta("Ruta B", "Madrid", null, "Descripcion de prueba 2, ruta en Madrid", 10, 1, 20, particip);
+            listadorutas.Add(ruta1);
+            listadorutas.Add(ruta2);
             Listarutas.ItemsSource = listadorutas;
+           
         }
-        private List<Ruta> CargarContenidoXML()
+       /* private List<Ruta> CargarContenidoXML()
         {
             List<Ruta> listado = new List<Ruta>();
             // Cargar contenido de prueba
-           /* XmlDocument doc = new XmlDocument();
+            XmlDocument doc = new XmlDocument();
             var fichero = Application.GetResourceStream(new Uri("ListaDeRutas.xml", UriKind.Relative));
             doc.Load(fichero.Stream);
             foreach (XmlNode node in doc.DocumentElement.ChildNodes)
@@ -59,25 +65,33 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 nuevaRuta.Mapa = new Uri(node.Attributes["URL_IMDB"].Value, UriKind.Absolute);
                 nuevaRuta.incidencias.Add(node.Attributes["incidencia"].Value);
                 listado.Add(nuevaRuta);
-            } */
+            } 
 
             //hay que terminarlo
             return listado;
-        }
+        }*/
 
-        private void Btn_Ayuda_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void txbBuscar_KeyUp(object sender, KeyEventArgs e)
         {
-
+            //implementar buscador
         }
 
         private void Listarutas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Ruta seleccionada = Listarutas.SelectedItem as Ruta;
+            mapa.Visibility = Visibility.Visible;
+            lblNombreruta2.Content = seleccionada.Nombre;
+            lblDescripcion2.Content = seleccionada.Descripcion;
+            lblpartic2.Content = seleccionada.participantes.Count() + " / " + seleccionada.maxParticipantes;
+        }
 
+        private void btnX_Click(object sender, RoutedEventArgs e)
+        {
+            mapa.Visibility=Visibility.Hidden;
+            lblNombreruta2.Content = "";
+            lblDescripcion2.Content = "";
+            lblpartic2.Content = "";
         }
     }
 }
