@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,13 +21,13 @@ namespace Lab_IPO1_ft.Ana_Enrique
     /// </summary>
     public partial class ListaDeRutas : Window
     {
-        List<Ruta> listadorutas;
+        ObservableCollection<Ruta> listadorutas;
         List<Excursionista> particip;
         public ListaDeRutas()
         {
             InitializeComponent();
             particip= new List<Excursionista>();
-            listadorutas= new List<Ruta>();
+            listadorutas = new ObservableCollection<Ruta>();
             Ruta ruta1 = new Ruta("Ruta A", "Ciudad Real", null, "Descripcion de prueba 1, ruta en ciudad real", 10, 1, 20, particip);
             Ruta ruta2 = new Ruta("Ruta B", "Madrid", null, "Descripcion de prueba 2, ruta en Madrid", 10, 1, 20, particip);
             listadorutas.Add(ruta1);
@@ -80,10 +81,23 @@ namespace Lab_IPO1_ft.Ana_Enrique
         private void Listarutas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Ruta seleccionada = Listarutas.SelectedItem as Ruta;
-            mapa.Visibility = Visibility.Visible;
-            lblNombreruta2.Content = seleccionada.Nombre;
-            lblDescripcion2.Content = seleccionada.Descripcion;
-            lblpartic2.Content = seleccionada.participantes.Count() + " / " + seleccionada.maxParticipantes;
+            if (seleccionada != null)
+            {
+                mapa.Visibility = Visibility.Visible;
+                lblNombreruta2.Content = seleccionada.Nombre;
+                lblDescripcion2.Content = seleccionada.Descripcion;
+                lblpartic2.Content = seleccionada.participantes.Count() + " / " + seleccionada.maxParticipantes;
+                if (seleccionada.Finalizada == true)
+                {
+                    lblFinalizar.Visibility = Visibility.Visible;
+                    btnFinalizar.IsEnabled = false;
+                }
+                else
+                {
+                    lblFinalizar.Visibility = Visibility.Hidden;
+                    btnFinalizar.IsEnabled = true;
+                }
+            }
         }
 
         private void btnX_Click(object sender, RoutedEventArgs e)
@@ -92,6 +106,22 @@ namespace Lab_IPO1_ft.Ana_Enrique
             lblNombreruta2.Content = "";
             lblDescripcion2.Content = "";
             lblpartic2.Content = "";
+        }
+        
+        private void btnFinalizar_Click(object sender, RoutedEventArgs e)
+        {
+            lblFinalizar.Visibility=Visibility.Visible;
+            Ruta seleccionada = Listarutas.SelectedItem as Ruta;
+            seleccionada.Finalizada = true;
+            btnFinalizar.IsEnabled = false;
+        }
+
+        private void Btn_BorrarRuta_Click(object sender, RoutedEventArgs e)
+        {
+            Ruta seleccionada = Listarutas.SelectedItem as Ruta;
+            listadorutas.Remove(seleccionada);
+            
+            
         }
     }
 }
