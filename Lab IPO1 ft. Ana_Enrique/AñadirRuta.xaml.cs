@@ -22,11 +22,11 @@ namespace Lab_IPO1_ft.Ana_Enrique
     public partial class ListaDeRutas : Window
     {
         ObservableCollection<Ruta> listadorutas;
-        ObservableCollection<Excursionista> particip;
+        List<Excursionista> particip;
         public ListaDeRutas()
         {
             InitializeComponent();
-            particip= new ObservableCollection<Excursionista>();
+            particip= new List<Excursionista>();
             listadorutas = new ObservableCollection<Ruta>();
             Ruta ruta1 = new Ruta("Ruta A", "Ciudad Real", null, "Descripcion de prueba 1, ruta en ciudad real", 10, 1, 20, particip);
             Ruta ruta2 = new Ruta("Ruta B", "Madrid", null, "Descripcion de prueba 2, ruta en Madrid", 10, 1, 20, particip);
@@ -126,11 +126,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         private void btnParticipantes_Click(object sender, RoutedEventArgs e)
         {
-            Ruta seleccionada = Listarutas.SelectedItem as Ruta;
-            Participantes partic = new Participantes();
-            partic.Show();
-            partic.ListaParticipantes.ItemsSource = seleccionada.participantes;
-            particip = seleccionada.participantes;
+
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,9 @@ namespace Lab_IPO1_ft.Ana_Enrique
         public string Provincia { set; get; }
         public int Duracion { set; get; }
         public String Dificultad { get; set; }
-        public List<Excursionista> participantes { get; set; }    //id es telefono
+        public ObservableCollection<Excursionista> participantes { get; set; }    //id es telefono
         public int maxParticipantes { get; set; }                                    
-        public List<string> puntosInteres { get; set; }//id es nombre
+        public ObservableCollection<string> puntosInteres { get; set; }//id es nombre
         public string formaLlegada { get; set; }
         public string formaVuelta { get; set; }
         public List<string> material { get; set; }
