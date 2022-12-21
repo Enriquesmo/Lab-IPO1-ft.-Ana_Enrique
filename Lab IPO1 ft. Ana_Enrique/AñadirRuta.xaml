@@ -50,8 +50,8 @@
                     <Label x:Name="lblNombreruta2" Content="" Canvas.Left="120" Canvas.Top="83"/>
                     <Label x:Name="lblFinalizar" Content="FINALIZADO" Canvas.Left="298" Canvas.Top="285" Width="96" FontWeight="Bold" Visibility="Hidden"/>
                     <Grid x:Name="Descripcion" Height="299" Canvas.Left="10" Canvas.Top="45" Width="416" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        <Label x:Name="lblDescripcion1" Content="123" Height="147" Width="224" BorderBrush="#FF7F7D7D" Background="#FFEF9C9C" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="192,0,0,0"/>
-                        <Label x:Name="lblDescripcion2" Content="asdfadsf" Height="153" Width="416" BorderBrush="#FF7F7D7D" Background="#FFEF9C9C" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,146,0,0"/>
+                        <Label x:Name="lblDescripcion1" Content="" Height="147" Width="224" BorderBrush="#FF7F7D7D" Background="#FFEF9C9C" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="192,0,0,0"/>
+                        <Label x:Name="lblDescripcion2" Content="" Height="153" Width="416" BorderBrush="#FF7F7D7D" Background="#FFEF9C9C" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,146,0,0"/>
                     </Grid>
                 </Canvas>
 
