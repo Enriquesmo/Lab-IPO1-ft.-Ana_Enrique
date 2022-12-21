@@ -38,7 +38,7 @@
                                 Grid.Column="2"
                                 Orientation="Vertical" Margin="0,0,-170,0">
                 <Canvas Height="450" 
-                        Width="562">
+                        Width="418">
                     <Image x:Name="mapa" 
                            Height="158"
                            Width="148" 
@@ -51,9 +51,17 @@
                     <Label Content="Conclusión." 
                            Canvas.Left="163" 
                            Canvas.Top="10"/>
-                    <Label Content="Label" 
+                    <Label x:Name="lbl_Descripcion1" 
+                           Content="Descripcion1" 
                            Canvas.Left="163" 
-                           Canvas.Top="36"/>
+                           Canvas.Top="36" Height="132" Width="248"/>
+                    <Label x:Name="lbl_Descripcion2" 
+                        Content="Descripcion2" 
+                        Canvas.Left="10" 
+                        Canvas.Top="168" Height="211" Width="398" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Button Content="Limpiar" Canvas.Left="20" Canvas.Top="414"/>
+                    <Button Content="Modificar" Canvas.Left="107" Canvas.Top="414"/>
+                    <Button Content="Button" Canvas.Left="355" Canvas.Top="414" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 </Canvas>
             </StackPanel>
         </Grid>
