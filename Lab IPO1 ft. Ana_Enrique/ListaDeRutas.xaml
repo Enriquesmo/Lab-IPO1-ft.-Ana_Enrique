@@ -7,20 +7,20 @@
         mc:Ignorable="d"
         Title="ListaDeRutas" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="49"/>
-                <RowDefinition Height="156*"/>
-                <RowDefinition Height="99*"/>
-                <RowDefinition Height="18*"/>
-                <RowDefinition Height="113*"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="233"/>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="392"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="Listarutas" Grid.RowSpan="4"   BorderThickness="1,2,1,2" SnapsToDevicePixels="True" IsSynchronizedWithCurrentItem="True" Background="#FF97B994" SelectionChanged="Listarutas_SelectionChanged" Grid.Row="1">
+            <ListBox x:Name="Listarutas"   BorderThickness="1,2,1,2" SnapsToDevicePixels="True" IsSynchronizedWithCurrentItem="True" Background="#FF97B994" SelectionChanged="Listarutas_SelectionChanged" Grid.Row="1">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -36,15 +36,14 @@
                 </ListBox.ItemTemplate>
 
             </ListBox>
-            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Grid.Row="1" />
-            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Grid.Row="2" />
-            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Grid.Row="3" />
-            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Grid.Row="4" />
+            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Grid.Row="1"/>
 
             <StackPanel x:Name="spDetallesRutas" 
-                                Grid.Column="1"
-                                Orientation="Vertical" Grid.ColumnSpan="2" Margin="5,0,0,0" Grid.RowSpan="4" Grid.Row="1">
-                <Canvas Height="382" Width="492">
+                                Width="Auto"
+                                Height="Auto"
+                                Grid.Column="2"
+                                Orientation="Vertical" Grid.Row="1" Margin="0,0,-170,0">
+                <Canvas Height="Auto" Width="Auto">
                     <Image x:Name="mapa" Height="158" Width="148" 
                                Stretch="Fill" Canvas.Left="262" Canvas.Top="2" Source="/fondoipo.jpg"/>
                     <Label x:Name="lblDescripcion" Height="28" Width="80" Canvas.Left="14" Canvas.Top="158" Content="Descripcion"/>
@@ -68,7 +67,11 @@
 
             <Rectangle HorizontalAlignment="Center" Height="49" Stroke="Black" Width="800" Fill="#FFBBBFBC"/>
             <Button x:Name="Btn_AñadirRuta" Content="+" Height="48" Width="48" Margin="656,0,96,1" Background="{x:Null}" BorderBrush="#FF7D7B7B" FontSize="36"/>
-            <Button x:Name="Btn_BorrarRuta" Content="-" Width="48" Height="48" Margin="704,0,48,1" Background="{x:Null}" BorderBrush="#FF7B7B7B" FontSize="30" Click="Btn_BorrarRuta_Click"/>
+            <Button x:Name="Btn_BorrarRuta" Width="48" Height="48" Margin="704,0,48,1" BorderBrush="#FF7B7B7B" FontSize="30" Click="Btn_BorrarRuta_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/papelera.png" TileMode="None" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
             <Button x:Name="Btn_Ayuda" Content="?" Height="48" Width="48"  Margin="752,0,0,1" Background="{x:Null}" FontSize="24" BorderBrush="#FF7B7B7B"/>
             <TextBox x:Name="txbBuscar" HorizontalAlignment="Left" Margin="16,0,0,0" TextWrapping="Wrap" Text="Buscar una ruta" VerticalAlignment="Center" Width="564" Height="29" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Foreground="#FF888181" KeyUp="txbBuscar_KeyUp"/>
         </Grid>
