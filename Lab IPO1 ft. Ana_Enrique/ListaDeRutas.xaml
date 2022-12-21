@@ -53,7 +53,7 @@
                     <Label x:Name="lblpartic2" Content="x/y" Canvas.Left="88" Canvas.Top="285"/>
                     <Rectangle x:Name="btnInteres" Height="53" Stroke="Black" Canvas.Top="316" Width="472"/>
                     <Button x:Name="btnRuta" Content="Info Ruta" Height="26" Canvas.Left="26" Canvas.Top="332" Width="56"/>
-                    <Button x:Name="btnParticipantes" Content="Participantes" Height="27" Canvas.Left="101" Canvas.Top="332" Width="75"/>
+                    <Button x:Name="btnParticipantes" Content="Participantes" Height="27" Canvas.Left="101" Canvas.Top="332" Width="75" Click="btnParticipantes_Click"/>
                     <Button x:Name="btnPuntos" Content="Puntos Interes" Height="27" Canvas.Left="202" Canvas.Top="331" Width="88"/>
                     <Label x:Name="lblNombreRuta" Content="Nombre Ruta:" Height="28" Width="88" Background="#FF81A577" Canvas.Top="81" Canvas.Left="26"/>
                     <Button x:Name="btnFinalizar" Content="Finalizar" Height="26" Canvas.Left="336" Canvas.Top="332" Width="117" Click="btnFinalizar_Click"/>

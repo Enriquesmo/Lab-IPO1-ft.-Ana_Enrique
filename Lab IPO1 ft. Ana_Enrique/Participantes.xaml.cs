@@ -22,7 +22,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         public Participantes()
         {
             InitializeComponent();
-            ListaParticipantes.Items.Add(new Excursionista("Adam", "Levi", 29, 98463728));
+            
         }
 
         private void ListaParticipantes_SelectionChanged(object sender, SelectionChangedEventArgs e)
