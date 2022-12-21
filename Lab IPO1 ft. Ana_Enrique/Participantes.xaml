@@ -43,15 +43,15 @@
                         </TransformGroup>
                     </StackPanel.RenderTransform>
                     <Canvas Height="280">
-                        <TextBox Canvas.Left="32" TextWrapping="Wrap" Text="TextBox" Canvas.Top="32" Width="310" Height="18"/>
-                        <Label Content="Label" Canvas.Left="32" Width="102"/>
-                        <Label Content="Label" Canvas.Left="32" Width="102" Canvas.Top="55"/>
-                        <Label Content="Label" Canvas.Left="32" Width="102" Canvas.Top="104"/>
-                        <Label Content="Label" Canvas.Left="209" Width="102" Canvas.Top="55"/>
-                        <Label Content="Label" Canvas.Left="32" Width="102" Canvas.Top="152"/>
-                        <TextBox Canvas.Left="32" TextWrapping="Wrap" Text="TextBox" Canvas.Top="81" Width="148" Height="18"/>
-                        <TextBox Canvas.Left="32" TextWrapping="Wrap" Text="TextBox" Canvas.Top="126" Width="120"/>
-                        <TextBox Canvas.Left="200" TextWrapping="Wrap" Text="TextBox" Canvas.Top="81" Width="142" Height="18"/>
+                        <TextBox x:Name="txbNombreApp" Canvas.Left="32" TextWrapping="Wrap" Canvas.Top="32" Width="310" Height="18"/>
+                        <Label x:Name="lblNombreApp" Content="Nombre y Apellidos" Canvas.Left="32" Width="120"/>
+                        <Label x:Name="lblTelef" Content="Teléfono" Canvas.Left="32" Width="102" Canvas.Top="55"/>
+                        <Label x:Name="lblEdad" Content="Edad" Canvas.Left="32" Width="51" Canvas.Top="104"/>
+                        <Label x:Name="lblDni" Content="DNI" Canvas.Left="209" Width="102" Canvas.Top="55"/>
+                        <Label x:Name="lblListaRutComp" Content="Rutas asistidas" Canvas.Left="32" Width="102" Canvas.Top="152"/>
+                        <TextBox x:Name="txbTelef" Canvas.Left="32" TextWrapping="Wrap" Canvas.Top="81" Width="148" Height="18"/>
+                        <TextBox x:Name="txbEdad" Canvas.Left="32" TextWrapping="Wrap" Canvas.Top="126" Width="120"/>
+                        <TextBox x:Name="txbDni" Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="81" Width="142" Height="18"/>
                         <ListBox Height="92" Width="131" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="35" Canvas.Top="183" RenderTransformOrigin="0.5,0.5">
                             <ListBox.RenderTransform>
                                 <TransformGroup>
@@ -62,16 +62,15 @@
                                 </TransformGroup>
                             </ListBox.RenderTransform>
                         </ListBox>
-                        <Button Content="Button" Canvas.Left="300" Canvas.Top="165" Height="41" Width="88"/>
-                        <Button Content="Button" Canvas.Left="230" Canvas.Top="231" Height="30" Width="60"/>
-                        <Button Content="Button" Canvas.Left="392" Canvas.Top="231" Height="30" Width="70"/>
+                        <Button x:Name="btnAnadir" Content="Añadir" Canvas.Left="300" Canvas.Top="165" Height="41" Width="88"/>
+                        <Button x:Name="btnMod" Content="Modificar" Canvas.Left="230" Canvas.Top="231" Height="30" Width="60"/>
+                        <Button x:Name="btnBorrar" Content="Borrar" Canvas.Left="392" Canvas.Top="231" Height="30" Width="70"/>
                     </Canvas>
 
 
                 </StackPanel>
                 <Canvas Grid.Column="1" Grid.ColumnSpan="2" Margin="5,0,0,293">
                     <Image Height="131" Canvas.Left="160" Canvas.Top="6" Width="152"/>
-                    <Button Content="Button" Canvas.Left="362" Canvas.Top="71" Width="65"/>
                 </Canvas>
 
 
