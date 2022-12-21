@@ -70,7 +70,7 @@
 
                 </StackPanel>
                 <Canvas Grid.Column="1" Grid.ColumnSpan="2" Margin="5,0,0,293">
-                    <Image Height="131" Canvas.Left="160" Canvas.Top="6" Width="152"/>
+                    <Image Height="131" Canvas.Left="160" Canvas.Top="6" Width="152" Source="/fondoipo.jpg"/>
                 </Canvas>
 
 
