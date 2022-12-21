@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         public Uri Foto { get; set; }
         public int Edad { get; set; }
         public int Telefono { get; set; }
-        public List<Ruta> Rutas { get; set; }
+        public ObservableCollection<Ruta> Rutas { get; set; }
 
         public Excursionista(string nombre, string apellidos, int edad, int telefono)
         {

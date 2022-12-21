@@ -55,10 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AñadirRuta.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="ListaDeRutas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -73,9 +69,6 @@
     </Compile>
     <Compile Include="Excursionista.cs" />
     <Compile Include="Guia.cs" />
-    <Compile Include="AñadirRuta.xaml.cs">
-      <DependentUpon>AñadirRuta.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Participantes.xaml.cs">
       <DependentUpon>Participantes.xaml</DependentUpon>
     </Compile>
