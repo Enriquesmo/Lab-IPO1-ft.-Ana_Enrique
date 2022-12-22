@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab_IPO1_ft.Ana_Enrique"
-    d:DesignHeight="450" d:DesignWidth="800"
+    Height="450" Width="800"
       Title="AñadirRuta">
 
     <Grid Background="White">
@@ -14,7 +14,7 @@
                 <ColumnDefinition Width="auto" MinWidth="5"/>
                 <ColumnDefinition Width="247"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="DetallesRuta" 
+            <ListBox x:Name="DetalleRuta" 
                      BorderThickness="1,2,1,2" 
                      SnapsToDevicePixels="True" 
                      IsSynchronizedWithCurrentItem="True" 
