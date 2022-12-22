@@ -132,5 +132,11 @@ namespace Lab_IPO1_ft.Ana_Enrique
             partic.ListaParticipantes.ItemsSource = seleccionada.participantes;
             particip = seleccionada.participantes;
         }
+
+        private void Btn_AñadirRuta_Click(object sender, RoutedEventArgs e)
+        {
+            AnadirRuta anaruta = new AnadirRuta();
+            anaruta.Show(); // la ventana anadir ruta es una pagina no una ruta
+        }
     }
 }

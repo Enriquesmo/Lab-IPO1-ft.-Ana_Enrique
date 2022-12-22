@@ -66,7 +66,7 @@
         <Grid VerticalAlignment="Top" HorizontalAlignment="Left">
 
             <Rectangle HorizontalAlignment="Center" Height="49" Stroke="Black" Width="800" Fill="#FFBBBFBC"/>
-            <Button x:Name="Btn_AñadirRuta" Content="+" Height="48" Width="48" Margin="656,0,96,1" Background="{x:Null}" BorderBrush="#FF7D7B7B" FontSize="36"/>
+            <Button x:Name="Btn_AñadirRuta" Content="+" Height="48" Width="48" Margin="656,0,96,0" Background="{x:Null}" BorderBrush="#FF7D7B7B" FontSize="36" VerticalAlignment="Top" Click="Btn_AñadirRuta_Click"/>
             <Button x:Name="Btn_BorrarRuta" Width="48" Height="48" Margin="704,0,48,1" BorderBrush="#FF7B7B7B" FontSize="30" Click="Btn_BorrarRuta_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/papelera.png" TileMode="None" Stretch="UniformToFill"/>
