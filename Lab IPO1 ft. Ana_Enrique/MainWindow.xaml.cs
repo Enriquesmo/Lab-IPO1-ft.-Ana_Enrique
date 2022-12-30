@@ -78,11 +78,11 @@ namespace Eventos
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
 
-            
-           
+
+
             // La comprobación ya lleva implícita que las entradas
             // estén vacías
-           
+            passContrasena.IsEnabled = true;
             if (ComprobarEntrada(txtUsuario.Text, usuario,
             txtUsuario, ImgCheckUsuario)
             &&

@@ -120,10 +120,9 @@ namespace Lab_IPO1_ft.Ana_Enrique
         {
             Ruta seleccionada = Listarutas.SelectedItem as Ruta;
             listadorutas.Remove(seleccionada);
-            
-            
         }
 
+        /*Boton reservado para la Ventana Participantes*/
         private void btnParticipantes_Click(object sender, RoutedEventArgs e)
         {
             Ruta seleccionada = Listarutas.SelectedItem as Ruta;
@@ -133,10 +132,18 @@ namespace Lab_IPO1_ft.Ana_Enrique
             particip = seleccionada.participantes;
         }
 
+        /*Botones reservados para la Ventana DetallesRuta*/
         private void Btn_AñadirRuta_Click(object sender, RoutedEventArgs e)
         {
-            DetallesRuta detruta = new DetallesRuta();
-            detruta.Show(); // la ventana anadir ruta es una pagina no una ruta
+            DetallesRuta ventanaDetallesRuta = new DetallesRuta(null);
+            ventanaDetallesRuta.Show();
+
+        }
+        private void btnRuta_Click(object sender, RoutedEventArgs e)
+        {
+            Ruta seleccionada = Listarutas.SelectedItem as Ruta;
+            DetallesRuta ventanaDetallesRuta = new DetallesRuta(seleccionada);
+            ventanaDetallesRuta.Show();
         }
     }
 }
