@@ -14,19 +14,83 @@
                 <ColumnDefinition Width="auto" MinWidth="5"/>
                 <ColumnDefinition Width="247"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="DetalleRuta" 
-                     BorderThickness="1,2,1,2" 
-                     SnapsToDevicePixels="True" 
-                     IsSynchronizedWithCurrentItem="True" 
-                     Background="#FF97B994">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
 
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            <StackPanel>
+                <Canvas Height="434" 
+                        Width="378">
+                    <Label x:Name="lblNombre"
+                           Content="Nombre" 
+                           Canvas.Left="10" HorizontalAlignment="Center" Canvas.Top="4" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txbNombre" 
+                             Canvas.Left="10" 
+                             TextWrapping="Wrap" 
+                             Text="TextBox" 
+                             Canvas.Top="29" 
+                             Width="174" 
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Top" Height="24"/>
+                    <Label x:Name="lblProvincia" 
+                           Content="Provincia" 
+                           Canvas.Left="195"
+                           HorizontalAlignment="Left" 
+                           VerticalAlignment="Center" Canvas.Top="4"/>
+                    <TextBox x:Name="txbProvincia" 
+                             Canvas.Left="195" 
+                             TextWrapping="Wrap" 
+                             Text="TextBox" 
+                             Canvas.Top="29" 
+                             Width="174" 
+                             HorizontalAlignment="Center" 
+                             VerticalAlignment="Top" Height="24"/>
+                    <Label x:Name="lblDuracion" 
+                           Content="Duracion" 
+                           Canvas.Left="195"
+                           Canvas.Top="253" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Top"/>
+                    <TextBox x:Name="txbDuracion"
+                             Canvas.Left="195" 
+                             TextWrapping="Wrap"
+                             Text="TextBox" 
+                             Canvas.Top="279"
+                             Width="73"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Top" Height="24"/>
+                    <Label x:Name="lblDificultad"
+                           Content="Dificultad"
+                           Canvas.Left="10"
+                           Canvas.Top="53"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"/>
+                    <ComboBox x:Name="ComboBoxDificultad" Canvas.Left="10" Canvas.Top="79" Width="174" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24"/>
+                    <Label x:Name="lblMaxPartic" Content="MaxPartic" Canvas.Left="295" Canvas.Top="253" RenderTransformOrigin="0.005,0.125" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txbMaxPartic" Canvas.Left="295" TextWrapping="Wrap" Text="TextBox" Canvas.Top="279" Width="75" HorizontalAlignment="Center" VerticalAlignment="Top" Height="24"/>
+                    <Label x:Name="lblFechaYHora" Content="FechaYHora                            " Canvas.Left="195" Canvas.Top="53" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <DatePicker x:Name="DatePickerFechaYHora" Canvas.Left="195" Canvas.Top="79" HorizontalAlignment="Center" VerticalAlignment="Top" Width="174"/>
+                    <Label x:Name="lblLlegada" Content="Forma de llegada" Canvas.Left="195" Canvas.Top="103" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txbLlegada" Canvas.Left="195" TextWrapping="Wrap" Text="TextBox" Canvas.Top="129" Width="174" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24"/>
+                    <Label x:Name="lblVuelta" Content="Forma de Vuelta" Canvas.Left="195" Canvas.Top="153" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txbVuelta" Canvas.Left="195" TextWrapping="Wrap" Text="TextBox" Canvas.Top="179" Width="173" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24"/>
+                    <Label x:Name="lblSeCome" Content="Se Come
+                           " Canvas.Left="10" Canvas.Top="253" HorizontalAlignment="Center" VerticalAlignment="Top" Width="60"/>
+                    <ComboBox x:Name="ComboBoxSeCome" Canvas.Left="8" Canvas.Top="279" Width="75" HorizontalAlignment="Center" VerticalAlignment="Top" Height="24"/>
+                    <Label x:Name="lblMaterial" Content="Material
+                           " Canvas.Left="10" Canvas.Top="203" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txbMaterial" Canvas.Left="10" TextWrapping="Wrap" Text="TextBox" Canvas.Top="229" Width="360" Height="24" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Label x:Name="lblOrigen" Content="Origen" Canvas.Left="10" Canvas.Top="103" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txbOrigen" Canvas.Left="10" TextWrapping="Wrap" Text="TextBox" Canvas.Top="129" Width="174" Height="24" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Label x:Name="lblDestino" Content="Destino" Canvas.Left="10" Canvas.Top="153" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txbDestino" Canvas.Left="10" TextWrapping="Wrap" Text="TextBox" Canvas.Top="179" Width="174" Height="24" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Label x:Name="lblFinalizada" Content="Finalizada
+                           " Canvas.Left="109" Canvas.Top="253" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75"/>
+                    <ComboBox x:Name="ComboBoxFinalizada" Canvas.Left="109" Canvas.Top="279" Width="75" Height="24" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Label x:Name="lblIncidencias" Content="Incidencias" Canvas.Left="10" Canvas.Top="303" HorizontalAlignment="Center" VerticalAlignment="Top" Width="174"/>
+                    <ListBox x:Name="ListBoxIncidencias" Height="72" Width="174" Canvas.Top="329" Canvas.Left="10" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Label x:Name="lblGuia" Content="Guia" Canvas.Left="195" Canvas.Top="303" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="ComboBoxGuia" Canvas.Left="195" Canvas.Top="329" Width="175" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Button x:Name="btnListaGuias" Content="Lista Guias" Canvas.Left="250" Canvas.Top="360" HorizontalAlignment="Center" VerticalAlignment="Top" Width="64" Height="41"/>
+                </Canvas>
+            </StackPanel>
 
             <GridSplitter Grid.Column="1" 
                           HorizontalAlignment="Stretch"/>
@@ -36,7 +100,7 @@
                                 Height="Auto"
                                 Grid.Column="2"
                                 Orientation="Vertical" Margin="0,0,-170,0">
-                <Canvas Height="450" 
+                <Canvas Height="433" 
                         Width="418">
                     <Image x:Name="mapa" 
                            Height="158"
@@ -53,14 +117,14 @@
                     <Label x:Name="lbl_Descripcion1" 
                            Content="Descripcion1" 
                            Canvas.Left="163" 
-                           Canvas.Top="36" Height="132" Width="248"/>
+                           Canvas.Top="36" Height="132" Width="230" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     <Label x:Name="lbl_Descripcion2" 
                         Content="Descripcion2" 
                         Canvas.Left="10" 
-                        Canvas.Top="168" Height="211" Width="398" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                    <Button Content="Limpiar" Canvas.Left="20" Canvas.Top="414"/>
-                    <Button Content="Modificar" Canvas.Left="107" Canvas.Top="414"/>
-                    <Button Content="Button" Canvas.Left="355" Canvas.Top="414" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        Canvas.Top="168" Height="133" Width="383" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Button x:Name="btnLimpiar" Content="Limpiar" Canvas.Left="10" Canvas.Top="360" Height="40" Width="64" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Button x:Name="btnModificar" Content="Modificar" Canvas.Left="134" Canvas.Top="360" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="64" Click="btnModificar_Click"/>
+                    <Button x:Name="btnAnadir" Content="Añadir" Canvas.Left="329" Canvas.Top="360" HorizontalAlignment="Left" VerticalAlignment="Center" Height="41" Width="64"/>
                 </Canvas>
             </StackPanel>
         </Grid>

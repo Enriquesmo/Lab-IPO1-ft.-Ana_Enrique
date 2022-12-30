@@ -23,5 +23,10 @@ namespace Lab_IPO1_ft.Ana_Enrique
         {
             InitializeComponent();
         }
+
+        private void btnModificar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
