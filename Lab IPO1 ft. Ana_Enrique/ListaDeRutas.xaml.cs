@@ -23,17 +23,39 @@ namespace Lab_IPO1_ft.Ana_Enrique
     {
         ObservableCollection<Ruta> listadorutas;
         ObservableCollection<Excursionista> particip;
+        ObservableCollection<Guia> listadoGuias;
         public ListaDeRutas()
         {
             InitializeComponent();
+            /*Inicialización de los listados de rutas, participantes y guias*/
             particip= new ObservableCollection<Excursionista>();
             listadorutas = new ObservableCollection<Ruta>();
+            listadoGuias= new ObservableCollection<Guia>();
+
+            /*Creación de Guias de ejemplo*/
+            Guia guia1 = new Guia("Antonio", "Gutierrez Moraleda", null, 789456123, "antogutimora@gmail.com", 8);
+            listadoGuias.Add(guia1);
+            Guia guia2 = new Guia("Manoli", "Garcia Sanchez", null, 123456789, "manoligs@gmail.com", 10);
+            listadoGuias.Add(guia2);
+
+            /*Creacion de Rutas de ejemplo*/
             Ruta ruta1 = new Ruta("Ruta A", "Ciudad Real", null, "Descripcion de prueba 1, ruta en ciudad real", 10, 1, 20, particip);
+            ruta1.formaLlegada = "En avion";
+            ruta1.formaVuelta = "En coche";
+            ruta1.Origen = "Alicante";
+            ruta1.Destino = "Tu casa";
+            ruta1.guia= guia1;
+            List<string> listaIncidenciasAux = new List<string> { "Me hablaron feo", "El guia no era guapo", "Mucho calor y poca agua", "Poca comida", "Mal guiado" };
+            List<string> listaMaterialesAux = new List<string> { "mochila", "gafas", "Botas de montaña buenas" };
+            ruta1.incidencias = listaIncidenciasAux;
+            ruta1.material = listaMaterialesAux;
+            ruta1.FechayHora = DateTime.Parse("18/11/2021");
+            ruta1.seCome = true;
             Ruta ruta2 = new Ruta("Ruta B", "Madrid", null, "Descripcion de prueba 2, ruta en Madrid", 10, 1, 20, particip);
+            ruta2.Finalizada = true;
             listadorutas.Add(ruta1);
             listadorutas.Add(ruta2);
             Listarutas.ItemsSource = listadorutas;
-           
         }
        /* private List<Ruta> CargarContenidoXML()
         {
@@ -135,15 +157,21 @@ namespace Lab_IPO1_ft.Ana_Enrique
         /*Botones reservados para la Ventana DetallesRuta*/
         private void Btn_AñadirRuta_Click(object sender, RoutedEventArgs e)
         {
-            DetallesRuta ventanaDetallesRuta = new DetallesRuta(null);
+            DetallesRuta ventanaDetallesRuta = new DetallesRuta(null, listadoGuias);
             ventanaDetallesRuta.Show();
+            Ruta rutaCreada = ventanaDetallesRuta.Result;
 
+            // NO SE MUESTRA EN LA LISTA DE RUTAS, HAY QUE ARREGLAR
+            listadorutas.Add(rutaCreada);
         }
         private void btnRuta_Click(object sender, RoutedEventArgs e)
         {
             Ruta seleccionada = Listarutas.SelectedItem as Ruta;
-            DetallesRuta ventanaDetallesRuta = new DetallesRuta(seleccionada);
+            DetallesRuta ventanaDetallesRuta = new DetallesRuta(seleccionada,listadoGuias);
             ventanaDetallesRuta.Show();
+            seleccionada = ventanaDetallesRuta.Result;
+
+            // NO SE ACTUALIZA EN EL MOMENTO LA INFORMACION CAMBIADA, HAY QUE ARREGLAR
         }
     }
 }

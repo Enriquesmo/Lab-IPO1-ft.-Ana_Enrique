@@ -73,7 +73,11 @@
                         <ImageBrush ImageSource="/papelera.png" TileMode="None" Stretch="UniformToFill"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="Btn_Ayuda" Content="?" Height="48" Width="48"  Margin="752,0,0,1" Background="{x:Null}" FontSize="24" BorderBrush="#FF7B7B7B"/>
+                <Button x:Name="Btn_Ayuda" Content="?" Height="48" Width="48"  Margin="752,0,0,1" FontSize="24" BorderBrush="#FF7B7B7B">
+                    <Button.Background>
+                        <ImageBrush/>
+                    </Button.Background>
+                </Button>
                 <TextBox x:Name="txbBuscar" HorizontalAlignment="Left" Margin="16,0,0,0" TextWrapping="Wrap" Text="Buscar una ruta" VerticalAlignment="Center" Width="564" Height="29" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Foreground="#FF888181" KeyUp="txbBuscar_KeyUp"/>
             </Grid>
         </Grid>

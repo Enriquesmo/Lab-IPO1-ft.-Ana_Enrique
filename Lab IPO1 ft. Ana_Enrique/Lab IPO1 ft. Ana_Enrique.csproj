@@ -131,5 +131,12 @@
   <ItemGroup>
     <Resource Include="interrogacion.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Fotos Trabajo IPO1\anadir.png" />
+    <Resource Include="Fotos Trabajo IPO1\ayuda.png" />
+    <Resource Include="Fotos Trabajo IPO1\eliminar.png" />
+    <Resource Include="Fotos Trabajo IPO1\Interrogación.png" />
+    <Resource Include="Fotos Trabajo IPO1\Papelera.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
