@@ -70,7 +70,11 @@
 
                 </StackPanel>
                 <Canvas Grid.Column="1" Grid.ColumnSpan="2" Margin="5,0,0,293">
-                    <Image Height="131" Canvas.Left="160" Canvas.Top="6" Width="152" Source="/fondoipo.jpg"/>
+                    <Image Height="131" Canvas.Left="160" Canvas.Top="6" Width="152" Source="/Foto Persona1.jpg">
+                        <Image.OpacityMask>
+                            <ImageBrush ImageSource="/Foto Persona1.jpg"/>
+                        </Image.OpacityMask>
+                    </Image>
                 </Canvas>
 
 

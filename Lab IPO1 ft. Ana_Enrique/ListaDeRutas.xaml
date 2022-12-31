@@ -46,17 +46,17 @@
                     Orientation="Vertical" Grid.Row="1" Margin="0,0,-170,0">
                     <Canvas Height="Auto" Width="Auto">
                         <Image x:Name="mapa" Height="158" Width="148" 
-                            Stretch="Fill" Canvas.Left="262" Canvas.Top="2" Source="/fondoipo.jpg"/>
-                        <Label x:Name="lblDescripcion" Height="28" Width="80" Canvas.Left="14" Canvas.Top="158" Content="Descripcion"/>
-                        <Label x:Name="lblDescripcion2" Content="" Height="89" Canvas.Left="10" Canvas.Top="191" Width="472" BorderBrush="#FF7F7D7D" Background="#FFEF9C9C"/>
-                        <Label x:Name="lblApuntados" Content="Apuntados:" Canvas.Left="13" Canvas.Top="285"/>
-                        <Label x:Name="lblpartic2" Content="x/y" Canvas.Left="88" Canvas.Top="285"/>
-                        <Rectangle x:Name="btnInteres" Height="53" Stroke="Black" Canvas.Top="316" Width="472"/>
-                        <Button x:Name="btnRuta" Content="Info Ruta" Height="26" Canvas.Left="26" Canvas.Top="332" Width="56" Click="btnRuta_Click"/>
-                        <Button x:Name="btnParticipantes" Content="Participantes" Height="27" Canvas.Left="101" Canvas.Top="332" Width="75" Click="btnParticipantes_Click"/>
-                        <Button x:Name="btnPuntos" Content="Puntos Interes" Height="27" Canvas.Left="202" Canvas.Top="331" Width="88"/>
+                            Stretch="Fill" Canvas.Left="346" Canvas.Top="16" Source="/Mapa de Ejemplo.jpg" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <Label x:Name="lblDescripcion" Height="28" Width="80" Canvas.Left="10" Canvas.Top="156" Content="Descripcion"/>
+                        <Label x:Name="lblDescripcion2" Content="" Height="89" Canvas.Left="10" Canvas.Top="191" Width="540" BorderBrush="#FF7F7D7D" Background="#FFEF9C9C" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <Label x:Name="lblApuntados" Content="Apuntados:" Canvas.Left="46" Canvas.Top="285" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Label x:Name="lblpartic2" Content="x/y" Canvas.Left="121" Canvas.Top="285" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Rectangle x:Name="btnInteres" Height="53" Stroke="Black" Canvas.Top="317" Width="472" Canvas.Left="46"/>
+                        <Button x:Name="btnRuta" Content="Info Ruta" Height="26" Canvas.Left="72" Canvas.Top="333" Width="56" Click="btnRuta_Click"/>
+                        <Button x:Name="btnParticipantes" Content="Participantes" Height="27" Canvas.Left="147" Canvas.Top="333" Width="75" Click="btnParticipantes_Click"/>
+                        <Button x:Name="btnPuntos" Content="Puntos Interes" Height="27" Canvas.Left="248" Canvas.Top="332" Width="88"/>
                         <Label x:Name="lblNombreRuta" Content="Nombre Ruta:" Height="28" Width="88" Background="#FF81A577" Canvas.Top="81" Canvas.Left="26"/>
-                        <Button x:Name="btnFinalizar" Content="Finalizar" Height="26" Canvas.Left="336" Canvas.Top="332" Width="117" Click="btnFinalizar_Click"/>
+                        <Button x:Name="btnFinalizar" Content="Finalizar" Height="26" Canvas.Left="382" Canvas.Top="333" Width="117" Click="btnFinalizar_Click"/>
                         <Button x:Name="btnX" Content="X" Height="27" Width="24" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnX_Click"/>
                         <Label x:Name="lblNombreruta2" Content="" Canvas.Left="120" Canvas.Top="83"/>
                         <Label x:Name="lblFinalizar" Content="FINALIZADO" Canvas.Left="298" Canvas.Top="285" Width="96" FontWeight="Bold" Visibility="Hidden"/>
@@ -67,15 +67,19 @@
             <Grid VerticalAlignment="Top" HorizontalAlignment="Left">
 
                 <Rectangle HorizontalAlignment="Center" Height="49" Stroke="Black" Width="800" Fill="#FFBBBFBC"/>
-                <Button x:Name="Btn_AñadirRuta" Content="+" Height="48" Width="48" Margin="656,0,96,0" Background="{x:Null}" BorderBrush="#FF7D7B7B" FontSize="36" VerticalAlignment="Top" Click="Btn_AñadirRuta_Click"/>
-                <Button x:Name="Btn_BorrarRuta" Width="48" Height="48" Margin="704,0,48,1" BorderBrush="#FF7B7B7B" FontSize="30" Click="Btn_BorrarRuta_Click">
+                <Button x:Name="Btn_AñadirRuta" Height="48" Width="48" Margin="656,0,96,0" BorderBrush="#FF7D7B7B" FontSize="36" VerticalAlignment="Top" Click="Btn_AñadirRuta_Click">
                     <Button.Background>
-                        <ImageBrush ImageSource="/papelera.png" TileMode="None" Stretch="UniformToFill"/>
+                        <ImageBrush ImageSource="/anadir.png"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="Btn_Ayuda" Content="?" Height="48" Width="48"  Margin="752,0,0,1" FontSize="24" BorderBrush="#FF7B7B7B">
+                <Button x:Name="Btn_BorrarRuta" Width="48" Height="48" Margin="704,0,48,1" BorderBrush="#FF7B7B7B" FontSize="30" Click="Btn_BorrarRuta_Click">
                     <Button.Background>
-                        <ImageBrush/>
+                        <ImageBrush TileMode="None" Stretch="UniformToFill" ImageSource="/eliminar.png"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="Btn_Ayuda" Height="48" Width="48"  Margin="752,0,0,1" FontSize="24" BorderBrush="#FF7B7B7B">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/ayuda.png"/>
                     </Button.Background>
                 </Button>
                 <TextBox x:Name="txbBuscar" HorizontalAlignment="Left" Margin="16,0,0,0" TextWrapping="Wrap" Text="Buscar una ruta" VerticalAlignment="Center" Width="564" Height="29" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Foreground="#FF888181" KeyUp="txbBuscar_KeyUp"/>

@@ -120,23 +120,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="fondoipo.jpg" />
+    <Resource Include="FondoInicio.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Datos\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="papelera.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="interrogacion.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Fotos Trabajo IPO1\anadir.png" />
-    <Resource Include="Fotos Trabajo IPO1\ayuda.png" />
-    <Resource Include="Fotos Trabajo IPO1\eliminar.png" />
-    <Resource Include="Fotos Trabajo IPO1\Interrogación.png" />
-    <Resource Include="Fotos Trabajo IPO1\Papelera.png" />
+    <Resource Include="anadir.png" />
+    <Resource Include="ayuda.png" />
+    <Resource Include="eliminar.png" />
+    <Resource Include="Foto Persona1.jpg" />
+    <Resource Include="Mapa de Ejemplo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

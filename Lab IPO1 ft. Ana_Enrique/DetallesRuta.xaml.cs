@@ -47,7 +47,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 txbDestino.Text = Ruta.Destino;
                 txbVuelta.Text = Ruta.formaVuelta;
                 txbDescripcion.Text = Ruta.Descripcion;
-                ComboBoxGuia.Text = Ruta.guia.Nombre;
                 txbDuracion.Text = Ruta.Duracion.ToString();
                 txbMaxPartic.Text = Ruta.maxParticipantes.ToString();
                 ComboBoxDificultad.Text = Ruta.Dificultad;
@@ -55,6 +54,10 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 introducirBoolean(Ruta.seCome, ComboBoxSeCome);
                 introducirBoolean(Ruta.Finalizada, ComboBoxFinalizada);
                 introducirEnLaListBox(ListBoxMaterial, Ruta.material);
+                if (Ruta.guia != null)
+                {
+                    ComboBoxGuia.Text = Ruta.guia.Nombre;
+                }
                 /*Este if se hace ya que solo si la ruta esta finalizada, entonces debemos mostrar las incidencias*/
                 if (Ruta.Finalizada == true)
                 {
@@ -65,7 +68,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         /*Metodos auxiliares para realizar la carga de datos en al ventana*/
         private void introducirEnLaListBox(ListBox listbox, List<string> listaAIntroducir) // Terminado
         {
-            if (listaAIntroducir.Count > 0)
+            if (listaAIntroducir != null)
             {
                 for (int i = 0; i < listaAIntroducir.Count; i++)
                 {
