@@ -31,6 +31,8 @@ namespace Lab_IPO1_ft.Ana_Enrique
             /*Inicialización de los listados de rutas, participantes y guias*/
             particip= new ObservableCollection<Excursionista>();
             listadoGuias= new ObservableCollection<Guia>();
+            mapa.Visibility = Visibility.Hidden;
+            estadoBotones(false);
 
             /*Creación de Guias de ejemplo*/
             Guia guia1 = new Guia("Antonio", "Gutierrez Moraleda", null, 789456123, "antogutimora@gmail.com", 8);
@@ -62,14 +64,24 @@ namespace Lab_IPO1_ft.Ana_Enrique
         }
         private void Listarutas_SelectionChanged(object sender, SelectionChangedEventArgs e) // Finalizado
         {
+            estadoBotones(true);
             ActualizarVentana();
         }
         private void btnX_Click(object sender, RoutedEventArgs e)
         {
-            mapa.Visibility=Visibility.Hidden;
+            Listarutas.SelectedItem = null;
+            mapa.Visibility = Visibility.Hidden;
+            estadoBotones(false);
             lblNombreruta2.Content = "";
             lblDescripcion2.Content = "";
             lblpartic2.Content = "";
+        }
+        private void estadoBotones(bool estado)
+        {
+            btnRuta.IsEnabled = estado;
+            btnParticipantes.IsEnabled = estado;
+            btnPuntos.IsEnabled = estado;
+            btnFinalizar.IsEnabled = estado;
         }
         private void btnFinalizar_Click(object sender, RoutedEventArgs e) // Finalizado
         {

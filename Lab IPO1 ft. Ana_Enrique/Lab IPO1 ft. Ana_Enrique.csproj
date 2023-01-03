@@ -132,5 +132,8 @@
     <Resource Include="Foto Persona1.jpg" />
     <Resource Include="Mapa de Ejemplo.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="close.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
