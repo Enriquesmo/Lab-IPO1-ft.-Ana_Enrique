@@ -181,5 +181,30 @@ namespace Eventos
                 MessageBox.Show("Las contraseñas no coinciden","Contraseñas",MessageBoxButton.OK);
             }
         }
+        /*Botones reservados para suministrar ayuda al usuario*/
+        private void btnAyuda1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void btnAyuda2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void btnAyuda3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void btnAyuda4_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void btnAyuda5_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void btnAyuda6_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

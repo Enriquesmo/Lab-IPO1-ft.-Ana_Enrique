@@ -173,5 +173,10 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
             // NO SE ACTUALIZA EN EL MOMENTO LA INFORMACION CAMBIADA, HAY QUE ARREGLAR
         }
+        /*Boton reservado para suministrar ayuda al usuario*/
+        private void Btn_Ayuda_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

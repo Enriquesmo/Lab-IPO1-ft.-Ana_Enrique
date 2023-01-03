@@ -233,5 +233,10 @@ namespace Lab_IPO1_ft.Ana_Enrique
         {
 
         }
+        /*Boton reservado para suministrar ayuda al usuario*/
+        private void btnAyuda_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
