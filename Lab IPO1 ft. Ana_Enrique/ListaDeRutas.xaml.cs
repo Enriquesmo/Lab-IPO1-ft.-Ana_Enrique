@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -53,9 +54,11 @@ namespace Lab_IPO1_ft.Ana_Enrique
             ruta1.seCome = true;
             Ruta ruta2 = new Ruta("Ruta B", "Madrid", null, "Descripcion de prueba 2, ruta en Madrid", 10, 1, 20, particip);
             ruta2.Finalizada = true;
-            listadorutas.Add(ruta1);
-            listadorutas.Add(ruta2);
-            Listarutas.ItemsSource = listadorutas;
+            //listadorutas.Add(ruta1);
+            //listadorutas.Add(ruta2);
+            Listarutas.Items.Add(ruta1);
+            Listarutas.Items.Add(ruta2);
+            //Listarutas.ItemsSource = listadorutas;
         }
        /* private List<Ruta> CargarContenidoXML()
         {
@@ -159,10 +162,16 @@ namespace Lab_IPO1_ft.Ana_Enrique
         {
             DetallesRuta ventanaDetallesRuta = new DetallesRuta(null, listadoGuias);
             ventanaDetallesRuta.Show();
+
+
+
+            /*
             Ruta rutaCreada = ventanaDetallesRuta.Result;
 
             // NO SE MUESTRA EN LA LISTA DE RUTAS, HAY QUE ARREGLAR
-            listadorutas.Add(rutaCreada);
+            Listarutas.Items.Add(rutaCreada);
+            //listadorutas.Add(rutaCreada);
+            */
         }
         private void btnRuta_Click(object sender, RoutedEventArgs e)
         {
@@ -176,7 +185,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         /*Boton reservado para suministrar ayuda al usuario*/
         private void Btn_Ayuda_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Aquí hay que introducir la ayuda que se facilitará al usuario para esta ventana.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

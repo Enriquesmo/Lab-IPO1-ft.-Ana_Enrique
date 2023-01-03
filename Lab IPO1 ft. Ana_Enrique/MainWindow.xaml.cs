@@ -184,27 +184,27 @@ namespace Eventos
         /*Botones reservados para suministrar ayuda al usuario*/
         private void btnAyuda1_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("En el campo USUARIO\nDebera introducir el nombre de su cuenta.\nPor defecto es:\n - admin", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void btnAyuda2_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("En el campo CONTRASEÑA\nPrimero deberá introducir el usuario válido y a continuación se le desbloqueará dicho campo\nSegundo, deberá introducir una contraseña valida, por defecto es:\n - ipo1", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void btnAyuda3_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("En el campo EMAIL\nSe debería introducir un email valido, sin embargo, con introducir cualquier combinacion de caracteres es suficiente debido a que esto es una simulación.\nTras haber hecho esto, se deberá hacer click en el botón llamado:\n - ENVIAR CÓDIGO", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void btnAyuda4_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("En el campo INTRODUCIR EL CODIGO\nTras haber obtenido dicho codigo en el boton de arriba llamado:\n - ENVIAR CODIGO\nDeberá introducir el codigo obtenido, el cual es:\n - 123", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void btnAyuda5_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("En el campo NUEVA CONTRASÑA\nDeberá introducir la nueva contraseña deseada.\nCualquier combinación de caracteres es admitida.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void btnAyuda6_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("En el campo REPITA SU NUEVA CONTRASEÑA\nDeberá introducir la misma combinacion de caracteres que en el anterior campo.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
