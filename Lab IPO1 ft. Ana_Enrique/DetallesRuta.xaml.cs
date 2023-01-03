@@ -145,7 +145,9 @@ namespace Lab_IPO1_ft.Ana_Enrique
             if (esNumeroDuracion == true && esNumeroMaxParticipantes == true && hayNombre == true)
             {
                 Result = rutaADevolver;
+                OperacionCompletada = true;
                 MessageBox.Show("Todos los cambios han sido guardados.", "Exito", MessageBoxButton.OK);
+                Close();
             }
         }
         /*Metodos auxiliares de la funcionalidad de devolver la ruta en el metodo llamado "btnFinalizar_Click"*/
@@ -227,7 +229,11 @@ namespace Lab_IPO1_ft.Ana_Enrique
             }
             return fecha;
         }
+
+        /*Metodos reservado para la correcta devolucion de la Ruta a la hora de Crear una nueva*/
         public Ruta Result { get; set; }
+        public bool OperacionCompletada { get; set; }
+
         /*Boton reservado para la Ventana Guias*/
         private void btnListaGuias_Click(object sender, RoutedEventArgs e)
         {
