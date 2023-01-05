@@ -46,7 +46,11 @@
                     Orientation="Vertical" Grid.Row="1" Margin="0,0,-170,0">
                     <Canvas Height="Auto" Width="Auto">
                         <Image x:Name="mapa" Height="158" Width="148" 
-                            Stretch="Fill" Canvas.Left="346" Canvas.Top="16" Source="/Mapa de Ejemplo.jpg" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            Stretch="Fill" Canvas.Left="346" Canvas.Top="16" Source="/Mapa de Ejemplo.jpg" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Image.OpacityMask>
+                                <ImageBrush ImageSource="/Mapa de Ejemplo.jpg"/>
+                            </Image.OpacityMask>
+                        </Image>
                         <Label x:Name="lblDescripcion" Height="28" Width="80" Canvas.Left="10" Canvas.Top="156" Content="Descripcion"/>
                         <Label x:Name="lblDescripcion2" Content="" Height="89" Canvas.Left="10" Canvas.Top="191" Width="540" BorderBrush="#FF7F7D7D" Background="#FFEF9C9C" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <Label x:Name="lblApuntados" Content="Apuntados:" Canvas.Left="46" Canvas.Top="285" HorizontalAlignment="Center" VerticalAlignment="Center"/>

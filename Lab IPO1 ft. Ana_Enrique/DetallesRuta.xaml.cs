@@ -246,5 +246,10 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 "IZQUIERDA:\n - Se muestran todos los atributos de una ruta.\n - Se pueden modificar todos, excepto las incidencias.\n - En el campo Materiales, encontramos 2 botones:\n    . Borrar Mat\n    . Añadir Mat\n   Al seleccionar un material de la lista de abajo, se cumple con lo que\n   dice el botón.\n - El botón LISTA GUIAS, muestra una ventana para modificarlos." +
                 "\nDERECHA:\n - El botón LIMPIAR, limpia todos los campos.\n - El botón GUARDAR, tiene 2 funcionalidades:\n    . Si ha entrado para MODIFICAR una ruta\n         Se guardan los cambios aplicados.\n    . Si ha entrado para AÑADIR una ruta\n         Se añade la ruta creada a la anterior ventana.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void btnAyuda_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+
+        }
     }
 }

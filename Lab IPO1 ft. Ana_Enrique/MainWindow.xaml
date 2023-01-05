@@ -44,7 +44,7 @@
                             Stretch="UniformToFill" ImageSource="/FondoInicio.jpg"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Viewbox x:Name="VentanaInicio" Grid.Column="1" Grid.ColumnSpan="4" Margin="5,5,5,5" Grid.RowSpan="6" Grid.Row="1" Stretch="Fill" d:IsHidden="True">
+        <Viewbox x:Name="VentanaInicio" Grid.Column="1" Grid.ColumnSpan="4" Margin="5,5,5,5" Grid.RowSpan="6" Grid.Row="1" Stretch="Fill">
             <Grid Height="311.297454545455" Width="444.054054054054">
                 <Rectangle x:Name="FondoLogin" 
                     Fill="#FF405F3B" 
@@ -85,25 +85,21 @@
                 <Button x:Name="btnAyuda1" HorizontalAlignment="Left" Margin="386,94,0,0" VerticalAlignment="Top" Width="48" Height="48" Click="btnAyuda1_Click">
                     <Button.Background>
                         <ImageBrush>
-                            <ImageBrush.ImageSource>
-                                <BitmapImage CacheOption="OnLoad" CreateOptions="IgnoreImageCache" UriSource="file:///C:/Users/kikes/AppData/Local/Microsoft/VisualStudio/17.0_72e5529e/Designer/Cache/1-1359854101x86DD/ayuda.png"/>
-                            </ImageBrush.ImageSource>
+                            <ImageBrush.ImageSource>/ayuda.png</ImageBrush.ImageSource>
                         </ImageBrush>
                     </Button.Background>
                 </Button>
                 <Button x:Name="btnAyuda2" HorizontalAlignment="Left" Margin="386,167,0,0" VerticalAlignment="Top" Width="48" Height="48" Click="btnAyuda2_Click">
                     <Button.Background>
                         <ImageBrush>
-                            <ImageBrush.ImageSource>
-                                <BitmapImage CacheOption="OnLoad" CreateOptions="IgnoreImageCache" UriSource="file:///C:/Users/kikes/AppData/Local/Microsoft/VisualStudio/17.0_72e5529e/Designer/Cache/1-1359854101x86DD/ayuda.png"/>
-                            </ImageBrush.ImageSource>
+                            <ImageBrush.ImageSource>/ayuda.png</ImageBrush.ImageSource>
                         </ImageBrush>
                     </Button.Background>
                 </Button>
 
             </Grid>
         </Viewbox>
-        <Viewbox x:Name="VentanaOlvidaste" Grid.Column="1" Grid.ColumnSpan="4" Margin="5,5,5,5" Grid.RowSpan="6" Grid.Row="1" Stretch="Fill" Visibility="Visible">
+        <Viewbox x:Name="VentanaOlvidaste" Grid.Column="1" Grid.ColumnSpan="4" Margin="5,5,5,5" Grid.RowSpan="6" Grid.Row="1" Stretch="Fill" Visibility="Visible" d:IsHidden="True">
             <Grid Height="311.297454545455" Width="444.054054054054">
                 <Rectangle x:Name="FondoOlvidaste" 
                     Fill="#FF405F3B" 
@@ -153,25 +149,21 @@
                 <Button x:Name="btnAyuda3" HorizontalAlignment="Left" Margin="386,79,0,0" VerticalAlignment="Top" Width="48" Height="48" Click="btnAyuda3_Click">
                     <Button.Background>
                         <ImageBrush>
-                            <ImageBrush.ImageSource>
-                                <BitmapImage CacheOption="OnLoad" CreateOptions="IgnoreImageCache" UriSource="file:///C:/Users/kikes/AppData/Local/Microsoft/VisualStudio/17.0_72e5529e/Designer/Cache/1-1359854101x86DD/ayuda.png"/>
-                            </ImageBrush.ImageSource>
+                            <ImageBrush.ImageSource>/ayuda.png</ImageBrush.ImageSource>
                         </ImageBrush>
                     </Button.Background>
                 </Button>
                 <Button x:Name="btnAyuda4" HorizontalAlignment="Left" Margin="386,207,0,0" VerticalAlignment="Top" Width="48" Height="48" Click="btnAyuda4_Click">
                     <Button.Background>
                         <ImageBrush>
-                            <ImageBrush.ImageSource>
-                                <BitmapImage CacheOption="OnLoad" CreateOptions="IgnoreImageCache" UriSource="file:///C:/Users/kikes/AppData/Local/Microsoft/VisualStudio/17.0_72e5529e/Designer/Cache/1-1359854101x86DD/ayuda.png"/>
-                            </ImageBrush.ImageSource>
+                            <ImageBrush.ImageSource>/ayuda.png</ImageBrush.ImageSource>
                         </ImageBrush>
                     </Button.Background>
                 </Button>
 
             </Grid>
         </Viewbox>
-        <Viewbox x:Name="VentanaContNueva" Grid.Column="1" Grid.ColumnSpan="4" Margin="5,5,5,5" Grid.RowSpan="6" Grid.Row="1" Stretch="Fill" Visibility="Visible">
+        <Viewbox x:Name="VentanaContNueva" Grid.Column="1" Grid.ColumnSpan="4" Margin="5,5,5,5" Grid.RowSpan="6" Grid.Row="1" Stretch="Fill" Visibility="Visible" d:IsHidden="True">
             <Grid Height="311.297454545455" Width="444.054054054054">
                 <Rectangle x:Name="FondoLogin2" 
                     Fill="#FF405F3B" 
@@ -214,18 +206,14 @@
                 <Button x:Name="btnAyuda5" HorizontalAlignment="Left" Margin="386,94,0,0" VerticalAlignment="Top" Width="48" Height="48" Click="btnAyuda5_Click">
                     <Button.Background>
                         <ImageBrush>
-                            <ImageBrush.ImageSource>
-                                <BitmapImage CacheOption="OnLoad" CreateOptions="IgnoreImageCache" UriSource="file:///C:/Users/kikes/AppData/Local/Microsoft/VisualStudio/17.0_72e5529e/Designer/Cache/1-1359854101x86DD/ayuda.png"/>
-                            </ImageBrush.ImageSource>
+                            <ImageBrush.ImageSource>/ayuda.png</ImageBrush.ImageSource>
                         </ImageBrush>
                     </Button.Background>
                 </Button>
                 <Button x:Name="btnAyuda6" HorizontalAlignment="Left" Margin="386,175,0,0" VerticalAlignment="Top" Width="48" Height="48" Click="btnAyuda6_Click">
                     <Button.Background>
                         <ImageBrush>
-                            <ImageBrush.ImageSource>
-                                <BitmapImage CacheOption="OnLoad" CreateOptions="IgnoreImageCache" UriSource="file:///C:/Users/kikes/AppData/Local/Microsoft/VisualStudio/17.0_72e5529e/Designer/Cache/1-1359854101x86DD/ayuda.png"/>
-                            </ImageBrush.ImageSource>
+                            <ImageBrush.ImageSource>/ayuda.png</ImageBrush.ImageSource>
                         </ImageBrush>
                     </Button.Background>
                 </Button>
