@@ -22,6 +22,11 @@ namespace Lab_IPO1_ft.Ana_Enrique
     {
         Ruta rutaADevolver = new Ruta("","",null,"",0,1,0,null);
         ObservableCollection<Guia> listadoGuiasAux;
+
+        /************************************************************************************************/
+
+        /*Inicializacion de la ventana ListaDeRutas*/
+
         public DetallesRuta(Ruta Ruta, ObservableCollection<Guia> listadoGuias)
         {
             InitializeComponent();
@@ -65,29 +70,11 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 }
             }
         }
-        /*Metodos auxiliares para realizar la carga de datos en al ventana*/
-        private void introducirEnLaListBox(ListBox listbox, List<string> listaAIntroducir) // Terminado
-        {
-            if (listaAIntroducir != null)
-            {
-                for (int i = 0; i < listaAIntroducir.Count; i++)
-                {
-                    listbox.Items.Add(listaAIntroducir[i]);
-                }
-            }
-        }
-        private void introducirBoolean(bool emisor, ComboBox receptor) // Terminado
-        {
-            if (emisor == true)
-            {
-                receptor.Text = "Si";
-            }
-            else
-            {
-                receptor.Text = "No";
-            }
-        }
-        /*Funcionalidades programadas a los botones encontrados en esta ventana*/
+
+        /************************************************************************************************/
+
+        /*Botones de la propia pagina ListaDeRutas*/
+
         private void btnLimpiar_Click(object sender, RoutedEventArgs e) // Terminado
         {
             txbNombre.Text = "";
@@ -116,7 +103,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         {
             ListBoxMaterial.Items.Remove(ListBoxMaterial.SelectedItem);
         }
-        private void btnFinalizar_Click(object sender, RoutedEventArgs e)
+        private void btnFinalizar_Click(object sender, RoutedEventArgs e) // Terminado
         {
             rutaADevolver.Nombre = introducirString(txbNombre.Text);
             bool hayNombre = true;
@@ -150,12 +137,42 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 Close();
             }
         }
-        /*Metodos auxiliares de la funcionalidad de devolver la ruta en el metodo llamado "btnFinalizar_Click"*/
+        private void btnAyuda_Click(object sender, RoutedEventArgs e) // Terminado
+        {
+            MessageBox.Show("La ventana esta dividida en 2 partes:\n" +
+                "IZQUIERDA:\n - Se muestran todos los atributos de una ruta.\n - Se pueden modificar todos, excepto las incidencias.\n - En el campo Materiales, encontramos 2 botones:\n    . Borrar Mat\n    . Añadir Mat\n   Al seleccionar un material de la lista de abajo, se cumple con lo que\n   dice el botón.\n - El botón LISTA GUIAS, muestra una ventana para modificarlos." +
+                "\nDERECHA:\n - El botón LIMPIAR, limpia todos los campos.\n - El botón GUARDAR, tiene 2 funcionalidades:\n    . Si ha entrado para MODIFICAR una ruta\n         Se guardan los cambios aplicados.\n    . Si ha entrado para AÑADIR una ruta\n         Se añade la ruta creada a la anterior ventana.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        /**************************************************************/
+
+        /*Metodos reservado para la correcta devolucion de la Ruta a la hora de Crear una nueva*/
+        public Ruta Result { get; set; } // Terminado
+        public bool OperacionCompletada { get; set; } // Terminado
+
+        /**************************************************************/
+
+        /************************************************************************************************/
+
+        /*Botones Reservados para la creacion de las diferentes Ventanas*/
+
+        /*Boton reservado para la Ventana Guias*/
+        private void btnListaGuias_Click(object sender, RoutedEventArgs e)
+        {
+            ListaDeGuias ventanaListaDeGuias = new ListaDeGuias(listadoGuiasAux);
+            /*Utilizamos ShowDialog ya que vamos esperar a que la otra ventana se cierre para luego despues actualizarla correctamente*/
+            ventanaListaDeGuias.ShowDialog();
+        }
+
+        /************************************************************************************************/
+
+        /*Metodos Auxiliares para todos los botones*/
         private bool introducirNumero(TextBox textbox, int receptor, string mensaje) // Terminado
         {
             int aDevolver;
             bool esNumero = false;
-            if(textbox.Text != ""){ /*Hemos puesto esta condicion para que si el espacio esta en blanco, tambien pueda crearse la ruta*/
+            if (textbox.Text != "")
+            { /*Hemos puesto esta condicion para que si el espacio esta en blanco, tambien pueda crearse la ruta*/
                 esNumero = int.TryParse(textbox.Text, out aDevolver);
                 if (esNumero == true)
                 {
@@ -169,7 +186,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
             }
             else
             {
-                esNumero= true;
+                esNumero = true;
             }
             return esNumero;
         }
@@ -211,13 +228,13 @@ namespace Lab_IPO1_ft.Ana_Enrique
         }
         private Guia seleccionarGuia(ComboBox comboBox) // Terminado
         {
-            Guia guiaADevolver =  new Guia("NoExisteGuia", "", null, 0, "", 0);
+            Guia guiaADevolver = new Guia("NoExisteGuia", "", null, 0, "", 0);
 
             if (comboBox.SelectedIndex != -1)
             {
                 guiaADevolver = listadoGuiasAux[comboBox.SelectedIndex];
             }
-            
+
             return guiaADevolver;
         }
         private DateTime seleccionarFecha() // Terminado
@@ -229,27 +246,26 @@ namespace Lab_IPO1_ft.Ana_Enrique
             }
             return fecha;
         }
-
-        /*Metodos reservado para la correcta devolucion de la Ruta a la hora de Crear una nueva*/
-        public Ruta Result { get; set; }
-        public bool OperacionCompletada { get; set; }
-
-        /*Boton reservado para la Ventana Guias*/
-        private void btnListaGuias_Click(object sender, RoutedEventArgs e)
+        private void introducirEnLaListBox(ListBox listbox, List<string> listaAIntroducir) // Terminado
         {
-
+            if (listaAIntroducir != null)
+            {
+                for (int i = 0; i < listaAIntroducir.Count; i++)
+                {
+                    listbox.Items.Add(listaAIntroducir[i]);
+                }
+            }
         }
-        /*Boton reservado para suministrar ayuda al usuario*/
-        private void btnAyuda_Click(object sender, RoutedEventArgs e)
+        private void introducirBoolean(bool emisor, ComboBox receptor) // Terminado
         {
-            MessageBox.Show("La ventana esta dividida en 2 partes:\n" +
-                "IZQUIERDA:\n - Se muestran todos los atributos de una ruta.\n - Se pueden modificar todos, excepto las incidencias.\n - En el campo Materiales, encontramos 2 botones:\n    . Borrar Mat\n    . Añadir Mat\n   Al seleccionar un material de la lista de abajo, se cumple con lo que\n   dice el botón.\n - El botón LISTA GUIAS, muestra una ventana para modificarlos." +
-                "\nDERECHA:\n - El botón LIMPIAR, limpia todos los campos.\n - El botón GUARDAR, tiene 2 funcionalidades:\n    . Si ha entrado para MODIFICAR una ruta\n         Se guardan los cambios aplicados.\n    . Si ha entrado para AÑADIR una ruta\n         Se añade la ruta creada a la anterior ventana.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-
-        private void btnAyuda_SourceUpdated(object sender, DataTransferEventArgs e)
-        {
-
+            if (emisor == true)
+            {
+                receptor.Text = "Si";
+            }
+            else
+            {
+                receptor.Text = "No";
+            }
         }
     }
 }

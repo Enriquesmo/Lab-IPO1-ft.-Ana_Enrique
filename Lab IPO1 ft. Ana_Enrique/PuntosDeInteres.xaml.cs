@@ -15,32 +15,24 @@ using System.Windows.Shapes;
 namespace Lab_IPO1_ft.Ana_Enrique
 {
     /// <summary>
-    /// Lógica de interacción para Participantes.xaml
+    /// Lógica de interacción para PuntosDeInteres.xaml
     /// </summary>
-    public partial class Participantes : Window
+    public partial class PuntosDeInteres : Window
     {
         /************************************************************************************************/
 
-        /*Inicializacion de la ventana Participantes*/
+        /*Inicializacion de la ventana PuntosDeInteres*/
 
-        public Participantes(Ruta Ruta)
+        public PuntosDeInteres(Ruta Ruta)
         {
             InitializeComponent();
-            
         }
 
         /************************************************************************************************/
 
-        /*Botones de la propia ventana Participantes*/
+        /*Botones de la propia pagina PuntosDeInteres*/
 
-        private void ListaParticipantes_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
-        private void btnAyuda_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Aquí hay que introducir la ayuda que se facilitará al usuario para esta ventana.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
         /************************************************************************************************/
 
         /*Metodos Auxiliares para todos los botones*/

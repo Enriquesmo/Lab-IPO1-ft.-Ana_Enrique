@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,32 +16,24 @@ using System.Windows.Shapes;
 namespace Lab_IPO1_ft.Ana_Enrique
 {
     /// <summary>
-    /// Lógica de interacción para Participantes.xaml
+    /// Lógica de interacción para ListaDeGuias.xaml
     /// </summary>
-    public partial class Participantes : Window
+    public partial class ListaDeGuias : Window
     {
         /************************************************************************************************/
 
-        /*Inicializacion de la ventana Participantes*/
+        /*Inicializacion de la ventana ListaDeRutas*/
 
-        public Participantes(Ruta Ruta)
+        public ListaDeGuias(ObservableCollection<Guia> listadoGuias)
         {
             InitializeComponent();
-            
         }
 
         /************************************************************************************************/
 
-        /*Botones de la propia ventana Participantes*/
+        /*Botones de la propia pagina Participantes*/
 
-        private void ListaParticipantes_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
-        private void btnAyuda_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Aquí hay que introducir la ayuda que se facilitará al usuario para esta ventana.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
         /************************************************************************************************/
 
         /*Metodos Auxiliares para todos los botones*/

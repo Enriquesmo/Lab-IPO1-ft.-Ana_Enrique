@@ -25,6 +25,11 @@ namespace Lab_IPO1_ft.Ana_Enrique
     {
         ObservableCollection<Excursionista> particip;
         ObservableCollection<Guia> listadoGuias;
+
+        /************************************************************************************************/
+
+        /*Inicializacion de la ventana ListaDeRutas*/
+
         public ListaDeRutas()
         {
             InitializeComponent();
@@ -58,6 +63,11 @@ namespace Lab_IPO1_ft.Ana_Enrique
             Listarutas.Items.Add(ruta1);
             Listarutas.Items.Add(ruta2);
         }
+
+        /************************************************************************************************/
+
+        /*Botones de la propia ventana ListaDeRutas*/
+
         private void txbBuscar_KeyUp(object sender, KeyEventArgs e)
         {
             //implementar buscador
@@ -67,7 +77,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
             estadoBotones(true);
             ActualizarVentana();
         }
-        private void btnX_Click(object sender, RoutedEventArgs e)
+        private void btnX_Click(object sender, RoutedEventArgs e) // Finalizado
         {
             Listarutas.SelectedItem = null;
             mapa.Visibility = Visibility.Hidden;
@@ -76,12 +86,9 @@ namespace Lab_IPO1_ft.Ana_Enrique
             lblDescripcion2.Content = "";
             lblpartic2.Content = "";
         }
-        private void estadoBotones(bool estado)
+        private void Btn_Ayuda_Click(object sender, RoutedEventArgs e)
         {
-            btnRuta.IsEnabled = estado;
-            btnParticipantes.IsEnabled = estado;
-            btnPuntos.IsEnabled = estado;
-            btnFinalizar.IsEnabled = estado;
+            MessageBox.Show("Aquí hay que introducir la ayuda que se facilitará al usuario para esta ventana.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void btnFinalizar_Click(object sender, RoutedEventArgs e) // Finalizado
         {
@@ -96,16 +103,26 @@ namespace Lab_IPO1_ft.Ana_Enrique
             Listarutas.Items.Remove(seleccionada);
         }
 
+        /**************************************************************/
+
+        /*Botones Reservados para la creacion de las Ventanas*/
+
         /*Boton reservado para la Ventana Participantes*/
         private void btnParticipantes_Click(object sender, RoutedEventArgs e)
         {
             Ruta seleccionada = Listarutas.SelectedItem as Ruta;
-            Participantes partic = new Participantes();
-            partic.Show();
-            partic.ListaParticipantes.ItemsSource = seleccionada.participantes;
-            particip = seleccionada.participantes;
+            Participantes ventanaParticipantes = new Participantes(seleccionada);
+            ventanaParticipantes.ShowDialog();
+            //partic.ListaParticipantes.ItemsSource = seleccionada.participantes;
+            //particip = seleccionada.participantes;
         }
-
+        /*Boton reservado para la Ventana PuntosDeInteres*/
+        private void btnPuntos_Click(object sender, RoutedEventArgs e)
+        {
+            Ruta seleccionada = Listarutas.SelectedItem as Ruta;
+            PuntosDeInteres ventanaPuntosDeInteres = new PuntosDeInteres(seleccionada);
+            ventanaPuntosDeInteres.ShowDialog();
+        }
         /*Botones reservados para la Ventana DetallesRuta*/
         private void Btn_AñadirRuta_Click(object sender, RoutedEventArgs e) // Finalizado
         {
@@ -130,7 +147,13 @@ namespace Lab_IPO1_ft.Ana_Enrique
             seleccionada = ventanaDetallesRuta.Result;
             ActualizarVentana();
         }
-        /*Metodo utilizado a la hora de seleccionar un elemento en la lista para cargar sus datos y a la hora de haber modificado o añadido una ruta para actualizarlos*/
+
+        /**************************************************************/
+
+        /************************************************************************************************/
+
+        /*Metodos Auxiliares para todos los botones*/
+
         private void ActualizarVentana() // Finalizado
         {
             Listarutas.Items.Refresh();
@@ -156,13 +179,19 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 }
             }
         }
-        /*Boton reservado para suministrar ayuda al usuario*/
-        private void Btn_Ayuda_Click(object sender, RoutedEventArgs e)
+        private void estadoBotones(bool estado) // Finalizado
         {
-            MessageBox.Show("Aquí hay que introducir la ayuda que se facilitará al usuario para esta ventana.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
+            btnRuta.IsEnabled = estado;
+            btnParticipantes.IsEnabled = estado;
+            btnPuntos.IsEnabled = estado;
+            btnFinalizar.IsEnabled = estado;
         }
     }
 }
+
+
+
+
 /* private List<Ruta> CargarContenidoXML()
  {
      List<Ruta> listado = new List<Ruta>();

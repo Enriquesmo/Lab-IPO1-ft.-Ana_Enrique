@@ -78,9 +78,6 @@
                     FontSize="14" FontWeight="Bold" 
                     Background="#FF6189CF" Foreground="White" 
                     Cursor="Hand" Click="btnLogin_Click" Margin="165,246,149,10"/>
-                <Image x:Name="ImgCheckUsuario" 
-                    HorizontalAlignment="Left" Width="30                " Margin="378,106,0,176"/>
-                <Image x:Name="ImgCheckPassword" HorizontalAlignment="Left" Width="30                " Margin="378,179,0,92"/>
                 <Button x:Name="btnOlvidoPss" Content="¿Olvidó su contraseña?" HorizontalAlignment="Left" Margin="253,221,0,0" VerticalAlignment="Top" Height="20" Width="120" FontSize="10" FontStyle="Italic" FontWeight="Bold" Background="{x:Null}" Foreground="#FFA7C2F9" BorderBrush="{x:Null}" Click="btnOlvidoPss_Click"/>
                 <Button x:Name="btnAyuda1" HorizontalAlignment="Left" Margin="386,94,0,0" VerticalAlignment="Top" Width="48" Height="48" Click="btnAyuda1_Click">
                     <Button.Background>
@@ -133,9 +130,6 @@
                     FontSize="14" FontWeight="Bold" 
                     Background="#FF6189CF" Foreground="White" 
                     Cursor="Hand" Click="btnComprobar_Click" Margin="162,266,162,10"/>
-                <Image x:Name="ImgCheckUsuario1" 
-                    HorizontalAlignment="Left" Width="30                " Margin="378,106,0,176"/>
-                <Image x:Name="ImgCheckPassword1" HorizontalAlignment="Left" Width="30                " Margin="378,179,0,92"/>
                 <Button x:Name="btnEnviarCod" 
                     Content="Enviar código" 
                     FontSize="14" FontWeight="Bold" 
@@ -192,9 +186,6 @@
                     FontSize="14" FontWeight="Bold" 
                     Background="#FF6189CF" Foreground="White" 
                     Cursor="Hand" Click="btnCambiarPss_Click" Margin="146,246,146,10"/>
-                <Image x:Name="ImgCheckUsuario2" 
-                    HorizontalAlignment="Left" Width="30                " Margin="378,106,0,176"/>
-                <Image x:Name="ImgCheckPassword2" HorizontalAlignment="Left" Width="30                " Margin="378,179,0,92"/>
                 <Button x:Name="btnCerrar2" Height="25" Margin="409,10,10,0" VerticalAlignment="Top" Foreground="White" Click="btnCerrar2_Click" BorderBrush="{x:Null}" Width="25">
                     <Button.Background>
                         <ImageBrush ImageSource="/close.png"/>
