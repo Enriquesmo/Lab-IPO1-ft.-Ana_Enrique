@@ -100,6 +100,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         private void Btn_BorrarRuta_Click(object sender, RoutedEventArgs e) // Finalizado
         {
             Ruta seleccionada = Listarutas.SelectedItem as Ruta;
+            MessageBox.Show("¿Está seguro que quiere borrar la ruta?.", "Borrar Ruta", MessageBoxButton.OKCancel);
             Listarutas.Items.Remove(seleccionada);
         }
 
@@ -144,7 +145,10 @@ namespace Lab_IPO1_ft.Ana_Enrique
             DetallesRuta ventanaDetallesRuta = new DetallesRuta(seleccionada,listadoGuias);
             /*Utilizamos ShowDialog ya que vamos esperar a que la otra ventana se cierre para luego despues actualizarla correctamente*/
             ventanaDetallesRuta.ShowDialog();
-            seleccionada = ventanaDetallesRuta.Result;
+            if (ventanaDetallesRuta.OperacionCompletada == true)
+            {
+                seleccionada = ventanaDetallesRuta.Result;
+            }
             ActualizarVentana();
         }
 

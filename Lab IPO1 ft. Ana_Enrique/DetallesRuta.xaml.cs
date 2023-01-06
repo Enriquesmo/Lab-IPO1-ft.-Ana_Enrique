@@ -105,36 +105,43 @@ namespace Lab_IPO1_ft.Ana_Enrique
         }
         private void btnFinalizar_Click(object sender, RoutedEventArgs e) // Terminado
         {
-            rutaADevolver.Nombre = introducirString(txbNombre.Text);
+            OperacionCompletada = false;
+            bool esNumeroDuracion = introducirNumero(txbDuracion, rutaADevolver.Duracion, "la duración");
+            bool esNumeroMaxParticipantes = introducirNumero(txbMaxPartic, rutaADevolver.maxParticipantes, "el número máximo de participantes");
+            String nombreAux = introducirString(txbNombre.Text);
+
             bool hayNombre = true;
-            if (rutaADevolver.Nombre.Equals(""))
+            if (nombreAux.Equals(""))
             {
                 MessageBox.Show("Debe introducir al menos\n - El nombre de la ruta.\n para Finalizar este proceso.", "Error", MessageBoxButton.OK);
                 hayNombre = false;
             }
-            rutaADevolver.Provincia = introducirString(txbProvincia.Text);
-            rutaADevolver.Dificultad = introducirString(ComboBoxDificultad.Text);
-            rutaADevolver.formaLlegada = introducirString(txbLlegada.Text);
-            rutaADevolver.formaVuelta = introducirString(txbVuelta.Text);
-            rutaADevolver.material = extraerElementosListBox(ListBoxMaterial);
-            rutaADevolver.seCome = comprobarOpcion(ComboBoxSeCome.Text);
-            rutaADevolver.Descripcion = introducirString(txbDescripcion.Text);
-            rutaADevolver.Origen = introducirString(txbOrigen.Text);
-            rutaADevolver.Destino = introducirString(txbDestino.Text);
-            rutaADevolver.FechayHora = seleccionarFecha(); // no estoy seguro
-            rutaADevolver.Finalizada = comprobarOpcion(ComboBoxFinalizada.Text);
-            bool esNumeroDuracion = introducirNumero(txbDuracion, rutaADevolver.Duracion, "la duración");
-            bool esNumeroMaxParticipantes = introducirNumero(txbMaxPartic, rutaADevolver.maxParticipantes, "el número máximo de participantes");
-            if (seleccionarGuia(ComboBoxGuia).Nombre != "NoExisteGuia")
+            else
             {
-                rutaADevolver.guia = seleccionarGuia(ComboBoxGuia);
-            }
-            if (esNumeroDuracion == true && esNumeroMaxParticipantes == true && hayNombre == true)
-            {
-                Result = rutaADevolver;
-                OperacionCompletada = true;
-                MessageBox.Show("Todos los cambios han sido guardados.", "Exito", MessageBoxButton.OK);
-                Close();
+                if (esNumeroDuracion == true && esNumeroMaxParticipantes == true && hayNombre == true)
+                {
+                    rutaADevolver.Nombre = introducirString(txbNombre.Text);
+                    rutaADevolver.Provincia = introducirString(txbProvincia.Text);
+                    rutaADevolver.Dificultad = introducirString(ComboBoxDificultad.Text);
+                    rutaADevolver.formaLlegada = introducirString(txbLlegada.Text);
+                    rutaADevolver.formaVuelta = introducirString(txbVuelta.Text);
+                    rutaADevolver.material = extraerElementosListBox(ListBoxMaterial);
+                    rutaADevolver.seCome = comprobarOpcion(ComboBoxSeCome.Text);
+                    rutaADevolver.Descripcion = introducirString(txbDescripcion.Text);
+                    rutaADevolver.Origen = introducirString(txbOrigen.Text);
+                    rutaADevolver.Destino = introducirString(txbDestino.Text);
+                    rutaADevolver.FechayHora = seleccionarFecha(); // no estoy seguro
+                    rutaADevolver.Finalizada = comprobarOpcion(ComboBoxFinalizada.Text);
+                    if (seleccionarGuia(ComboBoxGuia).Nombre != "NoExisteGuia")
+                    {
+                        rutaADevolver.guia = seleccionarGuia(ComboBoxGuia);
+                    }
+                    /*Fase final*/
+                    Result = rutaADevolver;
+                    OperacionCompletada = true;
+                    MessageBox.Show("Todos los cambios han sido guardados.", "Exito", MessageBoxButton.OK);
+                    Close();
+                }
             }
         }
         private void btnAyuda_Click(object sender, RoutedEventArgs e) // Terminado

@@ -77,13 +77,11 @@
                     </Image>
                     <Button x:Name="btnAyuda" Width="48" Height="48" Click="btnAyuda_Click" HorizontalAlignment="Left" Canvas.Left="441" Canvas.Top="10" VerticalAlignment="Center">
                         <Button.Background>
-                            <ImageBrush>
-                                <ImageBrush.ImageSource>
-                                    <BitmapImage CacheOption="OnLoad" CreateOptions="IgnoreImageCache" UriSource="file:///C:/Users/kikes/AppData/Local/Microsoft/VisualStudio/17.0_72e5529e/Designer/Cache/1-1359854101x86DD/ayuda.png"/>
-                                </ImageBrush.ImageSource>
-                            </ImageBrush>
+                            <ImageBrush ImageSource="/ayuda.png"/>
                         </Button.Background>
                     </Button>
+
+
                 </Canvas>
 
 
