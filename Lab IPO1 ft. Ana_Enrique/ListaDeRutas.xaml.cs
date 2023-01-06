@@ -92,16 +92,25 @@ namespace Lab_IPO1_ft.Ana_Enrique
         }
         private void btnFinalizar_Click(object sender, RoutedEventArgs e) // Finalizado
         {
-            lblFinalizar.Visibility=Visibility.Visible;
-            Ruta seleccionada = Listarutas.SelectedItem as Ruta;
-            seleccionada.Finalizada = true;
-            btnFinalizar.IsEnabled = false;
+            System.Windows.MessageBoxResult result = MessageBox.Show("¿Está seguro que quiere finalizar la ruta?.", "Confirmación", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                lblFinalizar.Visibility = Visibility.Visible;
+                Ruta seleccionada = Listarutas.SelectedItem as Ruta;
+                seleccionada.Finalizada = true;
+                btnFinalizar.IsEnabled = false;
+            }
         }
         private void Btn_BorrarRuta_Click(object sender, RoutedEventArgs e) // Finalizado
         {
             Ruta seleccionada = Listarutas.SelectedItem as Ruta;
-            MessageBox.Show("¿Está seguro que quiere borrar la ruta?.", "Borrar Ruta", MessageBoxButton.OKCancel);
-            Listarutas.Items.Remove(seleccionada);
+            System.Windows.MessageBoxResult result = MessageBox.Show("¿Está seguro que quiere borrar la ruta?.", "Confirmación", MessageBoxButton.OKCancel);
+
+            if  (result == MessageBoxResult.OK)
+            {
+                Listarutas.Items.Remove(seleccionada);
+            }
+
         }
 
         /**************************************************************/

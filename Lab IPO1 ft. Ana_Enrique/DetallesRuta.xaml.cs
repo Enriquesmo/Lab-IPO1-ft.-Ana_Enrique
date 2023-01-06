@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+//using System.Windows.Data;
+//using System.Windows.Documents;
+//using System.Windows.Input;
+//using System.Windows.Media;
+//using System.Windows.Media.Imaging;
+//using System.Windows.Shapes;
 
 namespace Lab_IPO1_ft.Ana_Enrique
 {
@@ -103,7 +103,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         {
             ListBoxMaterial.Items.Remove(ListBoxMaterial.SelectedItem);
         }
-        private void btnFinalizar_Click(object sender, RoutedEventArgs e) // Terminado
+        private void btnFinalizar_Click(object sender, RoutedEventArgs e) // Terminado CREO
         {
             OperacionCompletada = false;
             bool esNumeroDuracion = introducirNumero(txbDuracion, rutaADevolver.Duracion, "la duración");
@@ -118,29 +118,32 @@ namespace Lab_IPO1_ft.Ana_Enrique
             }
             else
             {
-                if (esNumeroDuracion == true && esNumeroMaxParticipantes == true && hayNombre == true)
+                if (esNumeroDuracion == true && esNumeroMaxParticipantes == true && hayNombre == true )
                 {
-                    rutaADevolver.Nombre = introducirString(txbNombre.Text);
-                    rutaADevolver.Provincia = introducirString(txbProvincia.Text);
-                    rutaADevolver.Dificultad = introducirString(ComboBoxDificultad.Text);
-                    rutaADevolver.formaLlegada = introducirString(txbLlegada.Text);
-                    rutaADevolver.formaVuelta = introducirString(txbVuelta.Text);
-                    rutaADevolver.material = extraerElementosListBox(ListBoxMaterial);
-                    rutaADevolver.seCome = comprobarOpcion(ComboBoxSeCome.Text);
-                    rutaADevolver.Descripcion = introducirString(txbDescripcion.Text);
-                    rutaADevolver.Origen = introducirString(txbOrigen.Text);
-                    rutaADevolver.Destino = introducirString(txbDestino.Text);
-                    rutaADevolver.FechayHora = seleccionarFecha(); // no estoy seguro
-                    rutaADevolver.Finalizada = comprobarOpcion(ComboBoxFinalizada.Text);
-                    if (seleccionarGuia(ComboBoxGuia).Nombre != "NoExisteGuia")
-                    {
-                        rutaADevolver.guia = seleccionarGuia(ComboBoxGuia);
+                    System.Windows.MessageBoxResult result = MessageBox.Show("¿Estás seguro de que quieres guardar los cambios?", "Confirmación", MessageBoxButton.OKCancel);
+                    if(result == MessageBoxResult.OK){
+                        rutaADevolver.Nombre = introducirString(txbNombre.Text);
+                        rutaADevolver.Provincia = introducirString(txbProvincia.Text);
+                        rutaADevolver.Dificultad = introducirString(ComboBoxDificultad.Text);
+                        rutaADevolver.formaLlegada = introducirString(txbLlegada.Text);
+                        rutaADevolver.formaVuelta = introducirString(txbVuelta.Text);
+                        rutaADevolver.material = extraerElementosListBox(ListBoxMaterial);
+                        rutaADevolver.seCome = comprobarOpcion(ComboBoxSeCome.Text);
+                        rutaADevolver.Descripcion = introducirString(txbDescripcion.Text);
+                        rutaADevolver.Origen = introducirString(txbOrigen.Text);
+                        rutaADevolver.Destino = introducirString(txbDestino.Text);
+                        rutaADevolver.FechayHora = seleccionarFecha();
+                        rutaADevolver.Finalizada = comprobarOpcion(ComboBoxFinalizada.Text);
+                        if (seleccionarGuia(ComboBoxGuia).Nombre != "NoExisteGuia")
+                        {
+                            rutaADevolver.guia = seleccionarGuia(ComboBoxGuia);
+                        }
+                        /*Fase final*/
+                        Result = rutaADevolver;
+                        OperacionCompletada = true;
+                        MessageBox.Show("Todos los cambios han sido guardados.", "Exito", MessageBoxButton.OK);
+                        Close();
                     }
-                    /*Fase final*/
-                    Result = rutaADevolver;
-                    OperacionCompletada = true;
-                    MessageBox.Show("Todos los cambios han sido guardados.", "Exito", MessageBoxButton.OK);
-                    Close();
                 }
             }
         }
