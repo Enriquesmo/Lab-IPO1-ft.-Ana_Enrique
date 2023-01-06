@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab_IPO1_ft.Ana_Enrique"
         mc:Ignorable="d"
-        Title="ListaDeRutas" Height="450" Width="800">
+        
+        Title="ListaDeRutas" Height="450" Width="800"
+            MinHeight="450" MinWidth="800">
+    
     <Viewbox Stretch="Fill">
         <Grid Height="434" Width="800">
             <Grid.Background>

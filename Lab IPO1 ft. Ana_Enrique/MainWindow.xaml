@@ -10,7 +10,7 @@
         WindowStartupLocation="CenterScreen" 
         HorizontalContentAlignment="Stretch" 
         VerticalContentAlignment="Stretch" 
-        MinHeight="450" MinWidth="700"   >
+        MinHeight="450" MinWidth="700">
 
     <Grid x:Name="pnlDisenoPrincipal">
         <Grid.RowDefinitions>
