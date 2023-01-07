@@ -110,7 +110,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
             {
                 Listarutas.Items.Remove(seleccionada);
             }
-
         }
 
         /**************************************************************/

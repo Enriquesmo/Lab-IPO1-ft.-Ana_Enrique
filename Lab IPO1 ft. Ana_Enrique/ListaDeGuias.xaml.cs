@@ -22,17 +22,46 @@ namespace Lab_IPO1_ft.Ana_Enrique
     {
         /************************************************************************************************/
 
-        /*Inicializacion de la ventana ListaDeRutas*/
+        /*Inicializacion de la ventana ListaDeGuias*/
 
         public ListaDeGuias(ObservableCollection<Guia> listadoGuias)
         {
             InitializeComponent();
+            for(int i = 0; i < listadoGuias.Count; i++)
+            {
+                ListaParticipantes.Items.Add(listadoGuias[i]);
+            }
         }
 
         /************************************************************************************************/
 
-        /*Botones de la propia pagina Participantes*/
+        /*Botones de la propia ventana ListaDeGuias*/
+        private void btnAyuda_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+        private void btnBorrar_Click(object sender, RoutedEventArgs e)
+        {
+            Guia seleccionada = ListaParticipantes.SelectedItem as Guia;
+            System.Windows.MessageBoxResult result = MessageBox.Show("¿Está seguro que quiere borrar el guia?.", "Confirmación", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                ListaParticipantes.Items.Remove(seleccionada);
+            }
+        }
+        private void btnMod_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void btnAnadir_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ListaParticipantes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
 
         /************************************************************************************************/
 
