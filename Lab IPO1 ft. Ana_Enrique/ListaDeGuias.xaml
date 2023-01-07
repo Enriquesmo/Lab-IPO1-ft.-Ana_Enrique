@@ -51,7 +51,7 @@
                         <ImageBrush ImageSource="/Foto Persona1.jpg"/>
                     </Image.OpacityMask>
                 </Image>
-                <Button x:Name="btnAyuda" Width="48" Height="48" Click="btnAyuda_Click" HorizontalAlignment="Left" Canvas.Left="459" Canvas.Top="10" VerticalAlignment="Center">
+                <Button x:Name="btnAyuda" Width="48" Height="48" Click="btnAyuda_Click" HorizontalAlignment="Left" Canvas.Left="459" Canvas.Top="10" VerticalAlignment="Center" BorderBrush="{x:Null}">
                     <Button.Background>
                         <ImageBrush ImageSource="/ayuda.png"/>
                     </Button.Background>

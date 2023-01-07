@@ -63,8 +63,8 @@
                                 </TransformGroup>
                             </ListBox.RenderTransform>
                         </ListBox>
-                        <Button x:Name="btnAnadir" Content="Añadir" Canvas.Left="300" Canvas.Top="165" Height="41" Width="88"/>
-                        <Button x:Name="btnMod" Content="Modificar" Canvas.Left="230" Canvas.Top="231" Height="30" Width="60"/>
+                        <Button x:Name="btnAnadir" Content="Añadir" Canvas.Left="260" Canvas.Top="231" Height="30" Width="69"/>
+                        <Button x:Name="btnMod" Content="Modificar" Canvas.Left="182" Canvas.Top="231" Height="30" Width="60"/>
                         <Button x:Name="btnBorrar" Content="Borrar" Canvas.Left="392" Canvas.Top="231" Height="30" Width="70"/>
                     </Canvas>
 
@@ -76,7 +76,7 @@
                             <ImageBrush ImageSource="/Foto Persona1.jpg"/>
                         </Image.OpacityMask>
                     </Image>
-                    <Button x:Name="btnAyuda" Width="48" Height="48" Click="btnAyuda_Click" HorizontalAlignment="Left" Canvas.Left="441" Canvas.Top="10" VerticalAlignment="Center">
+                    <Button x:Name="btnAyuda" Width="48" Height="48" Click="btnAyuda_Click" HorizontalAlignment="Left" Canvas.Left="441" Canvas.Top="10" VerticalAlignment="Center" BorderBrush="{x:Null}">
                         <Button.Background>
                             <ImageBrush ImageSource="/ayuda.png"/>
                         </Button.Background>
