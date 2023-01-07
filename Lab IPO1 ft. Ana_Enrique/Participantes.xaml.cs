@@ -29,7 +29,10 @@ namespace Lab_IPO1_ft.Ana_Enrique
         {
             InitializeComponent();
             lista = ruta.participantes;
-            ListaParticipantes.ItemsSource = lista;
+            foreach (Excursionista ex in lista)
+            {
+                ListaParticipantes.Items.Add(ex);
+            }
             
         }
 
@@ -40,7 +43,8 @@ namespace Lab_IPO1_ft.Ana_Enrique
         private void ListaParticipantes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selec = ListaParticipantes.SelectedItem as Excursionista;
-            txbNombreApp.Text = selec.Nombre + " "+ selec.Apellidos;
+            txbNombre.Text = selec.Nombre;
+            txbApp.Text = selec.Apellidos;
             txbEdad.Text = selec.Edad.ToString();
             txbTelef.Text= selec.Telefono.ToString();
             txbDni.Text = selec.DNI;
@@ -49,6 +53,30 @@ namespace Lab_IPO1_ft.Ana_Enrique
         {
             MessageBox.Show("Aquí hay que introducir la ayuda que se facilitará al usuario para esta ventana.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void btnBorrar_Click(object sender, RoutedEventArgs e)
+        {
+           
+            selec = ListaParticipantes.SelectedItem as Excursionista;
+            ListaParticipantes.Items.Remove(selec);
+           
+        }
+
+        private void btnAnadir_Click(object sender, RoutedEventArgs e)
+        {
+            Excursionista nuevo = new Excursionista(txbNombre.Text, txbApp.Text, int.Parse(txbEdad.Text), int.Parse(txbTelef.Text), txbDni.Text);
+            lista.Add(nuevo);
+        }
+
+        private void btnMod_Click(object sender, RoutedEventArgs e)
+        {
+            Excursionista nuevo = new Excursionista(txbNombre.Text, txbApp.Text, int.Parse(txbEdad.Text), int.Parse(txbTelef.Text), txbDni.Text);
+            selec = ListaParticipantes.SelectedItem as Excursionista;
+            ListaParticipantes.Items.Remove(selec);
+            lista.Remove(selec);
+            lista.Add(nuevo);
+        }
+
         /************************************************************************************************/
 
         /*Metodos Auxiliares para todos los botones*/

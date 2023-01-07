@@ -44,7 +44,7 @@
                         </TransformGroup>
                     </StackPanel.RenderTransform>
                     <Canvas Height="280">
-                        <TextBox x:Name="txbNombreApp" Canvas.Left="32" TextWrapping="Wrap" Canvas.Top="32" Width="310" Height="18"/>
+                        <TextBox x:Name="txbNombre" Canvas.Left="32" TextWrapping="Wrap" Canvas.Top="32" Width="148" Height="18"/>
                         <Label x:Name="lblNombreApp" Content="Nombre y Apellidos" Canvas.Left="32" Width="120"/>
                         <Label x:Name="lblTelef" Content="Teléfono" Canvas.Left="32" Width="102" Canvas.Top="55"/>
                         <Label x:Name="lblEdad" Content="Edad" Canvas.Left="32" Width="51" Canvas.Top="104"/>
@@ -63,9 +63,10 @@
                                 </TransformGroup>
                             </ListBox.RenderTransform>
                         </ListBox>
-                        <Button x:Name="btnAnadir" Content="Añadir" Canvas.Left="260" Canvas.Top="231" Height="30" Width="69"/>
-                        <Button x:Name="btnMod" Content="Modificar" Canvas.Left="182" Canvas.Top="231" Height="30" Width="60"/>
-                        <Button x:Name="btnBorrar" Content="Borrar" Canvas.Left="392" Canvas.Top="231" Height="30" Width="70"/>
+                        <Button x:Name="btnAnadir" Content="Añadir" Canvas.Left="260" Canvas.Top="231" Height="30" Width="69" Click="btnAnadir_Click"/>
+                        <Button x:Name="btnMod" Content="Modificar" Canvas.Left="182" Canvas.Top="231" Height="30" Width="60" Click="btnMod_Click"/>
+                        <Button x:Name="btnBorrar" Content="Borrar" Canvas.Left="392" Canvas.Top="231" Height="30" Width="70" Click="btnBorrar_Click"/>
+                        <TextBox x:Name="txbApp" Height="18" Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="32" Width="196"/>
                     </Canvas>
 
 
