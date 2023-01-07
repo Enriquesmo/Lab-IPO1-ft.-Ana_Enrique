@@ -44,24 +44,33 @@ namespace Lab_IPO1_ft.Ana_Enrique
             listadoGuias.Add(guia1);
             Guia guia2 = new Guia("Manoli", "Garcia Sanchez", null, 123456789, "manoligs@gmail.com", 10);
             listadoGuias.Add(guia2);
+            Excursionista part1 = new Excursionista("Marta", "Sanchez Ruiz", 23, 345678912, "70747431X");
+            Excursionista part2 = new Excursionista("Marcos", "Diaz Sanchez", 27, 456789123, "52021073J");
+            Excursionista part3 = new Excursionista("Antonio", "Rodriguez Gomez", 37, 669733434, "21773636M");
+
 
             /*Creacion de Rutas de ejemplo*/
-            Ruta ruta1 = new Ruta("Ruta A", "Ciudad Real", null, "Descripcion de prueba 1, ruta en ciudad real", 10, 1, 20, particip);
+            Ruta ruta1 = new Ruta("Ruta A", "Ciudad Real", null, "Descripcion de prueba 1, ruta en ciudad real", 10, 1, 20);
             ruta1.formaLlegada = "En avion";
             ruta1.formaVuelta = "En coche";
             ruta1.Origen = "Alicante";
             ruta1.Destino = "Tu casa";
             ruta1.guia= guia1;
+            ruta1.participantes.Add(part1);
+            ruta1.participantes.Add(part2);
             List<string> listaIncidenciasAux = new List<string> { "Me hablaron feo", "El guia no era guapo", "Mucho calor y poca agua", "Poca comida", "Mal guiado" };
             List<string> listaMaterialesAux = new List<string> { "mochila", "gafas", "Botas de montaña buenas" };
             ruta1.incidencias = listaIncidenciasAux;
             ruta1.material = listaMaterialesAux;
             ruta1.FechayHora = DateTime.Parse("18/11/2021");
             ruta1.seCome = true;
-            Ruta ruta2 = new Ruta("Ruta B", "Madrid", null, "Descripcion de prueba 2, ruta en Madrid", 10, 1, 20, particip);
+            Ruta ruta2 = new Ruta("Ruta B", "Madrid", null, "Descripcion de prueba 2, ruta en Madrid", 10, 1, 20);
             ruta2.Finalizada = true;
+            ruta2.participantes.Add(part3);
+            ruta2.participantes.Add(part2);
             Listarutas.Items.Add(ruta1);
             Listarutas.Items.Add(ruta2);
+
         }
 
         /************************************************************************************************/
@@ -135,7 +144,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         /*Botones reservados para la Ventana DetallesRuta*/
         private void Btn_AñadirRuta_Click(object sender, RoutedEventArgs e) // Finalizado
         {
-            Ruta nuevaRuta = new Ruta("Nueva Ruta", "", null, "", 0, 1, 0, null);
+            Ruta nuevaRuta = new Ruta("Nueva Ruta", "", null, "", 0, 1, 0);
             Listarutas.Items.Add(nuevaRuta);
             DetallesRuta ventanaDetallesRuta = new DetallesRuta(nuevaRuta, listadoGuias);
             /*Utilizamos ShowDialog ya que vamos esperar a que la otra ventana se cierre para luego despues actualizarla correctamente*/

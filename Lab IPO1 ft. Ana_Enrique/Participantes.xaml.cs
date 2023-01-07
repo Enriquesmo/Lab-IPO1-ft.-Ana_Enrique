@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,12 +21,15 @@ namespace Lab_IPO1_ft.Ana_Enrique
     public partial class Participantes : Window
     {
         /************************************************************************************************/
-
+        ObservableCollection<Excursionista> lista = new ObservableCollection<Excursionista>();
+        Excursionista selec;
         /*Inicializacion de la ventana Participantes*/
 
-        public Participantes(Ruta Ruta)
+        public Participantes(Ruta ruta)
         {
             InitializeComponent();
+            lista = ruta.participantes;
+            ListaParticipantes.ItemsSource = lista;
             
         }
 
@@ -35,7 +39,11 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         private void ListaParticipantes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            selec = ListaParticipantes.SelectedItem as Excursionista;
+            txbNombreApp.Text = selec.Nombre + " "+ selec.Apellidos;
+            txbEdad.Text = selec.Edad.ToString();
+            txbTelef.Text= selec.Telefono.ToString();
+            txbDni.Text = selec.DNI;
         }
         private void btnAyuda_Click(object sender, RoutedEventArgs e)
         {

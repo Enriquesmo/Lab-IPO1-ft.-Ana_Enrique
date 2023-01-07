@@ -20,7 +20,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
     /// </summary>
     public partial class DetallesRuta : Window
     {
-        Ruta rutaADevolver = new Ruta("","",null,"",0,1,0,null);
+        Ruta rutaADevolver = new Ruta("","",null,"",0,1,0);
         ObservableCollection<Guia> listadoGuiasAux;
 
         /************************************************************************************************/

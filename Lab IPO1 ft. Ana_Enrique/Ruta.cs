@@ -32,8 +32,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         public Uri Imagenlista { set; get; }
         public List<string> incidencias { get; set; }
 
-        public Ruta(string nombre, string provincia, Uri mapa, string descripcion, int duracion, int dificultad, int maxPart, ObservableCollection<Excursionista> lista)
-        {
+        public Ruta(string nombre, string provincia, Uri mapa, string descripcion, int duracion, int dificultad, int maxPart) { 
             if (dificultad == 1)
             {
                 Dificultad = "Facil";
@@ -52,7 +51,8 @@ namespace Lab_IPO1_ft.Ana_Enrique
             Descripcion = descripcion;
             Duracion = duracion;
             maxParticipantes = maxPart;
-            participantes = lista;
+            participantes = new ObservableCollection<Excursionista>();
+
         } 
     }
 }

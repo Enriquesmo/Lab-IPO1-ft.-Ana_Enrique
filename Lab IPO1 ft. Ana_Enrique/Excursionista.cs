@@ -16,14 +16,16 @@ namespace Lab_IPO1_ft.Ana_Enrique
         public Uri Foto { get; set; }
         public int Edad { get; set; }
         public int Telefono { get; set; }
+        public string DNI { get; set; }
         public ObservableCollection<Ruta> Rutas { get; set; }
 
-        public Excursionista(string nombre, string apellidos, int edad, int telefono)
+        public Excursionista(string nombre, string apellidos, int edad, int telefono, String dni)
         {
             Nombre = nombre;
             Apellidos = apellidos;
             Telefono = telefono;
             Edad = edad;
+            DNI = dni;
 
         }
     }
