@@ -11,13 +11,12 @@ namespace Lab_IPO1_ft.Ana_Enrique
 {
     public class Guia
     {
-        public string Nombre { get; set; }
-        public string Apellidos { get; set; }
+        public string Nombre { get; set; } //
+        public string Apellidos { get; set; } //
         public Uri Foto { get;set; }
         public List<string> Idiomas { get; set; }
-        public List<string> Restricciones { get; set; }
-        public int Telefono { get; set; }
-        public string Correo { get; set; }
+        public int Telefono { get; set; } //
+        public string Correo { get; set; } //
         public List<Ruta> Rutas { get; set; }
         public int Puntuacion { get; set; }
 

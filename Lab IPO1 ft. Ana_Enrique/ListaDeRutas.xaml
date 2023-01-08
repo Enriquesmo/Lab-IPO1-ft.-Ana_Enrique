@@ -8,7 +8,7 @@
         
         Title="ListaDeRutas" Height="450" Width="800"
             MinHeight="450" MinWidth="800">
-    
+
     <Viewbox Stretch="Fill">
         <Grid Height="434" Width="800">
             <Grid.Background>
@@ -64,7 +64,7 @@
                         <Button x:Name="btnPuntos" Content="Puntos Interes" Height="27" Canvas.Left="248" Canvas.Top="332" Width="88" Click="btnPuntos_Click"/>
                         <Label x:Name="lblNombreRuta" Content="Nombre Ruta:" Height="28" Width="88" Background="#FF81A577" Canvas.Top="81" Canvas.Left="26"/>
                         <Button x:Name="btnFinalizar" Content="Finalizar" Height="26" Canvas.Left="382" Canvas.Top="333" Width="117" Click="btnFinalizar_Click"/>
-                        <Button x:Name="btnX" Height="25" Width="25" BorderBrush="{x:Null}" Click="btnX_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="525" Canvas.Top="10">
+                        <Button x:Name="btnX" Height="25" Width="25" BorderBrush="{x:Null}" Click="btnX_Click" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="10" Canvas.Top="10">
                             <Button.Background>
                                 <ImageBrush ImageSource="/close.png"/>
                             </Button.Background>

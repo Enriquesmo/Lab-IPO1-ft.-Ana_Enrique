@@ -63,9 +63,9 @@
                                 </TransformGroup>
                             </ListBox.RenderTransform>
                         </ListBox>
-                        <Button x:Name="btnAnadir" Content="Añadir" Canvas.Left="260" Canvas.Top="231" Height="30" Width="69" Click="btnAnadir_Click"/>
-                        <Button x:Name="btnMod" Content="Modificar" Canvas.Left="182" Canvas.Top="231" Height="30" Width="60" Click="btnMod_Click"/>
-                        <Button x:Name="btnBorrar" Content="Borrar" Canvas.Left="392" Canvas.Top="231" Height="30" Width="70" Click="btnBorrar_Click"/>
+                        <Button x:Name="btnAnadir" Content="Añadir" Canvas.Left="260" Canvas.Top="231" Height="40" Width="64" Click="btnAnadir_Click"/>
+                        <Button x:Name="btnMod" Content="Modificar" Canvas.Left="182" Canvas.Top="231" Height="40" Width="64" Click="btnMod_Click"/>
+                        <Button x:Name="btnBorrar" Content="Borrar" Canvas.Left="392" Canvas.Top="231" Height="40" Width="64" Click="btnBorrar_Click"/>
                         <TextBox x:Name="txbApp" Height="18" Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="32" Width="196"/>
                     </Canvas>
 
