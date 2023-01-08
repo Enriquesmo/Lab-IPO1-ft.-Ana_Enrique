@@ -42,12 +42,16 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         private void ListaParticipantes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ListaParticipantes.Items.Refresh();
             selec = ListaParticipantes.SelectedItem as Excursionista;
-            txbNombre.Text = selec.Nombre;
-            txbApp.Text = selec.Apellidos;
-            txbEdad.Text = selec.Edad.ToString();
-            txbTelef.Text= selec.Telefono.ToString();
-            txbDni.Text = selec.DNI;
+            if (selec != null)
+            {
+                txbNombre.Text = selec.Nombre;
+                txbApp.Text = selec.Apellidos;
+                txbEdad.Text = selec.Edad.ToString();
+                txbTelef.Text = selec.Telefono.ToString();
+                txbDni.Text = selec.DNI;
+            }
         }
         private void btnAyuda_Click(object sender, RoutedEventArgs e)
         {
@@ -57,24 +61,33 @@ namespace Lab_IPO1_ft.Ana_Enrique
         private void btnBorrar_Click(object sender, RoutedEventArgs e)
         {
            
-            selec = ListaParticipantes.SelectedItem as Excursionista;
-            ListaParticipantes.Items.Remove(selec);
-           
+            ListaParticipantes.Items.Remove(ListaParticipantes.SelectedItem);
+            txbNombre.Text = "";
+            txbApp.Text = "";
+            txbEdad.Text = "";
+            txbTelef.Text = "";
+            txbDni.Text = "";
+
+
+
         }
 
         private void btnAnadir_Click(object sender, RoutedEventArgs e)
         {
             Excursionista nuevo = new Excursionista(txbNombre.Text, txbApp.Text, int.Parse(txbEdad.Text), int.Parse(txbTelef.Text), txbDni.Text);
-            lista.Add(nuevo);
+            ListaParticipantes.Items.Add(nuevo);
         }
 
         private void btnMod_Click(object sender, RoutedEventArgs e)
         {
             Excursionista nuevo = new Excursionista(txbNombre.Text, txbApp.Text, int.Parse(txbEdad.Text), int.Parse(txbTelef.Text), txbDni.Text);
             selec = ListaParticipantes.SelectedItem as Excursionista;
-            ListaParticipantes.Items.Remove(selec);
-            lista.Remove(selec);
-            lista.Add(nuevo);
+            selec.Edad = int.Parse(txbEdad.Text);
+            selec.DNI = txbDni.Text;
+            selec.Apellidos= txbApp.Text;
+            selec.Nombre= txbNombre.Text;
+            selec.Telefono = int.Parse(txbTelef.Text);
+            MessageBox.Show("Participante modificado");
         }
 
         /************************************************************************************************/
