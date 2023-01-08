@@ -36,6 +36,14 @@ namespace Lab_IPO1_ft.Ana_Enrique
         /************************************************************************************************/
 
         /*Botones de la propia ventana ListaDeGuias*/
+        private void ListaParticipantes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        private void btnX_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         private void btnAyuda_Click(object sender, RoutedEventArgs e)
         {
 
@@ -58,7 +66,18 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         }
 
-        private void ListaParticipantes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void ListBoxIdiomas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnBorrarIdioma_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAnadirIdioma_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -66,6 +85,13 @@ namespace Lab_IPO1_ft.Ana_Enrique
         /************************************************************************************************/
 
         /*Metodos Auxiliares para todos los botones*/
+
+        private void estadoBotones(bool estado) // Finalizado
+        {
+            btnAnadir.IsEnabled = estado;
+            btnMod.IsEnabled = estado;
+            btnBorrar.IsEnabled = estado;
+        }
 
 
     }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ListaDeGuias" Height="450" Width="800"
             MinHeight="450" MinWidth="800">
-    <Viewbox>
+    <Viewbox Stretch="Fill">
         <Grid Height="450" Width="830">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="233*"/>
@@ -17,7 +17,7 @@
             <ListBox x:Name="ListaParticipantes" SelectionChanged="ListaParticipantes_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal" >
                             <TextBlock Text="{Binding Nombre}"/>
                         </StackPanel>
                     </DataTemplate>
@@ -28,7 +28,7 @@
                 Width="5"/>
             <StackPanel x:Name="spDetallesRutas" 
                 Grid.Column="2"
-                Orientation="Vertical" Margin="5,141,0,0" RenderTransformOrigin="0.5,0.5">
+                Orientation="Vertical" RenderTransformOrigin="0.5,0.5">
                 <StackPanel.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -37,28 +37,52 @@
                         <TranslateTransform X="0"/>
                     </TransformGroup>
                 </StackPanel.RenderTransform>
-                <Grid Height="309">
-                    <Button x:Name="btnAnadir" Content="Añadir" Margin="398,155,49,97" Click="btnAnadir_Click"/>
-                    <Button x:Name="btnMod" Content="Modificar" Margin="167,155,280,97" Click="btnMod_Click"/>
-                    <Button x:Name="btnBorrar" Content="Borrar" Margin="57,155,389,97" Click="btnBorrar_Click"/>
+
+
+                <Grid x:Name="GridArriba" Height="136" Width="517">
+                    <Image Source="/Foto Persona1.jpg" Margin="196,8,195,8">
+                        <Image.OpacityMask>
+                            <ImageBrush ImageSource="/Foto Persona1.jpg"/>
+                        </Image.OpacityMask>
+                    </Image>
+                    <Button x:Name="btnAyuda" Width="48" Height="48" Click="btnAyuda_Click" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="{x:Null}" Margin="459,10,0,0">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/ayuda.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnX" BorderBrush="{x:Null}" Click="btnX_Click" Margin="10,10,482,101">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/close.png"/>
+                        </Button.Background>
+                    </Button>
+                </Grid>
+
+
+                <Grid x:Name="GridAbajo" Height="314">
+                    <Button x:Name="btnAnadir" Content="Añadir" Margin="393,259,55,10" Click="btnAnadir_Click" Width="64" Height="40"/>
+                    <Button x:Name="btnMod" Content="Modificar" Margin="157,259,291,10" Click="btnMod_Click" Width="64" Height="40"/>
+                    <Button x:Name="btnBorrar" Content="Borrar" Margin="43,259,405,10" Click="btnBorrar_Click" Width="64" Height="40"/>
+                    <Label x:Name="lblNombre" Content="Nombre" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" Width="178"/>
+                    <TextBox x:Name="txbNombre" HorizontalAlignment="Left" Margin="44,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="24"/>
+                    <Label x:Name="lblApellidos" Content="Apellidos" HorizontalAlignment="Left" Margin="277,10,0,0" VerticalAlignment="Top" Width="178"/>
+                    <TextBox x:Name="txbApellidos" HorizontalAlignment="Left" Margin="277,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="24"/>
+                    <Label x:Name="lblTelefono" Content="Teléfono                            " HorizontalAlignment="Left" Margin="43,60,0,0" VerticalAlignment="Top" Width="178"/>
+                    <TextBox x:Name="txbTelefono" HorizontalAlignment="Left" Margin="44,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="24"/>
+                    <Label x:Name="lblCorreo" Content="Correo" HorizontalAlignment="Left" Margin="277,60,0,0" VerticalAlignment="Top" Width="178"/>
+                    <TextBox x:Name="txbCorreo" HorizontalAlignment="Left" Margin="277,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="24"/>
+                    <Label x:Name="lblPuntuacion" Content="Puntuacion" HorizontalAlignment="Left" Margin="44,110,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txbPuntuacion" HorizontalAlignment="Left" Margin="43,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="24"/>
+                    <Label x:Name="lblIdiomas" Content="Idiomas" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="178" Margin="277,110,0,0"/>
+                    <TextBox x:Name="txbIdiomas" TextWrapping="Wrap" Width="178" Height="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="277,136,0,0"/>
+                    <ListBox x:Name="ListBoxIdiomas" Margin="277,189,55,72" SelectionChanged="ListBoxIdiomas_SelectionChanged"/>
+                    <Button x:Name="btnAnadirIdioma" Content="Añadir Idiom" HorizontalAlignment="Left" Margin="379,163,0,0" VerticalAlignment="Top" Width="75" Click="btnAnadirIdioma_Click"/>
+                    <Label x:Name="lblRutas" Content="Rutas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="178" Margin="43,163,0,0" Height="26"/>
+                    <ListBox x:Name="ListBoxRutas" Height="48" Width="178" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,189,0,0" />
+                    <Button x:Name="btnBorrarIdioma" Content="Borrar Idiom" HorizontalAlignment="Left" Margin="277,163,0,0" VerticalAlignment="Top" Width="75" Click="btnBorrarIdioma_Click"/>
                 </Grid>
 
 
             </StackPanel>
-            <Canvas Grid.Column="1" Grid.ColumnSpan="2" Margin="5,0,0,293">
-                <Image Height="131" Canvas.Left="160" Canvas.Top="6" Width="152" Source="/Foto Persona1.jpg">
-                    <Image.OpacityMask>
-                        <ImageBrush ImageSource="/Foto Persona1.jpg"/>
-                    </Image.OpacityMask>
-                </Image>
-                <Button x:Name="btnAyuda" Width="48" Height="48" Click="btnAyuda_Click" HorizontalAlignment="Left" Canvas.Left="459" Canvas.Top="10" VerticalAlignment="Center" BorderBrush="{x:Null}">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/ayuda.png"/>
-                    </Button.Background>
-                </Button>
-
-
-            </Canvas>
 
 
         </Grid>

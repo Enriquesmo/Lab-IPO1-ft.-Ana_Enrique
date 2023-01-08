@@ -44,6 +44,8 @@ namespace Lab_IPO1_ft.Ana_Enrique
             listadoGuias.Add(guia1);
             Guia guia2 = new Guia("Manoli", "Garcia Sanchez", null, 123456789, "manoligs@gmail.com", 10);
             listadoGuias.Add(guia2);
+
+            /*Creación de Excursionistas de ejemplo*/
             Excursionista part1 = new Excursionista("Marta", "Sanchez Ruiz", 23, 345678912, "70747431X");
             Excursionista part2 = new Excursionista("Marcos", "Diaz Sanchez", 27, 456789123, "52021073J");
             Excursionista part3 = new Excursionista("Antonio", "Rodriguez Gomez", 37, 669733434, "21773636M");
