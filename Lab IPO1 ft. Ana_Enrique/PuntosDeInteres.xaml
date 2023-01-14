@@ -59,9 +59,9 @@
                         <Button x:Name="btnAnadirP" Content="Añadir" Canvas.Left="162" Canvas.Top="226" Height="40" Width="106" />
                         <Button x:Name="btnModP" Content="Modificar" Canvas.Left="36" Canvas.Top="226" Height="40" Width="101"/>
                         <Button x:Name="btnBorrarP" Content="Borrar" Canvas.Left="340" Canvas.Top="226" Height="40" Width="116" />
-                        <TextBox x:Name="txbAppP" Height="18" Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="32" Width="196"/>
                         <Label Content="Tipo de Punto" Canvas.Left="200" Canvas.Top="1"/>
                         <Label Content="Descripción" Canvas.Left="32" Canvas.Top="55"/>
+                        <ComboBox x:Name="cbTipo" Canvas.Left="200" Canvas.Top="32" Width="158" Height="18"/>
                     </Canvas>
 
 

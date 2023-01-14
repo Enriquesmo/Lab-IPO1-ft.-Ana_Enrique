@@ -22,11 +22,17 @@ namespace Lab_IPO1_ft.Ana_Enrique
         /************************************************************************************************/
 
         /*Inicializacion de la ventana PuntosDeInteres*/
+        
 
-        public PuntosDeInteres(Ruta Ruta)
+        public PuntosDeInteres(Ruta ruta)
         {
             InitializeComponent();
+            foreach(PuntoDeInteres x in ruta.puntosInteres){
+                cbTipo.Items.Add(x);
+            }
         }
+
+       
 
         /************************************************************************************************/
 

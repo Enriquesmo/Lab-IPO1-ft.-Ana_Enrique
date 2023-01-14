@@ -17,7 +17,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         public String Dificultad { get; set; } //
         public ObservableCollection<Excursionista> participantes { get; set; } //id es telefono
         public int maxParticipantes { get; set; } //                                  
-        public ObservableCollection<string> puntosInteres { get; set; } //id es nombre
+        public ObservableCollection<PuntoDeInteres> puntosInteres { get; set; } //id es nombre
         public string formaLlegada { get; set; }
         public string formaVuelta { get; set; }
         public List<string> material { get; set; }
