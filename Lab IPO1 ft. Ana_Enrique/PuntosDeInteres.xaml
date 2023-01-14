@@ -45,8 +45,8 @@
                     </StackPanel.RenderTransform>
                     <Canvas Height="280">
                         <TextBox x:Name="txbNombreP" Canvas.Left="32" TextWrapping="Wrap" Canvas.Top="32" Width="148" Height="18"/>
-                        <Label x:Name="lblNombreApp" Content="Nombre y Apellidos" Canvas.Left="32" Width="120"/>
-                        <ListBox Height="92" Width="131" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="35" Canvas.Top="183" RenderTransformOrigin="0.5,0.5">
+                        <Label x:Name="lblNombreApp" Content="Nombre" Canvas.Left="32" Width="120"/>
+                        <ListBox Height="119" Width="358" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="33" Canvas.Top="89" RenderTransformOrigin="0.5,0.5">
                             <ListBox.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -56,10 +56,12 @@
                                 </TransformGroup>
                             </ListBox.RenderTransform>
                         </ListBox>
-                        <Button x:Name="btnAnadirP" Content="Añadir" Canvas.Left="260" Canvas.Top="231" Height="40" Width="64" />
-                        <Button x:Name="btnModP" Content="Modificar" Canvas.Left="182" Canvas.Top="231" Height="40" Width="64"/>
-                        <Button x:Name="btnBorrarP" Content="Borrar" Canvas.Left="392" Canvas.Top="231" Height="40" Width="64" />
+                        <Button x:Name="btnAnadirP" Content="Añadir" Canvas.Left="162" Canvas.Top="226" Height="40" Width="106" />
+                        <Button x:Name="btnModP" Content="Modificar" Canvas.Left="36" Canvas.Top="226" Height="40" Width="101"/>
+                        <Button x:Name="btnBorrarP" Content="Borrar" Canvas.Left="340" Canvas.Top="226" Height="40" Width="116" />
                         <TextBox x:Name="txbAppP" Height="18" Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="32" Width="196"/>
+                        <Label Content="Tipo de Punto" Canvas.Left="200" Canvas.Top="1"/>
+                        <Label Content="Descripción" Canvas.Left="32" Canvas.Top="55"/>
                     </Canvas>
 
 
@@ -78,6 +80,7 @@
                     <Button x:Name="btnIzq" Content="&lt;" Canvas.Left="136" Canvas.Top="71" Background="{x:Null}" BorderBrush="{x:Null}"/>
                     <Button x:Name="btnDcha" Content="&gt;" Canvas.Left="319" Canvas.Top="72" Background="{x:Null}" BorderBrush="{x:Null}"/>
                     <Label x:Name="lblImagenes" Content="" Canvas.Left="312" Canvas.Top="111"/>
+                    <Button x:Name="btnAnadir" Content="Añadir imagen" Canvas.Left="352" Canvas.Top="96" Background="#FFE6E4E4"/>
 
 
                 </Canvas>
