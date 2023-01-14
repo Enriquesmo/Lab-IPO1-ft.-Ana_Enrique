@@ -52,6 +52,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
             Duracion = duracion;
             maxParticipantes = maxPart;
             participantes = new ObservableCollection<Excursionista>();
+            puntosInteres = new ObservableCollection<PuntoDeInteres>();
 
         } 
     }

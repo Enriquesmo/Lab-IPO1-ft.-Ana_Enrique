@@ -50,6 +50,12 @@ namespace Lab_IPO1_ft.Ana_Enrique
             Excursionista part2 = new Excursionista("Marcos", "Diaz Sanchez", 27, 456789123, "52021073J");
             Excursionista part3 = new Excursionista("Antonio", "Rodriguez Gomez", 37, 669733434, "21773636M");
 
+            /*Creacion de Puntos de interes de ejemplo*/
+            PuntoDeInteres punto1 = new PuntoDeInteres("Lagunas de Ruidera", "Lagunas de ruidera, te puedes bañar", "Masa de agua");
+            PuntoDeInteres punto2 = new PuntoDeInteres("Tablas de Daimiel", "Puedes ver pajaros","Área de avistamiento de aves" );
+            PuntoDeInteres punto3 = new PuntoDeInteres("Ermita de Santa Lucía","Virgen de Santa Lucía", "Edificación de interés histórico");
+            PuntoDeInteres punto4 = new PuntoDeInteres("El Molino de Fuente El Fresno", "Molino Casi-Quemado", "Mirador"); //Dicho por mi novio q quería q pusiese eso
+
 
             /*Creacion de Rutas de ejemplo*/
             Ruta ruta1 = new Ruta("Ruta A", "Ciudad Real", null, "Descripcion de prueba 1, ruta en ciudad real", 10, 1, 20);
@@ -60,6 +66,8 @@ namespace Lab_IPO1_ft.Ana_Enrique
             ruta1.guia= guia1;
             ruta1.participantes.Add(part1);
             ruta1.participantes.Add(part2);
+            ruta1.puntosInteres.Add(punto1);
+            ruta1.puntosInteres.Add(punto3);
             List<string> listaIncidenciasAux = new List<string> { "Me hablaron feo", "El guia no era guapo", "Mucho calor y poca agua", "Poca comida", "Mal guiado" };
             List<string> listaMaterialesAux = new List<string> { "mochila", "gafas", "Botas de montaña buenas" };
             ruta1.incidencias = listaIncidenciasAux;
@@ -70,6 +78,8 @@ namespace Lab_IPO1_ft.Ana_Enrique
             ruta2.Finalizada = true;
             ruta2.participantes.Add(part3);
             ruta2.participantes.Add(part2);
+            ruta2.puntosInteres.Add(punto2);
+            ruta2.puntosInteres.Add(punto4);
             Listarutas.Items.Add(ruta1);
             Listarutas.Items.Add(ruta2);
 

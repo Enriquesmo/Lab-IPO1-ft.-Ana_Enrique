@@ -28,11 +28,40 @@ namespace Lab_IPO1_ft.Ana_Enrique
         {
             InitializeComponent();
             foreach(PuntoDeInteres x in ruta.puntosInteres){
-                cbTipo.Items.Add(x);
+                ListaPuntos.Items.Add(x);
+            }
+            if (ruta.Finalizada)
+            {
+                btnBorrarP.IsEnabled = false;
+                btnAnadirP.IsEnabled = false;
+                btnModP.IsEnabled = false;
+            }
+            
+        }
+
+        private void ListaPuntos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            PuntoDeInteres puntosel = ListaPuntos.SelectedItem as PuntoDeInteres;
+            txbDescripcion.Text = puntosel.Descripcion;
+            txbNombreP.Text = puntosel.Nombre;
+            cbTipo.Items.Add("Mirador");
+            cbTipo.Items.Add("Área de avistamiento de aves");
+            cbTipo.Items.Add("Existencia de plantas autóctonas");
+            cbTipo.Items.Add("Masa de agua");
+            cbTipo.Items.Add("Margen de un río");
+            cbTipo.Items.Add("Puentes");
+            cbTipo.Items.Add("Pinturas rupestres");
+            cbTipo.Items.Add("Edificación de interés histórico");
+            foreach(String s in cbTipo.Items)
+            {
+                if (puntosel.Tipo.Equals(s))
+                {
+                    cbTipo.SelectedItem = s;
+                }
             }
         }
 
-       
+
 
         /************************************************************************************************/
 
