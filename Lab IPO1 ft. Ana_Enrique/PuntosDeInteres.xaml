@@ -15,7 +15,7 @@
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="392*"/>
                 </Grid.ColumnDefinitions>
-                <ListBox x:Name="ListaParticipantes" >
+                <ListBox x:Name="ListaPuntos" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -32,7 +32,7 @@
                 <GridSplitter Grid.Column="1" 
                                   HorizontalAlignment="Stretch" 
                                   Width="5"/>
-                <StackPanel x:Name="spDetallesRutas" 
+                <StackPanel x:Name="spDetallesPuntos" 
                                 Grid.Column="2"
                                 Orientation="Vertical" Margin="5,141,10,0" RenderTransformOrigin="0.5,0.5">
                     <StackPanel.RenderTransform>
@@ -44,9 +44,9 @@
                         </TransformGroup>
                     </StackPanel.RenderTransform>
                     <Canvas Height="280">
-                        <TextBox x:Name="txbNombre" Canvas.Left="32" TextWrapping="Wrap" Canvas.Top="32" Width="148" Height="18"/>
+                        <TextBox x:Name="txbNombreP" Canvas.Left="32" TextWrapping="Wrap" Canvas.Top="32" Width="148" Height="18"/>
                         <Label x:Name="lblNombreApp" Content="Nombre y Apellidos" Canvas.Left="32" Width="120"/>
-                       <ListBox Height="92" Width="131" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="35" Canvas.Top="183" RenderTransformOrigin="0.5,0.5">
+                        <ListBox Height="92" Width="131" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="35" Canvas.Top="183" RenderTransformOrigin="0.5,0.5">
                             <ListBox.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -56,10 +56,10 @@
                                 </TransformGroup>
                             </ListBox.RenderTransform>
                         </ListBox>
-                        <Button x:Name="btnAnadir" Content="Añadir" Canvas.Left="260" Canvas.Top="231" Height="40" Width="64" Click="btnAnadir_Click"/>
-                        <Button x:Name="btnMod" Content="Modificar" Canvas.Left="182" Canvas.Top="231" Height="40" Width="64" Click="btnMod_Click"/>
-                        <Button x:Name="btnBorrar" Content="Borrar" Canvas.Left="392" Canvas.Top="231" Height="40" Width="64" Click="btnBorrar_Click"/>
-                        <TextBox x:Name="txbApp" Height="18" Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="32" Width="196"/>
+                        <Button x:Name="btnAnadirP" Content="Añadir" Canvas.Left="260" Canvas.Top="231" Height="40" Width="64" />
+                        <Button x:Name="btnModP" Content="Modificar" Canvas.Left="182" Canvas.Top="231" Height="40" Width="64"/>
+                        <Button x:Name="btnBorrarP" Content="Borrar" Canvas.Left="392" Canvas.Top="231" Height="40" Width="64" />
+                        <TextBox x:Name="txbAppP" Height="18" Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="32" Width="196"/>
                     </Canvas>
 
 
@@ -70,11 +70,14 @@
                             <ImageBrush ImageSource="/Foto Persona1.jpg"/>
                         </Image.OpacityMask>
                     </Image>
-                    <Button x:Name="btnAyuda" Width="48" Height="48" Click="btnAyuda_Click" HorizontalAlignment="Left" Canvas.Left="441" Canvas.Top="10" VerticalAlignment="Center" BorderBrush="{x:Null}">
+                    <Button x:Name="btnAyuda" Width="48" Height="48"  HorizontalAlignment="Left" Canvas.Left="441" Canvas.Top="10" VerticalAlignment="Center" BorderBrush="{x:Null}">
                         <Button.Background>
                             <ImageBrush ImageSource="/ayuda.png"/>
                         </Button.Background>
                     </Button>
+                    <Button x:Name="btnIzq" Content="&lt;" Canvas.Left="136" Canvas.Top="71" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button x:Name="btnDcha" Content="&gt;" Canvas.Left="319" Canvas.Top="72" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Label x:Name="lblImagenes" Content="" Canvas.Left="312" Canvas.Top="111"/>
 
 
                 </Canvas>
