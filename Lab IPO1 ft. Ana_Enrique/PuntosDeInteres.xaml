@@ -68,8 +68,8 @@
                             <ImageBrush ImageSource="/ayuda.png"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnIzq" Content="&lt;" Canvas.Left="136" Canvas.Top="71" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                    <Button x:Name="btnDcha" Content="&gt;" Canvas.Left="319" Canvas.Top="72" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button x:Name="btnIzq" Content="&lt;" Canvas.Left="136" Canvas.Top="71" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnIzq_Click"/>
+                    <Button x:Name="btnDcha" Content="&gt;" Canvas.Left="319" Canvas.Top="72" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnDcha_Click"/>
                     <Label x:Name="lblImagenes" Content="" Canvas.Left="312" Canvas.Top="111"/>
                     <Button x:Name="btnAnadirImg" Content="Añadir imagen" Canvas.Left="352" Canvas.Top="96" Background="#FFE6E4E4" Click="btnAnadirImg_Click"/>
 

@@ -47,6 +47,8 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 btnModP.IsEnabled = false;
             }
             lblImagenes.Content = "0/0";
+            btnDcha.IsEnabled = false;
+            btnIzq.IsEnabled = false;  
             
         }
 
@@ -62,6 +64,10 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 indi = 1;
                 lblImagenes.Content = indi + "/" + puntosel.galeria.Count;
                 Img.Source = bitmap;
+                if (puntosel.galeria.Count > 1)
+                {
+                    btnDcha.IsEnabled=true;
+                }
                 
               
                 foreach (String s in cbTipo.Items)
@@ -118,11 +124,44 @@ namespace Lab_IPO1_ft.Ana_Enrique
                     var bitmap = new BitmapImage(new Uri(abrirDialog.FileName, UriKind.Relative));
                     selecci.galeria.Add(bitmap.UriSource);
                     lblImagenes.Content = indi + "/" + selecci.galeria.Count;
+                    btnDcha.IsEnabled = true;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error al cargar la imagen " + ex.Message);
                 }
+            }
+
+        }
+
+        private void btnDcha_Click(object sender, RoutedEventArgs e)
+        {
+            PuntoDeInteres selecci = ListaPuntos.SelectedItem as PuntoDeInteres;
+            indi++;
+            var bitmap = new BitmapImage(selecci.galeria.ElementAt(indi-1));
+            Img.Source = bitmap;
+            btnIzq.IsEnabled = true;
+            
+            lblImagenes.Content = indi + "/" + selecci.galeria.Count;
+            if (indi == selecci.galeria.Count)
+            {
+                btnDcha.IsEnabled = false;
+            }
+
+        }
+
+        private void btnIzq_Click(object sender, RoutedEventArgs e)
+        {
+            PuntoDeInteres selecci = ListaPuntos.SelectedItem as PuntoDeInteres;
+            indi--;
+            var bitmap = new BitmapImage(selecci.galeria.ElementAt(indi - 1));
+            Img.Source = bitmap;
+            btnDcha.IsEnabled=true;
+
+            lblImagenes.Content = indi + "/" + selecci.galeria.Count;
+            if (indi == 1)
+            {
+                btnIzq.IsEnabled = false;
             }
         }
 
