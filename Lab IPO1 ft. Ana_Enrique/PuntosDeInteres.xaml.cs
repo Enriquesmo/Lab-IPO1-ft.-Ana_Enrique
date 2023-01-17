@@ -122,7 +122,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 try
                 {
                     var bitmap = new BitmapImage(new Uri(abrirDialog.FileName, UriKind.Relative));
-                    selecci.galeria.Add(bitmap.UriSource);
+                    selecci.galeria.Add(new Uri(abrirDialog.FileName, UriKind.Relative));
                     lblImagenes.Content = indi + "/" + selecci.galeria.Count;
                     btnDcha.IsEnabled = true;
                 }
