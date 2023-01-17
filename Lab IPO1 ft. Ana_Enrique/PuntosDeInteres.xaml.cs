@@ -59,7 +59,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 txbDescripcion.Text = puntosel.Descripcion;
                 txbNombreP.Text = puntosel.Nombre;
                 var bitmap = new BitmapImage(puntosel.galeria.ElementAt(0));
-                int indi = 1;
+                indi = 1;
                 lblImagenes.Content = indi + "/" + puntosel.galeria.Count;
                 Img.Source = bitmap;
                 
