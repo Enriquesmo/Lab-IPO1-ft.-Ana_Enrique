@@ -99,6 +99,11 @@ namespace Lab_IPO1_ft.Ana_Enrique
             selecci.Tipo = cbTipo.SelectedItem.ToString();
         }
 
+        private void btnAnadirImg_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
 
         /************************************************************************************************/
 
