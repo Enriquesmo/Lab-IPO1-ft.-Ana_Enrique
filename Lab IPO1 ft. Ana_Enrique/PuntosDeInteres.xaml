@@ -46,9 +46,9 @@
                     <Canvas Height="280">
                         <TextBox x:Name="txbNombreP" Canvas.Left="32" TextWrapping="Wrap" Canvas.Top="32" Width="150" Height="23"/>
                         <Label x:Name="lblNombreApp" Content="Nombre" Canvas.Left="32" Width="120"/>
-                        <Button x:Name="btnAnadirP" Content="Añadir" Canvas.Left="162" Canvas.Top="226" Height="40" Width="106" />
-                        <Button x:Name="btnModP" Content="Modificar" Canvas.Left="36" Canvas.Top="226" Height="40" Width="101"/>
-                        <Button x:Name="btnBorrarP" Content="Borrar" Canvas.Left="340" Canvas.Top="226" Height="40" Width="116" />
+                        <Button x:Name="btnAnadirP" Content="Añadir" Canvas.Left="162" Canvas.Top="226" Height="40" Width="106" Click="btnAnadirP_Click" />
+                        <Button x:Name="btnModP" Content="Modificar" Canvas.Left="36" Canvas.Top="226" Height="40" Width="101" Click="btnModP_Click"/>
+                        <Button x:Name="btnBorrarP" Content="Borrar" Canvas.Left="340" Canvas.Top="226" Height="40" Width="116" Click="btnBorrarP_Click" />
                         <Label Content="Tipo de Punto" Canvas.Left="200" Canvas.Top="1"/>
                         <Label Content="Descripción" Canvas.Left="32" Canvas.Top="55"/>
                         <ComboBox x:Name="cbTipo" Canvas.Left="200" Canvas.Top="32" Width="239" Height="23"/>

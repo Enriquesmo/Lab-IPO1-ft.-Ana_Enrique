@@ -27,8 +27,17 @@ namespace Lab_IPO1_ft.Ana_Enrique
         public PuntosDeInteres(Ruta ruta)
         {
             InitializeComponent();
-            foreach(PuntoDeInteres x in ruta.puntosInteres){
+            cbTipo.Items.Add("Mirador");
+            cbTipo.Items.Add("Área de avistamiento de aves");
+            cbTipo.Items.Add("Existencia de plantas autóctonas");
+            cbTipo.Items.Add("Masa de agua");
+            cbTipo.Items.Add("Margen de un río");
+            cbTipo.Items.Add("Puentes");
+            cbTipo.Items.Add("Pinturas rupestres");
+            cbTipo.Items.Add("Edificación de interés histórico");
+            foreach (PuntoDeInteres x in ruta.puntosInteres){
                 ListaPuntos.Items.Add(x);
+               
             }
             if (ruta.Finalizada)
             {
@@ -41,37 +50,60 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         private void ListaPuntos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ListaPuntos.Items.Refresh();
             PuntoDeInteres puntosel = ListaPuntos.SelectedItem as PuntoDeInteres;
-            txbDescripcion.Text = puntosel.Descripcion;
-            txbNombreP.Text = puntosel.Nombre;
-            cbTipo.Items.Add("Mirador");
-            cbTipo.Items.Add("Área de avistamiento de aves");
-            cbTipo.Items.Add("Existencia de plantas autóctonas");
-            cbTipo.Items.Add("Masa de agua");
-            cbTipo.Items.Add("Margen de un río");
-            cbTipo.Items.Add("Puentes");
-            cbTipo.Items.Add("Pinturas rupestres");
-            cbTipo.Items.Add("Edificación de interés histórico");
-            foreach(String s in cbTipo.Items)
+            if (puntosel != null)
             {
-                if (puntosel.Tipo.Equals(s))
+                txbDescripcion.Text = puntosel.Descripcion;
+                txbNombreP.Text = puntosel.Nombre;
+              
+                foreach (String s in cbTipo.Items)
                 {
-                    cbTipo.SelectedItem = s;
+                    if (puntosel.Tipo.Equals(s))
+                    {
+                        cbTipo.SelectedItem = s;
+                    }
                 }
             }
         }
 
 
 
+
+
         /************************************************************************************************/
 
         /*Botones de la propia pagina PuntosDeInteres*/
+        private void btnAnadirP_Click(object sender, RoutedEventArgs e)
+        {
+            PuntoDeInteres nuevo = new PuntoDeInteres(txbNombreP.Text, txbDescripcion.Text);
+            nuevo.Tipo = cbTipo.SelectedItem.ToString();
+            ListaPuntos.Items.Add(nuevo);
+        }
+
+        private void btnBorrarP_Click(object sender, RoutedEventArgs e)
+        {
+            PuntoDeInteres selecci = ListaPuntos.SelectedItem as PuntoDeInteres;
+            ListaPuntos.Items.Remove(selecci);
+            txbNombreP.Text= "";
+            txbDescripcion.Text = "";
+            cbTipo.SelectedIndex = -1;
+
+        }
+
+        private void btnModP_Click(object sender, RoutedEventArgs e)
+        {
+            PuntoDeInteres selecci = ListaPuntos.SelectedItem as PuntoDeInteres;
+            selecci.Nombre = txbNombreP.Text;
+            selecci.Descripcion= txbDescripcion.Text;
+            selecci.Tipo = cbTipo.SelectedItem.ToString();
+        }
 
 
         /************************************************************************************************/
 
         /*Metodos Auxiliares para todos los botones*/
-
+        //???
 
     }
 }
