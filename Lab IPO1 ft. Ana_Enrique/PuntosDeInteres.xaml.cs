@@ -46,6 +46,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 btnAnadirP.IsEnabled = false;
                 btnModP.IsEnabled = false;
             }
+            lblImagenes.Content = "0/0";
             
         }
 
@@ -57,6 +58,11 @@ namespace Lab_IPO1_ft.Ana_Enrique
             {
                 txbDescripcion.Text = puntosel.Descripcion;
                 txbNombreP.Text = puntosel.Nombre;
+                var bitmap = new BitmapImage(puntosel.galeria.ElementAt(0));
+                int indi = 1;
+                lblImagenes.Content = indi + "/" + puntosel.galeria.Count;
+                Img.Source = bitmap;
+                
               
                 foreach (String s in cbTipo.Items)
                 {
@@ -102,14 +108,16 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         private void btnAnadirImg_Click(object sender, RoutedEventArgs e)
         {
+            PuntoDeInteres selecci= ListaPuntos.SelectedItem as PuntoDeInteres ;
             var abrirDialog = new OpenFileDialog();
             abrirDialog.Filter = "Images|*.jpg;*.gif;*.bmp;*.png";
             if (abrirDialog.ShowDialog() == true)
             {
                 try
                 {
-                    var bitmap = new BitmapImage(new Uri(abrirDialog.FileName, UriKind.Absolute));
+                    var bitmap = new BitmapImage(new Uri(abrirDialog.FileName, UriKind.Relative));
                     Img.Source = bitmap;
+                    selecci.galeria.Add(bitmap.UriSource);
                 }
                 catch (Exception ex)
                 {

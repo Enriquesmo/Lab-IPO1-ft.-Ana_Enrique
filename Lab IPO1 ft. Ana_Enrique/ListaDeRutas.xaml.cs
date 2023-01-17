@@ -50,12 +50,23 @@ namespace Lab_IPO1_ft.Ana_Enrique
             Excursionista part2 = new Excursionista("Marcos", "Diaz Sanchez", 27, 456789123, "52021073J");
             Excursionista part3 = new Excursionista("Antonio", "Rodriguez Gomez", 37, 669733434, "21773636M");
 
+            /* Creacion de uri*/
+            
+                Uri u1 = new Uri("/Mapa de Ejemplo.jpg", UriKind.Relative);
+                Uri u2 = new Uri("/FondoInicio.jpg", UriKind.Relative);
+            
+            
+
             /*Creacion de Puntos de interes de ejemplo*/
             PuntoDeInteres punto1 = new PuntoDeInteres("Lagunas de Ruidera", "Lagunas de ruidera, te puedes bañar", "Masa de agua");
             PuntoDeInteres punto2 = new PuntoDeInteres("Tablas de Daimiel", "Puedes ver pajaros","Área de avistamiento de aves" );
             PuntoDeInteres punto3 = new PuntoDeInteres("Ermita de Santa Lucía","Virgen de Santa Lucía", "Edificación de interés histórico");
             PuntoDeInteres punto4 = new PuntoDeInteres("El Molino de Fuente El Fresno", "Molino Casi-Quemado", "Mirador"); //Dicho por mi novio q quería q pusiese eso
-
+            punto1.galeria.Add( u1 );
+            punto1.galeria.Add(u2 );
+            punto2.galeria.Add(u1);
+            punto3.galeria.Add(u1);
+            punto4.galeria.Add(u1);
 
             /*Creacion de Rutas de ejemplo*/
             Ruta ruta1 = new Ruta("Ruta A", "Ciudad Real", null, "Descripcion de prueba 1, ruta en ciudad real", 10, 1, 20);
