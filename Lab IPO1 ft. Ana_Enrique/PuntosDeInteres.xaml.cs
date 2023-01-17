@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -101,7 +102,20 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         private void btnAnadirImg_Click(object sender, RoutedEventArgs e)
         {
-            
+            var abrirDialog = new OpenFileDialog();
+            abrirDialog.Filter = "Images|*.jpg;*.gif;*.bmp;*.png";
+            if (abrirDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    var bitmap = new BitmapImage(new Uri(abrirDialog.FileName, UriKind.Absolute));
+                    Img.Source = bitmap;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar la imagen " + ex.Message);
+                }
+            }
         }
 
 
