@@ -23,7 +23,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         /************************************************************************************************/
 
         /*Inicializacion de la ventana PuntosDeInteres*/
-        
+        public int indi = 1;
 
         public PuntosDeInteres(Ruta ruta)
         {
@@ -116,8 +116,8 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 try
                 {
                     var bitmap = new BitmapImage(new Uri(abrirDialog.FileName, UriKind.Relative));
-                    Img.Source = bitmap;
                     selecci.galeria.Add(bitmap.UriSource);
+                    lblImagenes.Content = indi + "/" + selecci.galeria.Count;
                 }
                 catch (Exception ex)
                 {
