@@ -77,23 +77,27 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e) // Terminado
         {
-            txbNombre.Text = "";
-            txbProvincia.Text = "";
-            ComboBoxDificultad.Text = "";
-            DatePickerFechaYHora.Text = "";
-            txbOrigen.Text = "";
-            txbLlegada.Text = "";
-            txbDestino.Text = "";
-            txbVuelta.Text = "";
-            txbMaterial.Text = "";
-            ComboBoxSeCome.Text = "";
-            ComboBoxFinalizada.Text = "";
-            txbDuracion.Text = "";
-            txbMaxPartic.Text = "";
-            ComboBoxGuia.Text = "";
-            txbDescripcion.Text = "";
-            ListBoxIncidencias.Items.Clear();
-            ListBoxMaterial.Items.Clear();
+            System.Windows.MessageBoxResult result = MessageBox.Show("¿Estás seguro de que quieres limpiar todos los campos?", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            if (result == MessageBoxResult.OK)
+            {
+                txbNombre.Text = "";
+                txbProvincia.Text = "";
+                ComboBoxDificultad.Text = "";
+                DatePickerFechaYHora.Text = "";
+                txbOrigen.Text = "";
+                txbLlegada.Text = "";
+                txbDestino.Text = "";
+                txbVuelta.Text = "";
+                txbMaterial.Text = "";
+                ComboBoxSeCome.Text = "";
+                ComboBoxFinalizada.Text = "";
+                txbDuracion.Text = "";
+                txbMaxPartic.Text = "";
+                ComboBoxGuia.Text = "";
+                txbDescripcion.Text = "";
+                ListBoxIncidencias.Items.Clear();
+                ListBoxMaterial.Items.Clear();
+            }
         }
         private void AnadirMaterial_Click(object sender, RoutedEventArgs e) // Terminado
         {
@@ -106,22 +110,22 @@ namespace Lab_IPO1_ft.Ana_Enrique
         private void btnFinalizar_Click(object sender, RoutedEventArgs e) // Terminado CREO
         {
             OperacionCompletada = false;
-            bool esNumeroDuracion = introducirNumero(txbDuracion, rutaADevolver.Duracion, "la duración");
-            bool esNumeroMaxParticipantes = introducirNumero(txbMaxPartic, rutaADevolver.maxParticipantes, "el número máximo de participantes");
+            bool esNumeroDuracion = esNumero(txbDuracion, "la duración");
+            bool esNumeroMaxParticipantes = esNumero(txbMaxPartic, "el número máximo de participantes");
             String nombreAux = introducirString(txbNombre.Text);
 
-            bool hayNombre = true;
             if (nombreAux.Equals(""))
             {
                 MessageBox.Show("Debe introducir al menos\n - El nombre de la ruta.\n para Finalizar este proceso.", "Error", MessageBoxButton.OK);
-                hayNombre = false;
             }
             else
             {
-                if (esNumeroDuracion == true && esNumeroMaxParticipantes == true && hayNombre == true )
+                if (esNumeroDuracion == true && esNumeroMaxParticipantes == true )
                 {
-                    System.Windows.MessageBoxResult result = MessageBox.Show("¿Estás seguro de que quieres guardar los cambios?", "Confirmación", MessageBoxButton.OKCancel);
+                    System.Windows.MessageBoxResult result = MessageBox.Show("¿Estás seguro de que quieres guardar los cambios?", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
                     if(result == MessageBoxResult.OK){
+                        rutaADevolver.maxParticipantes = introducirNumero(txbMaxPartic);
+                        rutaADevolver.Duracion = introducirNumero(txbDuracion);
                         rutaADevolver.Nombre = introducirString(txbNombre.Text);
                         rutaADevolver.Provincia = introducirString(txbProvincia.Text);
                         rutaADevolver.Dificultad = introducirString(ComboBoxDificultad.Text);
@@ -177,28 +181,30 @@ namespace Lab_IPO1_ft.Ana_Enrique
         /************************************************************************************************/
 
         /*Metodos Auxiliares para todos los botones*/
-        private bool introducirNumero(TextBox textbox, int receptor, string mensaje) // Terminado
+        private bool esNumero(TextBox textbox, string mensaje) // Terminado
         {
             int aDevolver;
-            bool esNumero = false;
+            bool esNumero = true;
             if (textbox.Text != "")
             { /*Hemos puesto esta condicion para que si el espacio esta en blanco, tambien pueda crearse la ruta*/
                 esNumero = int.TryParse(textbox.Text, out aDevolver);
-                if (esNumero == true)
-                {
-                    receptor = aDevolver;
-                }
-                else
+                if (esNumero != true)
                 {
                     MessageBox.Show("Error al Introducir " + mensaje + ".\nDebe introducir un número.", "Error", MessageBoxButton.OK);
                     esNumero = false;
                 }
             }
-            else
-            {
-                esNumero = true;
-            }
             return esNumero;
+        }
+        private int introducirNumero(TextBox textbox) // Terminado
+        {
+            int numero = 0;
+            bool siMaxPart = int.TryParse(textbox.Text, out numero);
+            if (siMaxPart)
+            {
+                numero = int.Parse(textbox.Text);
+            }
+            return numero;
         }
         private string introducirString(string emisor) // Terminado
         {

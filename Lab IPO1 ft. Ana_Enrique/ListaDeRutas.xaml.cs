@@ -124,7 +124,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         }
         private void btnFinalizar_Click(object sender, RoutedEventArgs e) // Finalizado
         {
-            System.Windows.MessageBoxResult result = MessageBox.Show("¿Está seguro que quiere finalizar la ruta?.", "Confirmación", MessageBoxButton.OKCancel);
+            System.Windows.MessageBoxResult result = MessageBox.Show("¿Está seguro que quiere finalizar la ruta?.", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
             if (result == MessageBoxResult.OK)
             {
                 lblFinalizar.Visibility = Visibility.Visible;
@@ -136,7 +136,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         private void Btn_BorrarRuta_Click(object sender, RoutedEventArgs e) // Finalizado
         {
             Ruta seleccionada = Listarutas.SelectedItem as Ruta;
-            System.Windows.MessageBoxResult result = MessageBox.Show("¿Está seguro que quiere borrar la ruta?.", "Confirmación", MessageBoxButton.OKCancel);
+            System.Windows.MessageBoxResult result = MessageBox.Show("¿Está seguro que quiere borrar la ruta?.", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
 
             if  (result == MessageBoxResult.OK)
             {

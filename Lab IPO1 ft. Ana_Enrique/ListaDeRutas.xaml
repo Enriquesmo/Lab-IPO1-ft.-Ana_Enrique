@@ -88,7 +88,7 @@
                         <ImageBrush TileMode="None" Stretch="UniformToFill" ImageSource="/eliminar.png"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="Btn_Ayuda" Height="48" Width="48"  Margin="752,0,0,1" FontSize="24" BorderBrush="#FF7B7B7B" Click="Btn_Ayuda_Click">
+                <Button x:Name="Btn_Ayuda" Height="48" Width="48"  Margin="752,0,0,0" FontSize="24" BorderBrush="#FF7B7B7B" Click="Btn_Ayuda_Click" VerticalAlignment="Top">
                     <Button.Background>
                         <ImageBrush ImageSource="/ayuda.png"/>
                     </Button.Background>

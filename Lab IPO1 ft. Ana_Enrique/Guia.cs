@@ -17,7 +17,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         public List<string> Idiomas { get; set; }
         public int Telefono { get; set; } //
         public string Correo { get; set; } //
-        public List<Ruta> Rutas { get; set; }
+        public List<string> Rutas { get; set; }
         public int Puntuacion { get; set; }
 
         public Guia(string nombre, string apellidos, Uri foto, int telefono, string correo, int puntuacion)
