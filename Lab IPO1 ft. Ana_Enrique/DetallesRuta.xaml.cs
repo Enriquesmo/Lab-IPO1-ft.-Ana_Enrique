@@ -2,19 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-using static System.Net.Mime.MediaTypeNames;
-//using System.Windows.Data;
-//using System.Windows.Documents;
-//using System.Windows.Input;
-//using System.Windows.Media;
-//using System.Windows.Media.Imaging;
-//using System.Windows.Shapes;
+
+
+// FALTA: Poner colores bien, Boton de ayuda
 
 namespace Lab_IPO1_ft.Ana_Enrique
 {
@@ -68,6 +61,10 @@ namespace Lab_IPO1_ft.Ana_Enrique
                     BitmapImage imagen = new BitmapImage(Ruta.Mapa);
                     mapa.Source = imagen;
                 }
+                else
+                {
+                    mapa.Source = null;
+                }
                 if (Ruta.guia != null)
                 {
                     ComboBoxGuia.Text = Ruta.guia.Nombre;
@@ -104,6 +101,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 txbMaxPartic.Text = "";
                 ComboBoxGuia.Text = "";
                 txbDescripcion.Text = "";
+                mapa.Source = null;
                 ListBoxIncidencias.Items.Clear();
                 ListBoxMaterial.Items.Clear();
             }
@@ -147,6 +145,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                         rutaADevolver.Destino = introducirString(txbDestino.Text);
                         rutaADevolver.FechayHora = seleccionarFecha();
                         rutaADevolver.Finalizada = comprobarOpcion(ComboBoxFinalizada.Text);
+                        rutaADevolver.Mapa = Imagen;
                         if (seleccionarGuia(ComboBoxGuia).Nombre != "NoExisteGuia")
                         {
                             rutaADevolver.guia = seleccionarGuia(ComboBoxGuia);
@@ -169,14 +168,17 @@ namespace Lab_IPO1_ft.Ana_Enrique
         private void btnActualizarFoto_Click(object sender, RoutedEventArgs e) // Terminado
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
+
             if (openFileDialog.ShowDialog() == true)
             {
                 Uri NuevaFoto = new Uri(openFileDialog.FileName);
-                rutaADevolver.Mapa = NuevaFoto;
                 BitmapImage nuevaImagen = new BitmapImage(new Uri(openFileDialog.FileName));
                 mapa.Source = nuevaImagen;
+                Imagen = NuevaFoto;
             }
         }
+        // Esta variable se usa para guardar la imagen tras pulsar el boton de actualizar foto, para luego implementarla cuando se cree o modifique un guia
+        public Uri Imagen { get; set; }
 
         /**************************************************************/
 

@@ -1,19 +1,13 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
-// falta: añadir la foto, boton de ayuda
+
+// FALTA: Poner Colores bien, Que salgan las rutas en las que aparecen los excursionistas, Boton de ayuda
 
 namespace Lab_IPO1_ft.Ana_Enrique
 {
@@ -42,7 +36,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         /************************************************************************************************/
 
         /*Botones de la propia ventana ListaDeGuias*/
-        private void ListaParticipantes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ListaParticipantes_SelectionChanged(object sender, SelectionChangedEventArgs e) // Terminado
         {
             Guia guiaAux = ListaParticipantes.SelectedItem as Guia;
             if (guiaAux != null)
@@ -58,14 +52,23 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 introducirEnLaListBox(ListBoxRutas, guiaAux.Rutas);
                 introducirEnLaListBox(ListBoxIdiomas, guiaAux.Idiomas);
                 Foto.Visibility = Visibility.Visible;
-                // añadir que se ponga la imagen del guia
+                // Cargamos la foto del guia en la Image de nuestra interfaz
+                if (guiaAux.Foto != null)
+                {
+                    BitmapImage imagen = new BitmapImage(guiaAux.Foto);
+                    Foto.Source = imagen;
+                }
+                else
+                {
+                    Foto.Source = null;
+                }
                 estadoBotones(2);
             }
         }
         private void btnX_Click(object sender, RoutedEventArgs e) // Terminado
         {
             ListaParticipantes.SelectedItem = null;
-            Foto.Visibility = Visibility.Hidden;
+            Foto.Source = null;
             txbNombre.Text = "";
             txbApellidos.Text = "";
             txbTelefono.Text = "";
@@ -96,6 +99,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 txbIdiomas.Text = "";
                 ListBoxRutas.Items.Clear();
                 ListBoxIdiomas.Items.Clear();
+                Foto.Source = null;
                 estadoBotones(1);
                 // Lo eliminamos de la lista de guias principal
                 listadoGuiasAux.Remove(seleccionada);
@@ -126,6 +130,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                         guiaAModificar.Telefono = introducirNumero(txbTelefono);
                         guiaAModificar.Puntuacion = introducirNumero(txbPuntuacion);
                         guiaAModificar.Idiomas = extraerElementosListBox(ListBoxIdiomas);
+                        guiaAModificar.Foto = Imagen;
                         ListaParticipantes.Items.Refresh();
                         // Lo eliminamos de la lista de guias principal y lo añadimos de nuevo
                         listadoGuiasAux.Remove(guiaAModificar);
@@ -147,6 +152,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 txbIdiomas.Text = "";
                 ListBoxIdiomas.Items.Clear();
                 ListBoxRutas.Items.Clear();
+                Foto.Source = null;
             }
         }
         private void btnAnadir_Click(object sender, RoutedEventArgs e) // Terminado
@@ -173,6 +179,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                         guiaAAnadir.Telefono = introducirNumero(txbTelefono);
                         guiaAAnadir.Puntuacion = introducirNumero(txbPuntuacion);
                         guiaAAnadir.Idiomas = extraerElementosListBox(ListBoxIdiomas);
+                        guiaAAnadir.Foto = Imagen;
                         ListaParticipantes.Items.Add(guiaAAnadir);
                         // Lo añadimos de la lista de guias principal
                         listadoGuiasAux.Add(guiaAAnadir);
@@ -188,6 +195,20 @@ namespace Lab_IPO1_ft.Ana_Enrique
         {
             ListBoxIdiomas.Items.Add(txbIdiomas.Text);
         }
+        private void btnActualizarFoto_Click(object sender, RoutedEventArgs e) // Terminado
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Uri NuevaFoto = new Uri(openFileDialog.FileName);
+                BitmapImage nuevaImagen = new BitmapImage(new Uri(openFileDialog.FileName));
+                Foto.Source = nuevaImagen;
+                Imagen = NuevaFoto;
+            }
+        }
+        // Esta variable se usa para guardar la imagen tras pulsar el boton de actualizar foto, para luego implementarla cuando se cree o modifique un guia
+        public Uri Imagen { get; set; }
 
         /************************************************************************************************/
 
