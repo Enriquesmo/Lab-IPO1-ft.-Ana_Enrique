@@ -20,12 +20,12 @@ namespace Lab_IPO1_ft.Ana_Enrique
     /// </summary>
     public partial class Participantes : Window
     {
+        ObservableCollection<Excursionista> lista;
         /************************************************************************************************/
-        ObservableCollection<Excursionista> lista = new ObservableCollection<Excursionista>();
-        Excursionista selec;
+
         /*Inicializacion de la ventana Participantes*/
 
-        public Participantes(Ruta ruta)
+        public Participantes(Ruta ruta, ObservableCollection<Excursionista> listadoParticipantes)
         {
             InitializeComponent();
             lista = ruta.participantes;
@@ -33,7 +33,8 @@ namespace Lab_IPO1_ft.Ana_Enrique
             {
                 ListaParticipantes.Items.Add(ex);
             }
-            
+            Foto.Visibility = Visibility.Hidden;
+
         }
 
         /************************************************************************************************/
@@ -42,6 +43,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         private void ListaParticipantes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            /*
             ListaParticipantes.Items.Refresh();
             selec = ListaParticipantes.SelectedItem as Excursionista;
             if (selec != null)
@@ -52,6 +54,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 txbTelef.Text = selec.Telefono.ToString();
                 txbDni.Text = selec.DNI;
             }
+            */
         }
         private void btnAyuda_Click(object sender, RoutedEventArgs e)
         {
@@ -60,26 +63,28 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         private void btnBorrar_Click(object sender, RoutedEventArgs e)
         {
-           
+           /*
             ListaParticipantes.Items.Remove(ListaParticipantes.SelectedItem);
             txbNombre.Text = "";
             txbApp.Text = "";
             txbEdad.Text = "";
             txbTelef.Text = "";
             txbDni.Text = "";
-
+            */
 
 
         }
 
         private void btnAnadir_Click(object sender, RoutedEventArgs e)
         {
+            /*
             Excursionista nuevo = new Excursionista(txbNombre.Text, txbApp.Text, int.Parse(txbEdad.Text), int.Parse(txbTelef.Text), txbDni.Text);
             ListaParticipantes.Items.Add(nuevo);
+            */
         }
-
         private void btnMod_Click(object sender, RoutedEventArgs e)
         {
+            /*
             Excursionista nuevo = new Excursionista(txbNombre.Text, txbApp.Text, int.Parse(txbEdad.Text), int.Parse(txbTelef.Text), txbDni.Text);
             selec = ListaParticipantes.SelectedItem as Excursionista;
             selec.Edad = int.Parse(txbEdad.Text);
@@ -88,12 +93,101 @@ namespace Lab_IPO1_ft.Ana_Enrique
             selec.Nombre= txbNombre.Text;
             selec.Telefono = int.Parse(txbTelef.Text);
             MessageBox.Show("Participante modificado");
+            */
         }
+        private void btnActualizarFoto_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void btnX_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void ButtonAlLadoDeLaPersona(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // Esta variable se usa para guardar la imagen tras pulsar el boton de actualizar foto, para luego implementarla cuando se cree o modifique un guia
+        public Uri Imagen { get; set; }
 
         /************************************************************************************************/
 
         /*Metodos Auxiliares para todos los botones*/
 
-
+        private void introducirEnLaListBox(ListBox listbox, List<string> listaAIntroducir)
+        {
+            if (listaAIntroducir != null)
+            {
+                for (int i = 0; i < listaAIntroducir.Count; i++)
+                {
+                    listbox.Items.Add(listaAIntroducir[i]);
+                }
+            }
+        }
+        private void estadoBotones(int opcion) 
+        {
+            if (opcion == 1)
+            {
+                btnAnadir.IsEnabled = true;
+                btnMod.IsEnabled = false;
+                btnBorrar.IsEnabled = false;
+            }
+            else if (opcion == 2)
+            {
+                btnAnadir.IsEnabled = false;
+                btnMod.IsEnabled = true;
+                btnBorrar.IsEnabled = true;
+            }
+            btnLimpiar.IsEnabled = true;
+        }
+        private bool esNumero(TextBox textbox, string mensaje) 
+        {
+            int aDevolver;
+            bool esNumero = true;
+            if (textbox.Text != "")
+            { /*Hemos puesto esta condicion para que si el espacio esta en blanco, tambien pueda crearse la ruta*/
+                esNumero = int.TryParse(textbox.Text, out aDevolver);
+                if (esNumero != true)
+                {
+                    MessageBox.Show("Error al Introducir " + mensaje + ".\nDebe introducir un número.", "Error", MessageBoxButton.OK);
+                    esNumero = false;
+                }
+            }
+            return esNumero;
+        }
+        private int introducirNumero(TextBox textbox) 
+        {
+            int numero = 0;
+            bool siMaxPart = int.TryParse(textbox.Text, out numero);
+            if (siMaxPart)
+            {
+                numero = int.Parse(textbox.Text);
+            }
+            return numero;
+        }
+        private string introducirString(string emisor) 
+        {
+            string contenidoAMeter;
+            if (emisor.Equals(null))
+            {
+                contenidoAMeter = "";
+            }
+            else
+            {
+                contenidoAMeter = emisor;
+            }
+            return contenidoAMeter;
+        }
+        private List<string> extraerElementosListBox(ListBox listbox) 
+        {
+            List<string> listaADevolver = new List<string> { };
+            for (int i = 0; i < listbox.Items.Count; i++)
+            {
+                string aux = (string)listbox.Items[i];
+                listaADevolver.Add(aux);
+            }
+            return listaADevolver;
+        }
     }
 }

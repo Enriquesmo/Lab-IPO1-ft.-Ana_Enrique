@@ -23,7 +23,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
     /// </summary>
     public partial class ListaDeRutas : Window
     {
-        ObservableCollection<Excursionista> particip;
+        ObservableCollection<Excursionista> listadoParticipantes;
         ObservableCollection<Guia> listadoGuias;
 
         /************************************************************************************************/
@@ -34,7 +34,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         {
             InitializeComponent();
             /*Inicialización de los listados de rutas, participantes y guias*/
-            particip= new ObservableCollection<Excursionista>();
+            listadoParticipantes= new ObservableCollection<Excursionista>();
             listadoGuias= new ObservableCollection<Guia>();
             mapa.Visibility = Visibility.Hidden;
             estadoBotones(false);
@@ -47,19 +47,24 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
             /*Creación de Excursionistas de ejemplo*/
             Excursionista part1 = new Excursionista("Marta", "Sanchez Ruiz", 23, 345678912, "70747431X");
+            listadoParticipantes.Add(part1);
             Excursionista part2 = new Excursionista("Marcos", "Diaz Sanchez", 27, 456789123, "52021073J");
+            listadoParticipantes.Add(part2);
             Excursionista part3 = new Excursionista("Antonio", "Rodriguez Gomez", 37, 669733434, "21773636M");
+            listadoParticipantes.Add(part3);
+
 
             /* Creacion de uri*/
-            
-                Uri u1 = new Uri("/Mapa de Ejemplo.jpg", UriKind.Relative);
-                Uri u2 = new Uri("/FondoInicio.jpg", UriKind.Relative);
+
+            Uri u1 = new Uri("/Mapa de Ejemplo.jpg", UriKind.Relative);
+            Uri u2 = new Uri("/FondoInicio.jpg", UriKind.Relative);
 
             /*Creacion de Puntos de interes de ejemplo*/
             PuntoDeInteres punto1 = new PuntoDeInteres("Lagunas de Ruidera", "Lagunas de ruidera, te puedes bañar", "Masa de agua");
             PuntoDeInteres punto2 = new PuntoDeInteres("Tablas de Daimiel", "Puedes ver pajaros","Área de avistamiento de aves" );
             PuntoDeInteres punto3 = new PuntoDeInteres("Ermita de Santa Lucía","Virgen de Santa Lucía", "Edificación de interés histórico");
             PuntoDeInteres punto4 = new PuntoDeInteres("El Molino de Fuente El Fresno", "Molino Casi-Quemado", "Mirador"); //Dicho por mi novio q quería q pusiese eso
+                                                                                                                           // xd
             punto1.galeria.Add( u1 );
             punto1.galeria.Add(u2 );
             punto2.galeria.Add(u1);
@@ -150,7 +155,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         private void btnParticipantes_Click(object sender, RoutedEventArgs e)
         {
             Ruta seleccionada = Listarutas.SelectedItem as Ruta;
-            Participantes ventanaParticipantes = new Participantes(seleccionada);
+            Participantes ventanaParticipantes = new Participantes(seleccionada, listadoParticipantes);
             ventanaParticipantes.ShowDialog();
             //partic.ListaParticipantes.ItemsSource = seleccionada.participantes;
             //particip = seleccionada.participantes;

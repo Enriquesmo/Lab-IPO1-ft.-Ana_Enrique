@@ -19,9 +19,7 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Nombre}"
-                                               
-                                               />
+                                <TextBlock Text="{Binding Nombre}"/>
 
                             </StackPanel>
                         </DataTemplate>

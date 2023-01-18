@@ -18,10 +18,12 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Nombre}"
-                                               
-                                               />
-
+                            <Button  Click="ButtonAlLadoDeLaPersona" Width="32" Height="37" BorderBrush="{x:Null}">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/cross.png"/>
+                                </Button.Background>
+                            </Button>
+                            <TextBlock VerticalAlignment="Center" Margin="10,0,0,0" Text="{Binding Nombre}"/>
                         </StackPanel>
                     </DataTemplate>
 
@@ -32,8 +34,8 @@
                         HorizontalAlignment="Stretch" 
                         Width="5"/>
             <StackPanel x:Name="spDetallesRutas" 
-                        Grid.Column="2"
-                        Orientation="Vertical" Margin="5,141,10,0" RenderTransformOrigin="0.5,0.5">
+                        Grid.Column="1"
+                        Orientation="Vertical" Margin="5,0,0,0" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
                 <StackPanel.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -42,48 +44,74 @@
                         <TranslateTransform X="0"/>
                     </TransformGroup>
                 </StackPanel.RenderTransform>
-                <Canvas Height="280">
-                    <TextBox x:Name="txbNombre" Canvas.Left="32" TextWrapping="Wrap" Canvas.Top="32" Width="148" Height="18"/>
-                    <Label x:Name="lblNombreApp" Content="Nombre y Apellidos" Canvas.Left="32" Width="120"/>
-                    <Label x:Name="lblTelef" Content="Teléfono" Canvas.Left="32" Width="102" Canvas.Top="55"/>
-                    <Label x:Name="lblEdad" Content="Edad" Canvas.Left="32" Width="51" Canvas.Top="104"/>
-                    <Label x:Name="lblDni" Content="DNI" Canvas.Left="209" Width="102" Canvas.Top="55"/>
-                    <Label x:Name="lblListaRutComp" Content="Rutas asistidas" Canvas.Left="32" Width="102" Canvas.Top="152"/>
-                    <TextBox x:Name="txbTelef" Canvas.Left="32" TextWrapping="Wrap" Canvas.Top="81" Width="148" Height="18"/>
-                    <TextBox x:Name="txbEdad" Canvas.Left="32" TextWrapping="Wrap" Canvas.Top="126" Width="120"/>
-                    <TextBox x:Name="txbDni" Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="81" Width="142" Height="18"/>
-                    <ListBox Height="92" Width="131" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="35" Canvas.Top="183" RenderTransformOrigin="0.5,0.5">
-                        <ListBox.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform Angle="0.208"/>
-                                <TranslateTransform/>
+                <Grid x:Name="GridArriba" Height="136" Width="498">
+                    <Image x:Name="Foto" Source="/Foto Persona1.jpg" Margin="189,8,189,8" Width="120" Height="120">
+                        <Image.OpacityMask>
+                            <ImageBrush ImageSource="/Foto Persona1.jpg"/>
+                        </Image.OpacityMask>
+                    </Image>
+                    <Button x:Name="btnAyuda" Width="48" Height="48" Click="btnAyuda_Click" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="{x:Null}" Margin="440,10,0,0">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/ayuda.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnX" BorderBrush="{x:Null}" Click="btnX_Click" Margin="10,10,463,101">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/close.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnActualizarFoto" Content="Actualizar Foto" HorizontalAlignment="Left" Margin="314,88,0,0" VerticalAlignment="Top" Height="40" Width="95" Click="btnActualizarFoto_Click"/>
+                </Grid>
+                <Grid x:Name="GridAbajo" Height="297" Width="499">
+                    <Label
+                    Content="Nombre" Margin="36,12,285,261" x:Name="lblNombre" Width="178" Height="24"/>
+                    <TextBox
+                    Margin="36,36,285,237" x:Name="txbNombre" TextWrapping="Wrap" Width="178" Height="24"/>
+                    <Label x:Name="lblApellidos" Content="Apellidos" HorizontalAlignment="Left" Margin="278,12,0,0" VerticalAlignment="Top" Width="178" Height="24"/>
+                    <TextBox
+                    Margin="278,36,43,237" x:Name="txbApellidos" TextWrapping="Wrap" Width="178" Height="24"/>
+                    <Label
+                    Content="Teléfono" Margin="36,60,285,213" x:Name="lblTelefono" Width="178" Height="24"/>
+                    <TextBox
+                    Margin="36,86,285,187" x:Name="txbTelefono" TextWrapping="Wrap" Width="178" Height="24"/>
+                    <Label
+                    Content="Edad" Margin="278,110,43,163" x:Name="lblEdad" Width="178" Height="24"/>
+                    <TextBox
+                    Margin="278,137,43,136" x:Name="txbEdad" TextWrapping="Wrap" Width="178" Height="24"/>
+                    <Label
+                    Content="DNI" Margin="278,60,43,213" x:Name="lblDni" Width="178" Height="24"/>
+                    <TextBox
+                    Margin="278,86,43,187" x:Name="txbDni" TextWrapping="Wrap" Width="178" Height="24"/>
+                    <Label
+                    Content="Rutas asistidas" Margin="36,110,285,163" x:Name="lblListaRutComp" Width="178" Height="24"/>
+                    <ListBox
+                    d:ItemsSource="{d:SampleData ItemCount=5}" RenderTransformOrigin="0.5,0.5" Margin="36,137,285,92" Width="178" Height="68">
+                        <ListBox.RenderTransform
+                    >
+                            <TransformGroup
+                    >
+                                <ScaleTransform
+                    />
+                                <SkewTransform
+                    />
+                                <RotateTransform
+                    Angle="0.208"/>
+                                <TranslateTransform
+                    />
                             </TransformGroup>
                         </ListBox.RenderTransform>
                     </ListBox>
-                    <Button x:Name="btnAnadir" Content="Añadir" Canvas.Left="260" Canvas.Top="231" Height="40" Width="64" Click="btnAnadir_Click"/>
-                    <Button x:Name="btnMod" Content="Modificar" Canvas.Left="182" Canvas.Top="231" Height="40" Width="64" Click="btnMod_Click"/>
-                    <Button x:Name="btnBorrar" Content="Borrar" Canvas.Left="392" Canvas.Top="231" Height="40" Width="64" Click="btnBorrar_Click"/>
-                    <TextBox x:Name="txbApp" Height="18" Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="32" Width="196"/>
-                </Canvas>
+                    <Button
+                    x:Name="btnAnadir" Margin="382,247,53,10" Content="Añadir" Click="btnAnadir_Click" Width="64" Height="40"/>
+                    <Button
+                    x:Name="btnMod" Margin="296,247,139,10" Content="Modificar" Click="btnMod_Click" Height="40" Width="64"/>
+                    <Button
+                    x:Name="btnBorrar" Margin="141,247,295,10" Content="Borrar" Click="btnBorrar_Click" Height="40"/>
+                    <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="58,247,0,0" VerticalAlignment="Top" Width="64" Height="40"/>
+                </Grid>
 
 
             </StackPanel>
-            <Canvas Grid.Column="1" Grid.ColumnSpan="2" Margin="5,0,0,293">
-                <Image Height="131" Canvas.Left="160" Canvas.Top="6" Width="152" Source="/Foto Persona1.jpg">
-                    <Image.OpacityMask>
-                        <ImageBrush ImageSource="/Foto Persona1.jpg"/>
-                    </Image.OpacityMask>
-                </Image>
-                <Button x:Name="btnAyuda" Width="48" Height="48" Click="btnAyuda_Click" HorizontalAlignment="Left" Canvas.Left="441" Canvas.Top="10" VerticalAlignment="Center" BorderBrush="{x:Null}">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/ayuda.png"/>
-                    </Button.Background>
-                </Button>
-
-
-            </Canvas>
 
 
         </Grid>
