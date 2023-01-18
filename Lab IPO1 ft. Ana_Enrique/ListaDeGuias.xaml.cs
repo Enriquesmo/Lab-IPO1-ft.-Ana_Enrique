@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+// falta: añadir la foto, boton de ayuda
+
 namespace Lab_IPO1_ft.Ana_Enrique
 {
     /// <summary>
@@ -25,7 +27,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         /*Inicializacion de la ventana ListaDeGuias*/
 
-        // falta: añadir la foto, boton de ayuda
         public ListaDeGuias(ObservableCollection<Guia> listadoGuias)
         {
             InitializeComponent();

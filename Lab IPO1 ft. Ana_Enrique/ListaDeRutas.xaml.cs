@@ -54,8 +54,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
             
                 Uri u1 = new Uri("/Mapa de Ejemplo.jpg", UriKind.Relative);
                 Uri u2 = new Uri("/FondoInicio.jpg", UriKind.Relative);
-            
-            
 
             /*Creacion de Puntos de interes de ejemplo*/
             PuntoDeInteres punto1 = new PuntoDeInteres("Lagunas de Ruidera", "Lagunas de ruidera, te puedes bañar", "Masa de agua");
@@ -146,7 +144,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         /**************************************************************/
 
-        /*Botones Reservados para la creacion de las Ventanas*/
+        /*Botones Reservados para la creacion de las Ventanas derivadas*/
 
         /*Boton reservado para la Ventana Participantes*/
         private void btnParticipantes_Click(object sender, RoutedEventArgs e)

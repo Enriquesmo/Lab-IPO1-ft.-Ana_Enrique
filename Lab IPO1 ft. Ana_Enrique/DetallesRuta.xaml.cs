@@ -143,6 +143,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                             rutaADevolver.guia = seleccionarGuia(ComboBoxGuia);
                         }
                         /*Fase final*/
+                        //listadoGuiasAux.Add();
                         Result = rutaADevolver;
                         OperacionCompletada = true;
                         MessageBox.Show("Todos los cambios han sido guardados.", "Exito", MessageBoxButton.OK);
