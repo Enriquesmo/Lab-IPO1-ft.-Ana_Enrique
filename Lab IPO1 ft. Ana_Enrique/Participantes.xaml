@@ -18,9 +18,9 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <Button  Click="ButtonAlLadoDeLaPersona" Width="32" Height="37" BorderBrush="{x:Null}">
+                            <Button x:Name="BtnAlLadoDeLaPersona" Content="cross" Click="ButtonAlLadoDeLaPersona" Width="32" Height="37" BorderBrush="{x:Null}" Foreground="Transparent">
                                 <Button.Background>
-                                    <ImageBrush ImageSource="/cross.png"/>
+                                    <ImageBrush ImageSource="pack://application:,,,/Lab_IPO1_ft.Ana_Enrique;component/cross.png"/>
                                 </Button.Background>
                             </Button>
                             <TextBlock VerticalAlignment="Center" Margin="10,0,0,0" Text="{Binding Nombre}"/>
@@ -84,7 +84,7 @@
                     Margin="278,86,43,187" x:Name="txbDni" TextWrapping="Wrap" Width="178" Height="24"/>
                     <Label
                     Content="Rutas asistidas" Margin="36,110,285,163" x:Name="lblListaRutComp" Width="178" Height="24"/>
-                    <ListBox
+                    <ListBox x:Name="ListBoxRutasExcursionista"
                     d:ItemsSource="{d:SampleData ItemCount=5}" RenderTransformOrigin="0.5,0.5" Margin="36,137,285,92" Width="178" Height="68">
                         <ListBox.RenderTransform
                     >
@@ -107,7 +107,7 @@
                     x:Name="btnMod" Margin="296,247,139,10" Content="Modificar" Click="btnMod_Click" Height="40" Width="64"/>
                     <Button
                     x:Name="btnBorrar" Margin="141,247,295,10" Content="Borrar" Click="btnBorrar_Click" Height="40"/>
-                    <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="58,247,0,0" VerticalAlignment="Top" Width="64" Height="40"/>
+                    <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="58,247,0,0" VerticalAlignment="Top" Width="64" Height="40" Click="btnLimpiar_Click"/>
                 </Grid>
 
 
