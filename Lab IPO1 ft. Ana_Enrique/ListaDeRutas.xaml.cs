@@ -202,7 +202,19 @@ namespace Lab_IPO1_ft.Ana_Enrique
             Ruta seleccionada = Listarutas.SelectedItem as Ruta;
             if (seleccionada != null)
             {
-                mapa.Visibility = Visibility.Visible;
+                // Cargamos la foto de la ruta en la Image de nuestra interfaz
+                if (seleccionada.Mapa != null)
+                {
+                    BitmapImage imagen = new BitmapImage(seleccionada.Mapa);
+                    mapa.Source = imagen;
+                    mapa.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    mapa.Source = null;
+                    mapa.Visibility = Visibility.Hidden;
+                }
+
                 lblNombreruta2.Content = seleccionada.Nombre;
                 lblDescripcion2.Content = seleccionada.Descripcion;
                 if (seleccionada.participantes != null)

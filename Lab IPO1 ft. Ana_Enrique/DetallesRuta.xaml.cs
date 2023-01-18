@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 //using System.Linq;
@@ -6,6 +7,8 @@ using System.Collections.ObjectModel;
 //using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using static System.Net.Mime.MediaTypeNames;
 //using System.Windows.Data;
 //using System.Windows.Documents;
 //using System.Windows.Input;
@@ -38,10 +41,10 @@ namespace Lab_IPO1_ft.Ana_Enrique
             ComboBoxSeCome.Items.Add("No");
             ComboBoxFinalizada.Items.Add("Si");
             ComboBoxFinalizada.Items.Add("No");
-            for (int i = 0; i < listadoGuias.Count; i++)
-            {
-                ComboBoxGuia.Items.Add(listadoGuias[i].Nombre);
-            }
+            actualizarGuiasSeleccionables();
+            mapa.Source = null;
+            //mapa.Visibility = Visibility.Hidden;
+
             if (Ruta != null)
             {
                 rutaADevolver = Ruta;
@@ -59,6 +62,12 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 introducirBoolean(Ruta.seCome, ComboBoxSeCome);
                 introducirBoolean(Ruta.Finalizada, ComboBoxFinalizada);
                 introducirEnLaListBox(ListBoxMaterial, Ruta.material);
+                // Cargamos la foto de la ruta en la Image de nuestra interfaz
+                if (Ruta.Mapa != null)
+                {
+                    BitmapImage imagen = new BitmapImage(Ruta.Mapa);
+                    mapa.Source = imagen;
+                }
                 if (Ruta.guia != null)
                 {
                     ComboBoxGuia.Text = Ruta.guia.Nombre;
@@ -107,7 +116,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         {
             ListBoxMaterial.Items.Remove(ListBoxMaterial.SelectedItem);
         }
-        private void btnFinalizar_Click(object sender, RoutedEventArgs e) // Terminado CREO
+        private void btnFinalizar_Click(object sender, RoutedEventArgs e) // Terminado
         {
             OperacionCompletada = false;
             bool esNumeroDuracion = esNumero(txbDuracion, "la duración");
@@ -143,7 +152,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
                             rutaADevolver.guia = seleccionarGuia(ComboBoxGuia);
                         }
                         /*Fase final*/
-                        //listadoGuiasAux.Add();
                         Result = rutaADevolver;
                         OperacionCompletada = true;
                         MessageBox.Show("Todos los cambios han sido guardados.", "Exito", MessageBoxButton.OK);
@@ -157,6 +165,17 @@ namespace Lab_IPO1_ft.Ana_Enrique
             MessageBox.Show("La ventana esta dividida en 2 partes:\n" +
                 "IZQUIERDA:\n - Se muestran todos los atributos de una ruta.\n - Se pueden modificar todos, excepto las incidencias.\n - En el campo Materiales, encontramos 2 botones:\n    . Borrar Mat\n    . Añadir Mat\n   Al seleccionar un material de la lista de abajo, se cumple con lo que\n   dice el botón.\n - El botón LISTA GUIAS, muestra una ventana para modificarlos." +
                 "\nDERECHA:\n - El botón LIMPIAR, limpia todos los campos.\n - El botón GUARDAR, tiene 2 funcionalidades:\n    . Si ha entrado para MODIFICAR una ruta\n         Se guardan los cambios aplicados.\n    . Si ha entrado para AÑADIR una ruta\n         Se añade la ruta creada a la anterior ventana.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        private void btnActualizarFoto_Click(object sender, RoutedEventArgs e) // Terminado
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Uri NuevaFoto = new Uri(openFileDialog.FileName);
+                rutaADevolver.Mapa = NuevaFoto;
+                BitmapImage nuevaImagen = new BitmapImage(new Uri(openFileDialog.FileName));
+                mapa.Source = nuevaImagen;
+            }
         }
 
         /**************************************************************/
@@ -172,11 +191,17 @@ namespace Lab_IPO1_ft.Ana_Enrique
         /*Botones Reservados para la creacion de las diferentes Ventanas*/
 
         /*Boton reservado para la Ventana Guias*/
-        private void btnListaGuias_Click(object sender, RoutedEventArgs e)
+        private void btnListaGuias_Click(object sender, RoutedEventArgs e) // Terminado
         {
             ListaDeGuias ventanaListaDeGuias = new ListaDeGuias(listadoGuiasAux);
+            String nombreGuia = ComboBoxGuia.SelectedItem as String;
             /*Utilizamos ShowDialog ya que vamos esperar a que la otra ventana se cierre para luego despues actualizarla correctamente*/
             ventanaListaDeGuias.ShowDialog();
+            actualizarGuiasSeleccionables();
+            if (ComboBoxGuia.Items.Contains(nombreGuia))
+            {
+                ComboBoxGuia.SelectedItem = nombreGuia;
+            }
         }
 
         /************************************************************************************************/
@@ -282,6 +307,14 @@ namespace Lab_IPO1_ft.Ana_Enrique
             else
             {
                 receptor.Text = "No";
+            }
+        }
+        private void actualizarGuiasSeleccionables() // Terminado
+        {
+            ComboBoxGuia.Items.Clear();
+            for (int i = 0; i < listadoGuiasAux.Count; i++)
+            {
+                ComboBoxGuia.Items.Add(listadoGuiasAux[i].Nombre);
             }
         }
     }
