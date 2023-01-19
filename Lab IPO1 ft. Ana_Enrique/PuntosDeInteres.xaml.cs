@@ -59,6 +59,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
             ListaPuntos.Items.Refresh();
             PuntoDeInteres puntosel = ListaPuntos.SelectedItem as PuntoDeInteres;
             btnIzq.IsEnabled = false;
+            btnDcha.IsEnabled=false;
             if (puntosel != null)
             {
                 galeriaAux = puntosel.galeria;

@@ -80,7 +80,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         }
         private void btnAyuda_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Aquí hay que introducir la ayuda que se facilitará al usuario para esta ventana.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(" ·Para consultar los detalles de un Guía, seleccione uno de la lista de la izquierda.\n \n ·A su vez, para añadir un Guia nuevo, rellene todos sus campos. ", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void btnBorrar_Click(object sender, RoutedEventArgs e) // Terminado
         {
