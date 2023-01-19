@@ -44,7 +44,7 @@
                             Stretch="UniformToFill" ImageSource="/FondoInicio.jpg"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Viewbox x:Name="VentanaInicio" Grid.Column="1" Grid.ColumnSpan="4" Margin="5,5,5,5" Grid.RowSpan="6" Grid.Row="1" Stretch="Fill" d:IsHidden="True">
+        <Viewbox x:Name="VentanaInicio" Grid.Column="1" Grid.ColumnSpan="4" Margin="5,5,5,5" Grid.RowSpan="6" Grid.Row="1" Stretch="Fill">
             <Grid Height="311.297454545455" Width="444.054054054054">
                 <Rectangle x:Name="FondoLogin" 
                     Fill="#FF405F3B" 
@@ -72,12 +72,12 @@
                     PasswordChar="*"
                     BorderThickness="2" 
                     VerticalContentAlignment="Center" 
-                    IsEnabled="False" Margin="71,173,71,102" />
+                    IsEnabled="False" Margin="71,173,71,102" KeyDown="passContrasena_KeyDown" />
                 <Button x:Name="btnLogin" 
                     Content="Iniciar Sesión" 
                     FontSize="14" FontWeight="Bold" 
                     Background="#FF6189CF" Foreground="White" 
-                    Cursor="Hand" Click="btnLogin_Click" Margin="165,246,149,10"/>
+                    Cursor="Hand" Click="btnLogin_Click" Margin="165,246,149,10" ClickMode="Press" GotFocus="btnLogin_GotFocus" LostFocus="btnLogin_LostFocus"/>
                 <Button x:Name="btnOlvidoPss" Content="¿Olvidó su contraseña?" HorizontalAlignment="Left" Margin="253,221,0,0" VerticalAlignment="Top" Height="20" Width="120" FontSize="10" FontStyle="Italic" FontWeight="Bold" Background="{x:Null}" Foreground="#FFA7C2F9" BorderBrush="{x:Null}" Click="btnOlvidoPss_Click"/>
                 <Button x:Name="btnAyuda1" HorizontalAlignment="Left" Margin="386,94,0,0" VerticalAlignment="Top" Width="48" Height="48" Click="btnAyuda1_Click" BorderBrush="{x:Null}">
                     <Button.Background>
@@ -157,7 +157,7 @@
 
             </Grid>
         </Viewbox>
-        <Viewbox x:Name="VentanaContNueva" Grid.Column="1" Grid.ColumnSpan="4" Margin="5,5,5,5" Grid.RowSpan="6" Grid.Row="1" Stretch="Fill" Visibility="Visible">
+        <Viewbox x:Name="VentanaContNueva" Grid.Column="1" Grid.ColumnSpan="4" Margin="5,5,5,5" Grid.RowSpan="6" Grid.Row="1" Stretch="Fill" Visibility="Visible" d:IsHidden="True">
             <Grid Height="311.297454545455" Width="444.054054054054">
                 <Rectangle x:Name="FondoLogin2" 
                     Fill="#FF405F3B" 

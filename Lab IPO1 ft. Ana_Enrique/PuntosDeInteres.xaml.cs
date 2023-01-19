@@ -45,6 +45,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 btnBorrarP.IsEnabled = false;
                 btnAnadirP.IsEnabled = false;
                 btnModP.IsEnabled = false;
+                btnAnadirImg.IsEnabled = false;
             }
             lblImagenes.Content = "0/0";
             btnDcha.IsEnabled = false;
@@ -163,6 +164,12 @@ namespace Lab_IPO1_ft.Ana_Enrique
             {
                 btnIzq.IsEnabled = false;
             }
+        }
+
+        private void btnAyuda_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(" ·Para consultar los detalles de un Punto de Interés, seleccione uno de la lista de la izquierda.\n \n ·A su vez, para añadir un punto nuevo, rellene todos sus campos. \n\n ·Por ultimo, tenga en cuenta que si la ruta ha sido finalizada, no se podrán modificar sus Puntos de interés.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
+
         }
 
 

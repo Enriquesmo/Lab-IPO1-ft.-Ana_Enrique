@@ -60,6 +60,20 @@ namespace Eventos
                 }
             }
         }
+        private void passContrasena_KeyDown(object sender, KeyEventArgs e)
+        {
+            // se hará la comprobación al pulsar el "Enter"
+            if (e.Key == Key.Return)
+            {
+
+                btnLogin.Focusable= true;
+                btnLogin.Focus();
+                
+                    
+                
+            }
+        }
+
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             // La comprobación ya lleva implícita que las entradas estén vacías
@@ -188,6 +202,16 @@ namespace Eventos
                 valido = false;
             }
             return valido;
+        }
+
+        private void btnLogin_GotFocus(object sender, RoutedEventArgs e)
+        {
+            btnLogin.Background = Brushes.DarkBlue;
+        }
+
+        private void btnLogin_LostFocus(object sender, RoutedEventArgs e)
+        {
+            btnLogin.Background = Brushes.CornflowerBlue;
         }
     }
 }

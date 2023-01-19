@@ -58,7 +58,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         }
         private void btnAyuda_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Aquí hay que introducir la ayuda que se facilitará al usuario para esta ventana.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(" ·Para consultar los detalles de un Participante, seleccione uno de la lista de la izquierda.\n \n ·A su vez, para añadir un participante nuevo, rellene todos sus campos. \n\n ·Por ultimo, tenga en cuenta que si la ruta ha sido finalizada, no se podrán modificar sus participantes.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void btnBorrar_Click(object sender, RoutedEventArgs e)

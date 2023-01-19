@@ -123,7 +123,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         }
         private void Btn_Ayuda_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Aquí hay que introducir la ayuda que se facilitará al usuario para esta ventana.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Para consultar los detalles, participantes y demás datos de una ruta, seleccione una de la lista de la izquierda\n", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void btnFinalizar_Click(object sender, RoutedEventArgs e) // Finalizado
         {
