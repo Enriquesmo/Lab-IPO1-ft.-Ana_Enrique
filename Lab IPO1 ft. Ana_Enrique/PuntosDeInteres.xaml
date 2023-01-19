@@ -70,6 +70,11 @@
                     <Button x:Name="btnDcha" Content="&gt;" Canvas.Left="319" Canvas.Top="72" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnDcha_Click"/>
                     <Label x:Name="lblImagenes" Content="" Canvas.Left="312" Canvas.Top="111"/>
                     <Button x:Name="btnAnadirImg" Content="Añadir imagen" Canvas.Left="352" Canvas.Top="96" Background="#FFE6E4E4" Click="btnAnadirImg_Click"/>
+                    <Button x:Name="btnX" Content="" Canvas.Left="13" Canvas.Top="10" Height="24" Width="24" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="btnX_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/close.png"/>
+                        </Button.Background>
+                    </Button>
 
 
                 </Canvas>

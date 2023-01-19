@@ -172,6 +172,18 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         }
 
+        private void btnX_Click(object sender, RoutedEventArgs e)
+        {
+            ListaPuntos.SelectedItem = null;
+            Img.Source=null;
+            txbNombreP.Text = "";
+            txbDescripcion.Text = "";
+            cbTipo.SelectedItem = null;
+            btnDcha.IsEnabled = false;
+            btnIzq.IsEnabled=false;
+            lblImagenes.Content = "0/0";
+        }
+
 
         /************************************************************************************************/
 

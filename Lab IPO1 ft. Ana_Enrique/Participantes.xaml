@@ -102,12 +102,11 @@
                         </ListBox.RenderTransform>
                     </ListBox>
                     <Button
-                    x:Name="btnAnadir" Margin="382,247,53,10" Content="Añadir" Click="btnAnadir_Click" Width="64" Height="40"/>
+                    x:Name="btnAnadir" Margin="367,247,43,10" Content="Añadir" Click="btnAnadir_Click" Height="40"/>
                     <Button
-                    x:Name="btnMod" Margin="296,247,139,10" Content="Modificar" Click="btnMod_Click" Height="40" Width="64"/>
+                    x:Name="btnMod" Margin="232,247,167,10" Content="Modificar" Click="btnMod_Click" Height="40"/>
                     <Button
-                    x:Name="btnBorrar" Margin="141,247,295,10" Content="Borrar" Click="btnBorrar_Click" Height="40"/>
-                    <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="58,247,0,0" VerticalAlignment="Top" Width="64" Height="40" Click="btnLimpiar_Click"/>
+                    x:Name="btnBorrar" Margin="36,247,384,10" Content="Borrar" Click="btnBorrar_Click" Height="40"/>
                 </Grid>
 
 

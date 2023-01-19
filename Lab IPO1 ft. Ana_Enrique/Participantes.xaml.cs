@@ -221,20 +221,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
             LtbRutasExcursionista.Items.Clear();
             estadoBotones(1);
         }
-        private void btnLimpiar_Click(object sender, RoutedEventArgs e) // Terminado
-        {
-            System.Windows.MessageBoxResult result = MessageBox.Show("¿Estás seguro de que quieres limpiar todos los campos?", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
-            if (result == MessageBoxResult.OK)
-            {
-                Foto.Source = null;
-                txbNombre.Text = "";
-                txbApellidos.Text = "";
-                txbEdad.Text = ""; ;
-                txbTelefono.Text = "";
-                txbDni.Text = "";
-                LtbRutasExcursionista.Items.Clear();
-            }
-        }
+       
         private void ButtonAlLadoDeLaPersona(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
@@ -345,7 +332,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 btnActualizarFoto.IsEnabled=false;
             }
             
-            btnLimpiar.IsEnabled = true;
         }
         private bool esNumero(TextBox textbox, string mensaje) // Terminado
         {
