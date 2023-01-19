@@ -84,7 +84,7 @@
                     Margin="278,86,43,187" x:Name="txbDni" TextWrapping="Wrap" Width="178" Height="24"/>
                     <Label
                     Content="Rutas asistidas" Margin="36,110,285,163" x:Name="lblListaRutComp" Width="178" Height="24"/>
-                    <ListBox x:Name="ListBoxRutasExcursionista"
+                    <ListBox x:Name="LtbRutasExcursionista"
                     d:ItemsSource="{d:SampleData ItemCount=5}" RenderTransformOrigin="0.5,0.5" Margin="36,137,285,92" Width="178" Height="68">
                         <ListBox.RenderTransform
                     >

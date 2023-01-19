@@ -117,7 +117,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 txbTelefono.Text = "";
                 txbDni.Text = "";
                 Foto.Source = null;
-                ListBoxRutasExcursionista.Items.Clear();
+                LtbRutasExcursionista.Items.Clear();
             }
                 /*
                  ListaParticipantes.Items.Remove(ListaParticipantes.SelectedItem);
@@ -218,7 +218,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
             txbEdad.Text = ""; ;
             txbTelefono.Text = "";
             txbDni.Text = "";
-            ListBoxRutasExcursionista.Items.Clear();
+            LtbRutasExcursionista.Items.Clear();
             estadoBotones(1);
         }
         private void btnLimpiar_Click(object sender, RoutedEventArgs e) // Terminado
@@ -232,7 +232,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 txbEdad.Text = ""; ;
                 txbTelefono.Text = "";
                 txbDni.Text = "";
-                ListBoxRutasExcursionista.Items.Clear();
+                LtbRutasExcursionista.Items.Clear();
             }
         }
         private void ButtonAlLadoDeLaPersona(object sender, RoutedEventArgs e)
