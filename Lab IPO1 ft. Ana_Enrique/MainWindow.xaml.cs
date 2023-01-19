@@ -5,6 +5,8 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
+// TERMINADA
+
 namespace Eventos
 {
     /// <summary>

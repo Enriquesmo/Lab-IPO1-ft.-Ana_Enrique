@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-// Falta poner colores bonitos y decidir que hacer con la lista de rutas asistidas, de ser asi, hay que eliminar varios metodos
+// FALTA: poner colores bonitos
 
 namespace Lab_IPO1_ft.Ana_Enrique
 {
@@ -212,17 +212,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
         /************************************************************************************************/
 
         /*Metodos Auxiliares para todos los botones*/
-
-        private void introducirEnLaListBox(ListBox listbox, List<string> listaAIntroducir)
-        {
-            if (listaAIntroducir != null)
-            {
-                for (int i = 0; i < listaAIntroducir.Count; i++)
-                {
-                    listbox.Items.Add(listaAIntroducir[i]);
-                }
-            }
-        }
         private void estadoBotones(int opcion) // Terminado
         {
             if (rutaElegida.Finalizada == false)
@@ -286,16 +275,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 contenidoAMeter = emisor;
             }
             return contenidoAMeter;
-        }
-        private List<string> extraerElementosListBox(ListBox listbox) 
-        {
-            List<string> listaADevolver = new List<string> { };
-            for (int i = 0; i < listbox.Items.Count; i++)
-            {
-                string aux = (string)listbox.Items[i];
-                listaADevolver.Add(aux);
-            }
-            return listaADevolver;
         }
     }
 }

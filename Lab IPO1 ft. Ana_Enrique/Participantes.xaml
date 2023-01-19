@@ -70,32 +70,13 @@
                     <TextBox
                     Margin="36,86,285,187" x:Name="txbTelefono" TextWrapping="Wrap" Width="178" Height="24"/>
                     <Label
-                    Content="Edad" Margin="278,110,43,163" x:Name="lblEdad" Width="178" Height="24"/>
+                    Content="Edad" Margin="36,115,285,158" x:Name="lblEdad" Width="178" Height="24"/>
                     <TextBox
-                    Margin="278,137,43,136" x:Name="txbEdad" TextWrapping="Wrap" Width="178" Height="24"/>
+                    Margin="36,139,285,134" x:Name="txbEdad" TextWrapping="Wrap" Width="178" Height="24"/>
                     <Label
                     Content="DNI" Margin="278,60,43,213" x:Name="lblDni" Width="178" Height="24"/>
                     <TextBox
                     Margin="278,86,43,187" x:Name="txbDni" TextWrapping="Wrap" Width="178" Height="24"/>
-                    <Label
-                    Content="Rutas asistidas" Margin="36,110,285,163" x:Name="lblListaRutComp" Width="178" Height="24"/>
-                    <ListBox x:Name="LtbRutasExcursionista"
-                    d:ItemsSource="{d:SampleData ItemCount=5}" RenderTransformOrigin="0.5,0.5" Margin="36,137,285,92" Width="178" Height="68">
-                        <ListBox.RenderTransform
-                    >
-                            <TransformGroup
-                    >
-                                <ScaleTransform
-                    />
-                                <SkewTransform
-                    />
-                                <RotateTransform
-                    Angle="0.208"/>
-                                <TranslateTransform
-                    />
-                            </TransformGroup>
-                        </ListBox.RenderTransform>
-                    </ListBox>
                     <Button
                     x:Name="btnAnadir" Margin="377,247,58,10" Content="Añadir" Click="btnAnadir_Click" Height="40" Width="64"/>
                     <Button

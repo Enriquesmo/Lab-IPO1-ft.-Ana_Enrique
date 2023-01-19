@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
-// Falta poner colores bien, el buscador, añadir las fotos a los datos de ejemplo (rutas, participantes, puntos de interes...)
+// FALTA: poner colores bien, el buscador, añadir las fotos a los datos de ejemplo (rutas, participantes, puntos de interes...)
 
 namespace Lab_IPO1_ft.Ana_Enrique
 {
