@@ -1,11 +1,13 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-// FALTA: mucho
+// FALTA: poner colores bonitos
 
 namespace Lab_IPO1_ft.Ana_Enrique
 {
@@ -18,10 +20,13 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         /*Inicializacion de la ventana PuntosDeInteres*/
         public int indi = 1;
-
+        Ruta rutaElegida;
+        public ObservableCollection<Uri> galeriaAux;
         public PuntosDeInteres(Ruta ruta)
         {
             InitializeComponent();
+            rutaElegida = ruta;
+            galeriaAux = new ObservableCollection<Uri>();
             cbTipo.Items.Add("Mirador");
             cbTipo.Items.Add("Área de avistamiento de aves");
             cbTipo.Items.Add("Existencia de plantas autóctonas");
@@ -32,7 +37,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
             cbTipo.Items.Add("Edificación de interés histórico");
             foreach (PuntoDeInteres x in ruta.puntosInteres){
                 ListaPuntos.Items.Add(x);
-               
             }
             if (ruta.Finalizada)
             {
@@ -47,89 +51,141 @@ namespace Lab_IPO1_ft.Ana_Enrique
             
         }
 
-        private void ListaPuntos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /************************************************************************************************/
+
+        /*Botones de la propia pagina PuntosDeInteres*/
+
+        private void ListaPuntos_SelectionChanged(object sender, SelectionChangedEventArgs e) // Terminado
         {
             ListaPuntos.Items.Refresh();
             PuntoDeInteres puntosel = ListaPuntos.SelectedItem as PuntoDeInteres;
+            btnIzq.IsEnabled = false;
             if (puntosel != null)
             {
+                galeriaAux = puntosel.galeria;
                 txbDescripcion.Text = puntosel.Descripcion;
                 txbNombreP.Text = puntosel.Nombre;
-                var bitmap = new BitmapImage(puntosel.galeria.ElementAt(0));
-                indi = 1;
-                lblImagenes.Content = indi + "/" + puntosel.galeria.Count;
-                Img.Source = bitmap;
-                if (puntosel.galeria.Count > 1)
+                if (puntosel.galeria != null  && puntosel.galeria.Count != 0)
                 {
-                    btnDcha.IsEnabled=true;
+                    var bitmap = new BitmapImage(puntosel.galeria.ElementAt(0));
+                    Img.Source = bitmap;
+                    indi = 1;
+                    lblImagenes.Content = indi + "/" + puntosel.galeria.Count;
+                    if (puntosel.galeria.Count > 1)
+                    {
+                        btnDcha.IsEnabled = true;
+                    }
                 }
-                
-              
                 foreach (String s in cbTipo.Items)
                 {
-                    if (puntosel.Tipo.Equals(s))
+                    if (puntosel.Tipo != null)
                     {
-                        cbTipo.SelectedItem = s;
+                        if (puntosel.Tipo.Equals(s))
+                        {
+                            cbTipo.SelectedItem = s;
+                        }
                     }
                 }
             }
         }
-
-
-
-
-
-        /************************************************************************************************/
-
-        /*Botones de la propia pagina PuntosDeInteres*/
-        private void btnAnadirP_Click(object sender, RoutedEventArgs e)
+        private void btnAnadirP_Click(object sender, RoutedEventArgs e) // Terminado
         {
-            PuntoDeInteres nuevo = new PuntoDeInteres(txbNombreP.Text, txbDescripcion.Text);
-            nuevo.Tipo = cbTipo.SelectedItem.ToString();
-            ListaPuntos.Items.Add(nuevo);
-        }
-
-        private void btnBorrarP_Click(object sender, RoutedEventArgs e)
-        {
-            PuntoDeInteres selecci = ListaPuntos.SelectedItem as PuntoDeInteres;
-            ListaPuntos.Items.Remove(selecci);
-            txbNombreP.Text= "";
-            txbDescripcion.Text = "";
-            cbTipo.SelectedIndex = -1;
-
-        }
-
-        private void btnModP_Click(object sender, RoutedEventArgs e)
-        {
-            PuntoDeInteres selecci = ListaPuntos.SelectedItem as PuntoDeInteres;
-            selecci.Nombre = txbNombreP.Text;
-            selecci.Descripcion= txbDescripcion.Text;
-            selecci.Tipo = cbTipo.SelectedItem.ToString();
-        }
-
-        private void btnAnadirImg_Click(object sender, RoutedEventArgs e)
-        {
-            PuntoDeInteres selecci= ListaPuntos.SelectedItem as PuntoDeInteres ;
-            var abrirDialog = new OpenFileDialog();
-            abrirDialog.Filter = "Images|*.jpg;*.gif;*.bmp;*.png";
-            if (abrirDialog.ShowDialog() == true)
+            PuntoDeInteres nuevoPunto = new PuntoDeInteres("", "");
+            String nombreAux = introducirString(txbNombreP.Text);
+            if (nombreAux.Equals(""))
             {
-                try
+                MessageBox.Show("Debe introducir al menos\n - El nombre del Punto de Interés.\n para Finalizar este proceso.", "Error", MessageBoxButton.OK);
+            }
+            else
+            {
+                System.Windows.MessageBoxResult result = MessageBox.Show("¿Estás seguro de que quieres añadir este Punto de Interés?", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                if (result == MessageBoxResult.OK)
                 {
-                    var bitmap = new BitmapImage(new Uri(abrirDialog.FileName, UriKind.Relative));
-                    selecci.galeria.Add(new Uri(abrirDialog.FileName, UriKind.Relative));
-                    lblImagenes.Content = indi + "/" + selecci.galeria.Count;
-                    btnDcha.IsEnabled = true;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al cargar la imagen " + ex.Message);
+                    nuevoPunto.Nombre = introducirString(txbNombreP.Text);
+                    nuevoPunto.Descripcion = introducirString(txbDescripcion.Text);
+                    if (cbTipo.SelectedItem != null)
+                    {
+                        nuevoPunto.Tipo = cbTipo.SelectedItem.ToString();
+                    }
+                    if (galeriaAux != null)
+                    {
+                        nuevoPunto.galeria = galeriaAux;
+                    }
+                    rutaElegida.puntosInteres.Add(nuevoPunto);
+                    ListaPuntos.Items.Add(nuevoPunto);
                 }
             }
-
         }
-
-        private void btnDcha_Click(object sender, RoutedEventArgs e)
+        private void btnBorrarP_Click(object sender, RoutedEventArgs e) // Terminado
+        {
+            PuntoDeInteres seleccionada = ListaPuntos.SelectedItem as PuntoDeInteres;
+            System.Windows.MessageBoxResult result = MessageBox.Show("¿Está seguro que quiere borrar el participante?.", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            if (result == MessageBoxResult.OK)
+            {
+                ListaPuntos.Items.Remove(seleccionada);
+                txbNombreP.Text = "";
+                txbDescripcion.Text = "";
+                cbTipo.SelectedIndex = -1;
+                rutaElegida.puntosInteres.Remove(seleccionada);
+            }
+        }
+        private void btnModP_Click(object sender, RoutedEventArgs e) // Terminado
+        {
+            PuntoDeInteres seleccionada = ListaPuntos.SelectedItem as PuntoDeInteres;
+            String nombreAux = introducirString(txbNombreP.Text);
+            if (nombreAux.Equals(""))
+            {
+                MessageBox.Show("Debe introducir al menos\n - El nombre del Punto de Interés.\n para Finalizar este proceso.", "Error", MessageBoxButton.OK);
+            }
+            else
+            {
+                System.Windows.MessageBoxResult result = MessageBox.Show("¿Estás seguro de que quieres añadir este Punto de Interés?", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                if (result == MessageBoxResult.OK)
+                {
+                    seleccionada.Nombre = introducirString(txbNombreP.Text);
+                    seleccionada.Descripcion = introducirString(txbDescripcion.Text);
+                    if (cbTipo.SelectedItem != null)
+                    {
+                        seleccionada.Tipo = cbTipo.SelectedItem.ToString();
+                    }
+                    seleccionada.galeria = galeriaAux;
+                    rutaElegida.puntosInteres.Remove(seleccionada);
+                    rutaElegida.puntosInteres.Add(seleccionada);
+                }
+            }
+        }
+        private void btnAnadirImg_Click(object sender, RoutedEventArgs e) // Terminado
+        {
+            PuntoDeInteres seleccionada = ListaPuntos.SelectedItem as PuntoDeInteres ;
+            if (seleccionada != null)
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    Uri NuevaFoto = new Uri(openFileDialog.FileName);
+                    BitmapImage nuevaImagen = new BitmapImage(new Uri(openFileDialog.FileName));
+                    Img.Source = nuevaImagen;
+                    galeriaAux.Add(NuevaFoto);
+                    if (seleccionada.galeria.Count > 1)
+                    {
+                        btnDcha.IsEnabled = true;
+                    }
+                }
+            }
+            else
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    Uri NuevaFoto = new Uri(openFileDialog.FileName);
+                    galeriaAux.Add(NuevaFoto);
+                    BitmapImage nuevaImagen = new BitmapImage(new Uri(openFileDialog.FileName));
+                    Img.Source = nuevaImagen;
+                }
+            }
+            Img.Visibility = Visibility.Visible;
+        }
+        private void btnDcha_Click(object sender, RoutedEventArgs e) // Terminado
         {
             PuntoDeInteres selecci = ListaPuntos.SelectedItem as PuntoDeInteres;
             indi++;
@@ -142,10 +198,8 @@ namespace Lab_IPO1_ft.Ana_Enrique
             {
                 btnDcha.IsEnabled = false;
             }
-
         }
-
-        private void btnIzq_Click(object sender, RoutedEventArgs e)
+        private void btnIzq_Click(object sender, RoutedEventArgs e) // Terminado
         {
             PuntoDeInteres selecci = ListaPuntos.SelectedItem as PuntoDeInteres;
             indi--;
@@ -159,14 +213,12 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 btnIzq.IsEnabled = false;
             }
         }
-
-        private void btnAyuda_Click(object sender, RoutedEventArgs e)
+        private void btnAyuda_Click(object sender, RoutedEventArgs e) // Terminado
         {
             MessageBox.Show(" ·Para consultar los detalles de un Punto de Interés, seleccione uno de la lista de la izquierda.\n \n ·A su vez, para añadir un punto nuevo, rellene todos sus campos. \n\n ·Por ultimo, tenga en cuenta que si la ruta ha sido finalizada, no se podrán modificar sus Puntos de interés.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
 
         }
-
-        private void btnX_Click(object sender, RoutedEventArgs e)
+        private void btnX_Click(object sender, RoutedEventArgs e) // Terminado
         {
             ListaPuntos.SelectedItem = null;
             Img.Source=null;
@@ -175,14 +227,25 @@ namespace Lab_IPO1_ft.Ana_Enrique
             cbTipo.SelectedItem = null;
             btnDcha.IsEnabled = false;
             btnIzq.IsEnabled=false;
+            galeriaAux = new ObservableCollection<Uri>();
             lblImagenes.Content = "0/0";
         }
-
 
         /************************************************************************************************/
 
         /*Metodos Auxiliares para todos los botones*/
-        //???
-
+        private string introducirString(string emisor) // Terminado
+        {
+            string contenidoAMeter;
+            if (emisor.Equals(null))
+            {
+                contenidoAMeter = "";
+            }
+            else
+            {
+                contenidoAMeter = emisor;
+            }
+            return contenidoAMeter;
+        }
     }
 }

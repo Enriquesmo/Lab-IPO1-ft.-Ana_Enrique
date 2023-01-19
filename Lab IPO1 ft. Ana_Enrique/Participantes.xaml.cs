@@ -41,7 +41,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         private void ListaParticipantes_SelectionChanged(object sender, SelectionChangedEventArgs e) // Terminado
         {
-            
             ListaParticipantes.Items.Refresh();
             Excursionista seleccionado = ListaParticipantes.SelectedItem as Excursionista;
             if (seleccionado != null)
@@ -63,7 +62,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 }
                 estadoBotones(2);
             }
-            
         }
         private void btnAyuda_Click(object sender, RoutedEventArgs e) // Terminado
         {
@@ -72,7 +70,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         private void btnBorrar_Click(object sender, RoutedEventArgs e) // Terminado
         {
             Excursionista excursionista = ListaParticipantes.SelectedItem as Excursionista;
-            System.Windows.MessageBoxResult result = MessageBox.Show("¿Está seguro que quiere borrar el guia?.", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            System.Windows.MessageBoxResult result = MessageBox.Show("¿Está seguro que quiere borrar el participante?.", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
             if (result == MessageBoxResult.OK)
             {
                 ListaParticipantes.Items.Remove(excursionista);
@@ -84,17 +82,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 txbDni.Text = "";
                 Foto.Source = null;
             }
-                /*
-                 ListaParticipantes.Items.Remove(ListaParticipantes.SelectedItem);
-                 txbNombre.Text = "";
-                 txbApp.Text = "";
-                 txbEdad.Text = "";
-                 txbTelef.Text = "";
-                 txbDni.Text = "";
-                 */
-
-
-            }
+        }
         private void btnAnadir_Click(object sender, RoutedEventArgs e) // Terminado
         {
             Excursionista excursionita = new Excursionista("", "", 0, 0, "");
@@ -133,10 +121,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
                     }
                 }
             }
-            /*
-            Excursionista nuevo = new Excursionista(txbNombre.Text, txbApp.Text, int.Parse(txbEdad.Text), int.Parse(txbTelef.Text), txbDni.Text);
-            ListaParticipantes.Items.Add(nuevo);
-            */
         }
         private void btnMod_Click(object sender, RoutedEventArgs e) // Terminado
         {
@@ -170,16 +154,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
                     }
                 }
             }
-            /*
-            Excursionista nuevo = new Excursionista(txbNombre.Text, txbApp.Text, int.Parse(txbEdad.Text), int.Parse(txbTelef.Text), txbDni.Text);
-            selec = ListaParticipantes.SelectedItem as Excursionista;
-            selec.Edad = int.Parse(txbEdad.Text);
-            selec.DNI = txbDni.Text;
-            selec.Apellidos= txbApp.Text;
-            selec.Nombre= txbNombre.Text;
-            selec.Telefono = int.Parse(txbTelef.Text);
-            MessageBox.Show("Participante modificado");
-            */
         }
         private void btnX_Click(object sender, RoutedEventArgs e) // Terminado
         {

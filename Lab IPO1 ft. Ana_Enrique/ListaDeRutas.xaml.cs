@@ -53,10 +53,9 @@ namespace Lab_IPO1_ft.Ana_Enrique
             PuntoDeInteres punto1 = new PuntoDeInteres("Lagunas de Ruidera", "Lagunas de ruidera, te puedes bañar", "Masa de agua");
             PuntoDeInteres punto2 = new PuntoDeInteres("Tablas de Daimiel", "Puedes ver pajaros","Área de avistamiento de aves" );
             PuntoDeInteres punto3 = new PuntoDeInteres("Ermita de Santa Lucía","Virgen de Santa Lucía", "Edificación de interés histórico");
-            PuntoDeInteres punto4 = new PuntoDeInteres("El Molino de Fuente El Fresno", "Molino Casi-Quemado", "Mirador"); //Dicho por mi novio q quería q pusiese eso
-                                                                                                                           // xd
-            punto1.galeria.Add( u1 );
-            punto1.galeria.Add(u2 );
+            PuntoDeInteres punto4 = new PuntoDeInteres("El Molino de Fuente El Fresno", "Molino Casi-Quemado", "Mirador");
+            punto1.galeria.Add(u1);
+            punto1.galeria.Add(u2);
             punto2.galeria.Add(u1);
             punto3.galeria.Add(u1);
             punto4.galeria.Add(u1);
