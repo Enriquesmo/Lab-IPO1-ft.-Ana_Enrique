@@ -83,7 +83,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 txbTelefono.Text = "";
                 txbDni.Text = "";
                 Foto.Source = null;
-                LtbRutasExcursionista.Items.Clear();
             }
                 /*
                  ListaParticipantes.Items.Remove(ListaParticipantes.SelectedItem);
@@ -191,7 +190,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
             txbEdad.Text = ""; ;
             txbTelefono.Text = "";
             txbDni.Text = "";
-            LtbRutasExcursionista.Items.Clear();
             estadoBotones(1);
         }
         private void btnActualizarFoto_Click(object sender, RoutedEventArgs e) // Terminado
