@@ -36,6 +36,14 @@ namespace Lab_IPO1_ft.Ana_Enrique
             ComboBoxFinalizada.Items.Add("No");
             actualizarGuiasSeleccionables();
             mapa.Source = null;
+            if (Ruta.Finalizada == true)
+            {
+                btnActualizarFoto.IsEnabled = false;
+                btnFinalizar.IsEnabled = false;
+                btnBorrarMaterial.IsEnabled= false;
+                AnadirMat.IsEnabled = false;
+                btnListaGuias.IsEnabled = false;   
+            }
             //mapa.Visibility = Visibility.Hidden;
 
             if (Ruta != null)

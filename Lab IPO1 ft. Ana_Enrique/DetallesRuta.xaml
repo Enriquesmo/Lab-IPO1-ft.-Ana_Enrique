@@ -61,7 +61,7 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Top" Margin="0,53,0,0" Height="26" Width="178" Grid.Column="1"/>
                     <ComboBox x:Name="ComboBoxDificultad" Width="178" HorizontalAlignment="Center" VerticalAlignment="Top" Height="24" Margin="0,79,0,0" Grid.Column="1"/>
-                    <Label x:Name="lblFechaYHora" Content="FechaYHora" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,53,0,0" Grid.Column="3" Height="26" Width="174"/>
+                    <Label x:Name="lblFecha" Content="Fecha" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,53,0,0" Grid.Column="3" Height="26" Width="174"/>
                     <DatePicker x:Name="DatePickerFechaYHora" HorizontalAlignment="Center" VerticalAlignment="Top" Width="172" Margin="0,79,0,0" Grid.Column="3" Height="24"/>
                     <Label x:Name="lblOrigen" Content="Origen" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,103,0,0" Height="26" Width="178" Grid.Column="1"/>
                     <TextBox x:Name="txbOrigen" TextWrapping="Wrap" Width="178" Height="24" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,129,0,0" Grid.Column="1"/>

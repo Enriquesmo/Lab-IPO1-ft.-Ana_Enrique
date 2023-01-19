@@ -322,18 +322,29 @@ namespace Lab_IPO1_ft.Ana_Enrique
         }
         private void estadoBotones(int opcion) // Terminado
         {
-            if (opcion == 1)
+            if (rutaElegida.Finalizada == false)
             {
-                btnAnadir.IsEnabled = true;
-                btnMod.IsEnabled = false;
-                btnBorrar.IsEnabled = false;
+                if (opcion == 1)
+                {
+                    btnAnadir.IsEnabled = true;
+                    btnMod.IsEnabled = false;
+                    btnBorrar.IsEnabled = false;
+                }
+                else if (opcion == 2)
+                {
+                    btnAnadir.IsEnabled = false;
+                    btnMod.IsEnabled = true;
+                    btnBorrar.IsEnabled = true;
+                }
             }
-            else if (opcion == 2)
+            else
             {
-                btnAnadir.IsEnabled = false;
-                btnMod.IsEnabled = true;
-                btnBorrar.IsEnabled = true;
+                btnAnadir.IsEnabled=false;
+                btnMod.IsEnabled=false;
+                btnBorrar.IsEnabled=false;
+                btnActualizarFoto.IsEnabled=false;
             }
+            
             btnLimpiar.IsEnabled = true;
         }
         private bool esNumero(TextBox textbox, string mensaje) // Terminado
