@@ -18,11 +18,6 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <Button x:Name="BtnAlLadoDeLaPersona" Content="cross" Click="ButtonAlLadoDeLaPersona" Width="32" Height="37" BorderBrush="{x:Null}" Foreground="Transparent">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="pack://application:,,,/Lab_IPO1_ft.Ana_Enrique;component/cross.png"/>
-                                </Button.Background>
-                            </Button>
                             <TextBlock VerticalAlignment="Center" Margin="10,0,0,0" Text="{Binding Nombre}"/>
                         </StackPanel>
                     </DataTemplate>
@@ -60,7 +55,7 @@
                             <ImageBrush ImageSource="/close.png"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnActualizarFoto" Content="Actualizar Foto" HorizontalAlignment="Left" Margin="314,88,0,0" VerticalAlignment="Top" Height="40" Width="95" Click="btnActualizarFoto_Click"/>
+                    <Button x:Name="btnActualizarFoto" Content="Actualizar Foto" HorizontalAlignment="Left" Margin="314,104,0,0" VerticalAlignment="Top" Height="25" Width="95" Click="btnActualizarFoto_Click"/>
                 </Grid>
                 <Grid x:Name="GridAbajo" Height="297" Width="499">
                     <Label
@@ -102,11 +97,11 @@
                         </ListBox.RenderTransform>
                     </ListBox>
                     <Button
-                    x:Name="btnAnadir" Margin="367,247,43,10" Content="Añadir" Click="btnAnadir_Click" Height="40"/>
+                    x:Name="btnAnadir" Margin="377,247,58,10" Content="Añadir" Click="btnAnadir_Click" Height="40" Width="64"/>
                     <Button
-                    x:Name="btnMod" Margin="232,247,167,10" Content="Modificar" Click="btnMod_Click" Height="40"/>
+                    x:Name="btnMod" Margin="293,247,142,10" Content="Modificar" Click="btnMod_Click" Height="40" Width="64"/>
                     <Button
-                    x:Name="btnBorrar" Margin="36,247,384,10" Content="Borrar" Click="btnBorrar_Click" Height="40"/>
+                    x:Name="btnBorrar" Margin="36,247,399,10" Content="Borrar" Click="btnBorrar_Click" Height="40" Width="64"/>
                 </Grid>
 
 

@@ -9,78 +9,74 @@
             MinHeight="450" MinWidth="800">
     <Viewbox Stretch="Fill">
         <Grid Height="434" Width="800">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="233*"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="392*"/>
-                </Grid.ColumnDefinitions>
-                <ListBox x:Name="ListaPuntos" SelectionChanged="ListaPuntos_SelectionChanged" >
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Nombre}"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="233*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="392*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="ListaPuntos" SelectionChanged="ListaPuntos_SelectionChanged" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Nombre}"/>
 
-                            </StackPanel>
-                        </DataTemplate>
+                        </StackPanel>
+                    </DataTemplate>
 
-                    </ListBox.ItemTemplate>
+                </ListBox.ItemTemplate>
 
-                </ListBox>
-                <GridSplitter Grid.Column="1" 
+            </ListBox>
+            <GridSplitter Grid.Column="1" 
                         HorizontalAlignment="Stretch" 
                         Width="5"/>
-                <StackPanel x:Name="spDetallesPuntos" 
-                        Grid.Column="2"
-                        Orientation="Vertical" Margin="5,141,10,0" RenderTransformOrigin="0.5,0.5">
-                    <StackPanel.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleX="0"/>
-                            <RotateTransform/>
-                            <TranslateTransform X="0"/>
-                        </TransformGroup>
-                    </StackPanel.RenderTransform>
-                    <Canvas Height="280">
-                        <TextBox x:Name="txbNombreP" Canvas.Left="32" TextWrapping="Wrap" Canvas.Top="32" Width="150" Height="23"/>
-                        <Label x:Name="lblNombreApp" Content="Nombre" Canvas.Left="32" Width="120"/>
-                        <Button x:Name="btnAnadirP" Content="Añadir" Canvas.Left="162" Canvas.Top="226" Height="40" Width="106" Click="btnAnadirP_Click" />
-                        <Button x:Name="btnModP" Content="Modificar" Canvas.Left="36" Canvas.Top="226" Height="40" Width="101" Click="btnModP_Click"/>
-                        <Button x:Name="btnBorrarP" Content="Borrar" Canvas.Left="340" Canvas.Top="226" Height="40" Width="116" Click="btnBorrarP_Click" />
-                        <Label Content="Tipo de Punto" Canvas.Left="200" Canvas.Top="1"/>
-                        <Label Content="Descripción" Canvas.Left="32" Canvas.Top="55"/>
-                        <ComboBox x:Name="cbTipo" Canvas.Left="200" Canvas.Top="32" Width="239" Height="23"/>
-                        <TextBox x:Name="txbDescripcion" Height="109" Canvas.Left="42" TextWrapping="Wrap" Canvas.Top="91" Width="397"/>
-                    </Canvas>
-
-
-                </StackPanel>
-                <Canvas Grid.Column="1" Grid.ColumnSpan="2" Margin="5,0,0,293">
-                    <Image x:Name="Img" Height="131" Canvas.Left="160" Canvas.Top="6" Width="152" Source="/Mapa de Ejemplo.jpg">
+            <StackPanel x:Name="spDetallesPuntos" 
+                        Grid.Column="1"
+                        Orientation="Vertical" Margin="5,0,0,0" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+                <StackPanel.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="0"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0"/>
+                    </TransformGroup>
+                </StackPanel.RenderTransform>
+                <Grid x:Name="GridArriba" Height="144">
+                    <Image x:Name="Img" Source="/Mapa de Ejemplo.jpg" Margin="160,6,187,7">
                         <Image.OpacityMask>
                             <ImageBrush ImageSource="/Mapa de Ejemplo.jpg"/>
                         </Image.OpacityMask>
                     </Image>
-                    <Button x:Name="btnAyuda" Width="48" Height="48"  HorizontalAlignment="Left" Canvas.Left="441" Canvas.Top="10" VerticalAlignment="Center" BorderBrush="{x:Null}" Click="btnAyuda_Click">
+                    <Button x:Name="btnAyuda" Width="48" Height="48"  HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="{x:Null}" Click="btnAyuda_Click" Margin="441,10,0,0">
                         <Button.Background>
                             <ImageBrush ImageSource="/ayuda.png"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnIzq" Content="&lt;" Canvas.Left="136" Canvas.Top="71" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnIzq_Click"/>
-                    <Button x:Name="btnDcha" Content="&gt;" Canvas.Left="319" Canvas.Top="72" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnDcha_Click"/>
-                    <Label x:Name="lblImagenes" Content="" Canvas.Left="312" Canvas.Top="111"/>
-                    <Button x:Name="btnAnadirImg" Content="Añadir imagen" Canvas.Left="352" Canvas.Top="96" Background="#FFE6E4E4" Click="btnAnadirImg_Click"/>
-                    <Button x:Name="btnX" Content="" Canvas.Left="13" Canvas.Top="10" Height="24" Width="24" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="btnX_Click">
+                    <Button x:Name="btnIzq" Content="&lt;" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnIzq_Click" Margin="136,71,351,53"/>
+                    <Button x:Name="btnDcha" Content="&gt;" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnDcha_Click" Margin="319,72,168,52"/>
+                    <Label x:Name="lblImagenes" Content="" Margin="319,98,170,20"/>
+                    <Button x:Name="btnAnadirImg" Content="Añadir imagen" Background="#FFE6E4E4" Click="btnAnadirImg_Click" Width="95" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="353,98,0,0"/>
+                    <Button x:Name="btnX" Content="" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="btnX_Click" Margin="13,10,462,110">
                         <Button.Background>
                             <ImageBrush ImageSource="/close.png"/>
                         </Button.Background>
                     </Button>
+                </Grid>
+                <Grid x:Name="GridAbajo" Height="291" Width="497">
+                    <TextBox x:Name="txbNombreP" TextWrapping="Wrap" Margin="32,32,315,236"/>
+                    <Label x:Name="lblNombreApp" Content="Nombre" Margin="32,6,345,259"/>
+                    <Button x:Name="btnAnadirP" Content="Añadir" Click="btnAnadirP_Click" Margin="375,230,58,21" />
+                    <Button x:Name="btnModP" Content="Modificar" Click="btnModP_Click" Margin="288,230,145,21"/>
+                    <Button x:Name="btnBorrarP" Content="Borrar" Height="40" Width="64" Click="btnBorrarP_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,230,0,0" />
+                    <Label Content="Tipo de Punto" Margin="200,6,212,259"/>
+                    <Label Content="Descripción" Margin="32,55,393,210"/>
+                    <ComboBox x:Name="cbTipo" Margin="200,32,58,236"/>
+                    <TextBox x:Name="txbDescripcion" TextWrapping="Wrap" Margin="32,81,58,85"/>
+                </Grid>
 
 
-                </Canvas>
+            </StackPanel>
 
 
-            </Grid>
         </Grid>
     </Viewbox>
 </Window>

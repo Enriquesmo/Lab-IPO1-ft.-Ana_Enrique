@@ -6,8 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-
-// FALTA: Poner colores bien, Boton de ayuda
+// FALTA: Poner colores bien
 
 namespace Lab_IPO1_ft.Ana_Enrique
 {
@@ -23,7 +22,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         /*Inicializacion de la ventana ListaDeRutas*/
 
-        public DetallesRuta(Ruta Ruta, ObservableCollection<Guia> listadoGuias)
+        public DetallesRuta(Ruta Ruta, ObservableCollection<Guia> listadoGuias) // Terminado
         {
             InitializeComponent();
             listadoGuiasAux= listadoGuias;
@@ -42,9 +41,9 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 btnFinalizar.IsEnabled = false;
                 btnBorrarMaterial.IsEnabled= false;
                 AnadirMat.IsEnabled = false;
-                btnListaGuias.IsEnabled = false;   
+                btnListaGuias.IsEnabled = false;  
+                btnLimpiar.IsEnabled = false;
             }
-            //mapa.Visibility = Visibility.Hidden;
 
             if (Ruta != null)
             {
@@ -63,7 +62,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 introducirBoolean(Ruta.seCome, ComboBoxSeCome);
                 introducirBoolean(Ruta.Finalizada, ComboBoxFinalizada);
                 introducirEnLaListBox(ListBoxMaterial, Ruta.material);
-                // Cargamos la foto de la ruta en la Image de nuestra interfaz
+                /*Cargamos la foto de la ruta en la Image de nuestra interfaz*/
                 if (Ruta.Mapa != null)
                 {
                     BitmapImage imagen = new BitmapImage(Ruta.Mapa);
@@ -73,6 +72,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 {
                     mapa.Source = null;
                 }
+                /*Cargamos al guia si la ruta tiene asignado uno*/
                 if (Ruta.guia != null)
                 {
                     ComboBoxGuia.Text = Ruta.guia.Nombre;

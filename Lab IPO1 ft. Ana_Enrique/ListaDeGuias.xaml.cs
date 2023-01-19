@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 
-// FALTA: Poner Colores bien, Que salgan las rutas en las que aparecen los excursionistas, Boton de ayuda
+// FALTA: Poner Colores bien, Que salgan las rutas en las que aparecen los guias, Boton de ayuda
 
 namespace Lab_IPO1_ft.Ana_Enrique
 {

@@ -55,9 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="WindowPruebas.xaml.cs">
-      <DependentUpon>WindowPruebas.xaml</DependentUpon>
-    </Compile>
     <Page Include="DetallesRuta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -109,10 +106,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WindowPruebas.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -155,10 +148,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="close.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="check.png" />
-    <Resource Include="cross.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

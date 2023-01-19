@@ -2,19 +2,12 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Windows.Threading;
-using System.Xml;
+
+// Falta poner colores bien, el buscador, añadir las fotos a los datos de ejemplo (rutas, participantes, puntos de interes...)
 
 namespace Lab_IPO1_ft.Ana_Enrique
 {
@@ -47,15 +40,12 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
             /*Creación de Excursionistas de ejemplo*/
             Excursionista part1 = new Excursionista("Marta", "Sanchez Ruiz", 23, 345678912, "70747431X");
-            listadoParticipantes.Add(part1);
+
             Excursionista part2 = new Excursionista("Marcos", "Diaz Sanchez", 27, 456789123, "52021073J");
-            listadoParticipantes.Add(part2);
             Excursionista part3 = new Excursionista("Antonio", "Rodriguez Gomez", 37, 669733434, "21773636M");
-            listadoParticipantes.Add(part3);
 
 
             /* Creacion de uri*/
-
             Uri u1 = new Uri("/Mapa de Ejemplo.jpg", UriKind.Relative);
             Uri u2 = new Uri("/FondoInicio.jpg", UriKind.Relative);
 
@@ -107,12 +97,12 @@ namespace Lab_IPO1_ft.Ana_Enrique
         {
             //implementar buscador
         }
-        private void Listarutas_SelectionChanged(object sender, SelectionChangedEventArgs e) // Finalizado
+        private void Listarutas_SelectionChanged(object sender, SelectionChangedEventArgs e) // Terminado
         {
             estadoBotones(true);
             ActualizarVentana();
         }
-        private void btnX_Click(object sender, RoutedEventArgs e) // Finalizado
+        private void btnX_Click(object sender, RoutedEventArgs e) // Terminado
         {
             Listarutas.SelectedItem = null;
             mapa.Visibility = Visibility.Hidden;
@@ -125,7 +115,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         {
             MessageBox.Show("Para consultar los detalles, participantes y demás datos de una ruta, seleccione una de la lista de la izquierda\n", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        private void btnFinalizar_Click(object sender, RoutedEventArgs e) // Finalizado
+        private void btnFinalizar_Click(object sender, RoutedEventArgs e) // Terminado
         {
             System.Windows.MessageBoxResult result = MessageBox.Show("¿Está seguro que quiere finalizar la ruta?.", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
             if (result == MessageBoxResult.OK)
@@ -136,7 +126,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 btnFinalizar.IsEnabled = false;
             }
         }
-        private void Btn_BorrarRuta_Click(object sender, RoutedEventArgs e) // Finalizado
+        private void Btn_BorrarRuta_Click(object sender, RoutedEventArgs e) // Terminado
         {
             Ruta seleccionada = Listarutas.SelectedItem as Ruta;
             System.Windows.MessageBoxResult result = MessageBox.Show("¿Está seguro que quiere borrar la ruta?.", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
@@ -152,13 +142,12 @@ namespace Lab_IPO1_ft.Ana_Enrique
         /*Botones Reservados para la creacion de las Ventanas derivadas*/
 
         /*Boton reservado para la Ventana Participantes*/
-        private void btnParticipantes_Click(object sender, RoutedEventArgs e)
+        private void btnParticipantes_Click(object sender, RoutedEventArgs e) // Terminado
         {
             Ruta seleccionada = Listarutas.SelectedItem as Ruta;
-            Participantes ventanaParticipantes = new Participantes(seleccionada, listadoParticipantes);
+            Participantes ventanaParticipantes = new Participantes(seleccionada);
             ventanaParticipantes.ShowDialog();
-            //partic.ListaParticipantes.ItemsSource = seleccionada.participantes;
-            //particip = seleccionada.participantes;
+            ActualizarVentana();
         }
         /*Boton reservado para la Ventana PuntosDeInteres*/
         private void btnPuntos_Click(object sender, RoutedEventArgs e)
@@ -166,9 +155,10 @@ namespace Lab_IPO1_ft.Ana_Enrique
             Ruta seleccionada = Listarutas.SelectedItem as Ruta;
             PuntosDeInteres ventanaPuntosDeInteres = new PuntosDeInteres(seleccionada);
             ventanaPuntosDeInteres.ShowDialog();
+            ActualizarVentana();
         }
         /*Botones reservados para la Ventana DetallesRuta*/
-        private void Btn_AñadirRuta_Click(object sender, RoutedEventArgs e) // Finalizado
+        private void Btn_AñadirRuta_Click(object sender, RoutedEventArgs e) // Terminado
         {
             Ruta nuevaRuta = new Ruta("Nueva Ruta", "", null, "", 0, 1, 0);
             Listarutas.Items.Add(nuevaRuta);
@@ -182,7 +172,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
             nuevaRuta = ventanaDetallesRuta.Result;
             ActualizarVentana();
         }
-        private void btnRuta_Click(object sender, RoutedEventArgs e) // Finalizado
+        private void btnRuta_Click(object sender, RoutedEventArgs e) // Terminado
         {
             Ruta seleccionada = Listarutas.SelectedItem as Ruta;
             DetallesRuta ventanaDetallesRuta = new DetallesRuta(seleccionada,listadoGuias);
@@ -201,7 +191,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         /*Metodos Auxiliares para todos los botones*/
 
-        private void ActualizarVentana() // Finalizado
+        private void ActualizarVentana() // Terminado
         {
             Listarutas.Items.Refresh();
             Ruta seleccionada = Listarutas.SelectedItem as Ruta;
@@ -238,7 +228,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 }
             }
         }
-        private void estadoBotones(bool estado) // Finalizado
+        private void estadoBotones(bool estado) // Terminado
         {
             btnRuta.IsEnabled = estado;
             btnParticipantes.IsEnabled = estado;
@@ -247,43 +237,3 @@ namespace Lab_IPO1_ft.Ana_Enrique
         }
     }
 }
-
-
-
-
-/* private List<Ruta> CargarContenidoXML()
- {
-     List<Ruta> listado = new List<Ruta>();
-     // Cargar contenido de prueba
-     XmlDocument doc = new XmlDocument();
-     var fichero = Application.GetResourceStream(new Uri("ListaDeRutas.xml", UriKind.Relative));
-     doc.Load(fichero.Stream);
-     foreach (XmlNode node in doc.DocumentElement.ChildNodes)
-     {
-         var nuevaRuta = new Ruta("", "", null, "", 0);
-         nuevaRuta.Nombre = node.Attributes["Titulo"].Value;
-         nuevaRuta.Provincia= node.Attributes["Provincia"].Value.ToString();
-         nuevaRuta.Duracion = Convert.ToInt32(node.Attributes["Duracion"].Value);
-
-         nuevaRuta.dificultad = Convert.ToInt32(node.Attributes["dificultad"].Value);
-         nuevaRuta.participantes.Add(Convert.ToInt32(node.Attributes["participante"].Value));
-         nuevaRuta.puntosInteres.Add((node.Attributes["puntoInteres"].Value).ToString());
-         nuevaRuta.formaLlegada = node.Attributes["formallegada"].Value.ToString();
-         nuevaRuta.formaVuelta = node.Attributes["formavuelta"].Value.ToString();
-         nuevaRuta.material.Add(node.Attributes["material"].Value);
-         nuevaRuta.seCome = Convert.ToBoolean(node.Attributes["seCome"].Value);
-         nuevaRuta.guia = Convert.ToInt32(node.Attributes["Guia"]);
-         nuevaRuta.Descripcion = node.Attributes["Argumento"].Value;
-         nuevaRuta.Origen = node.Attributes["Origen"].Value.ToString();
-         nuevaRuta.Destino = node.Attributes["Destino"].Value.ToString();
-         nuevaRuta.FechayHora = Convert.ToDateTime(node.Attributes["FechayHora"].Value);
-         nuevaRuta.Finalizada = Convert.ToBoolean(node.Attributes["Finalizada"].Value);
-         nuevaRuta.Imagenlista = new Uri(node.Attributes["Imagenlista"].Value, UriKind.Relative);
-         nuevaRuta.Mapa = new Uri(node.Attributes["URL_IMDB"].Value, UriKind.Absolute);
-         nuevaRuta.incidencias.Add(node.Attributes["incidencia"].Value);
-         listado.Add(nuevaRuta);
-     } 
-
-     //hay que terminarlo
-     return listado;
- }*/

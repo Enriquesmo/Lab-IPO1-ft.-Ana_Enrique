@@ -55,7 +55,7 @@
                             <ImageBrush ImageSource="/close.png"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnActualizarFoto" Content="Actualizar Foto" HorizontalAlignment="Left" Margin="324,86,0,0" VerticalAlignment="Top" Height="40" Width="95" Click="btnActualizarFoto_Click"/>
+                    <Button x:Name="btnActualizarFoto" Content="Actualizar Foto" HorizontalAlignment="Left" Margin="324,101,0,0" VerticalAlignment="Top" Height="25" Width="95" Click="btnActualizarFoto_Click"/>
                 </Grid>
 
 

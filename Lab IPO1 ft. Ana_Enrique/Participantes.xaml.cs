@@ -2,17 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
+// Falta poner colores bonitos y decidir que hacer con la lista de rutas asistidas, de ser asi, hay que eliminar varios metodos
 
 namespace Lab_IPO1_ft.Ana_Enrique
 {
@@ -27,43 +21,15 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         /*Inicializacion de la ventana Participantes*/
 
-        public Participantes(Ruta ruta, ObservableCollection<Excursionista> listadoParticipantes)
+        public Participantes(Ruta ruta) // Terminado
         {
             InitializeComponent();
-            listadoParticipantesAux = listadoParticipantes;
+            listadoParticipantesAux = ruta.participantes;
             rutaElegida = ruta;
             for (int i = 0; i < listadoParticipantesAux.Count; i++)
             {
                 ListaParticipantes.Items.Add(listadoParticipantesAux[i]);
             }
-
-            // FALTA HACER QUE SE PONGA EN TICK TODOS LOS QUE ESTEN AÑADIDOS
-
-            /*
-            for(int i = 0; i < ListaParticipantes.Items.Count; i++)
-            {
-                if (ruta.participantes.Contains(listadoParticipantesAux[i]))
-                    {
-                       var button = (Button)FindName("BtnAlLadoDeLaPersona");
-                       cambiarImagenDelBoton(button,1);
-                    }
-            }*/
-            /*Aqui comprobamos los excursionistas que se encuntran ya en la ruta para poder marcarlos con un check*/
-            /*
-            foreach (var item in ListaParticipantes.Items)
-            {
-                ListBoxItem itemContainer = (ListBoxItem)ListaParticipantes.ItemContainerGenerator.ContainerFromItem(item);
-                if (itemContainer != null)
-                {
-                    Button button = (Button)itemContainer.FindName("BtnAlLadoDeLaPersona");
-                    if (ruta.participantes.Contains(item))
-                    {
-                        cambiarImagenDelBoton(button, 1);
-                    }
-                }
-
-            }*/
-
             Foto.Visibility = Visibility.Hidden;
             estadoBotones(1);
 
@@ -99,11 +65,10 @@ namespace Lab_IPO1_ft.Ana_Enrique
             }
             
         }
-        private void btnAyuda_Click(object sender, RoutedEventArgs e)
+        private void btnAyuda_Click(object sender, RoutedEventArgs e) // Terminado
         {
             MessageBox.Show(" ·Para consultar los detalles de un Participante, seleccione uno de la lista de la izquierda.\n \n ·A su vez, para añadir un participante nuevo, rellene todos sus campos. \n\n ·Por ultimo, tenga en cuenta que si la ruta ha sido finalizada, no se podrán modificar sus participantes.", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
         }
-
         private void btnBorrar_Click(object sender, RoutedEventArgs e) // Terminado
         {
             Excursionista excursionista = ListaParticipantes.SelectedItem as Excursionista;
@@ -111,6 +76,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
             if (result == MessageBoxResult.OK)
             {
                 ListaParticipantes.Items.Remove(excursionista);
+                rutaElegida.participantes.Remove(excursionista);
                 txbNombre.Text = "";
                 txbApellidos.Text = "";
                 txbEdad.Text = "";
@@ -148,16 +114,23 @@ namespace Lab_IPO1_ft.Ana_Enrique
                     System.Windows.MessageBoxResult result = MessageBox.Show("¿Estás seguro de que quieres añadir al excursionista?", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
                     if (result == MessageBoxResult.OK)
                     {
-                        excursionita.Nombre = introducirString(txbNombre.Text);
-                        excursionita.Apellidos = introducirString(txbApellidos.Text);
-                        excursionita.Edad = introducirNumero(txbEdad);
-                        excursionita.Telefono = introducirNumero(txbTelefono);
-                        excursionita.Foto = Imagen;
-                        excursionita.DNI = introducirString(txbDni.Text);
-                        ListaParticipantes.Items.Add(excursionita);
-                        ListaParticipantes.Items.Refresh();
-                        // Lo añadimos de la lista de guias principal
-                        listadoParticipantesAux.Add(excursionita);
+                        if (rutaElegida.maxParticipantes > rutaElegida.participantes.Count)
+                        {
+                            excursionita.Nombre = introducirString(txbNombre.Text);
+                            excursionita.Apellidos = introducirString(txbApellidos.Text);
+                            excursionita.Edad = introducirNumero(txbEdad);
+                            excursionita.Telefono = introducirNumero(txbTelefono);
+                            excursionita.Foto = Imagen;
+                            excursionita.DNI = introducirString(txbDni.Text);
+                            ListaParticipantes.Items.Add(excursionita);
+                            ListaParticipantes.Items.Refresh();
+                            // Lo añadimos de la lista de guias principal
+                            listadoParticipantesAux.Add(excursionita);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ha alcanzado el limite de personas que se pueden apuntar a esta excursión.\nPorfavor, elimine a una persona o aumente el limite para añadir a otra.", "Error", MessageBoxButton.OK);
+                        }
                     }
                 }
             }
@@ -221,37 +194,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
             LtbRutasExcursionista.Items.Clear();
             estadoBotones(1);
         }
-       
-        private void ButtonAlLadoDeLaPersona(object sender, RoutedEventArgs e)
-        {
-            var button = sender as Button;
-            int valor = 0;
-            Excursionista excursionista = ListaParticipantes.SelectedItem as Excursionista;
-            if(excursionista != null)
-            {
-                if (button.Content == null)
-                {
-                    valor = 2;
-                    rutaElegida.participantes.Remove(excursionista);
-                }
-                else if (button.Content.Equals("check"))
-                {
-                    valor = 2;
-                    rutaElegida.participantes.Remove(excursionista);
-                }
-                else
-                {
-                    valor = 1;
-                    rutaElegida.participantes.Add(excursionista);
-                }
-                cambiarImagenDelBoton(button, valor);
-            }
-            else
-            {
-                MessageBox.Show("Debe seleccionar el excursionista primero y luego darle su respectivo boton.", "Error", MessageBoxButton.OK);
-            }
-            
-        }
         private void btnActualizarFoto_Click(object sender, RoutedEventArgs e) // Terminado
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -271,32 +213,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         /*Metodos Auxiliares para todos los botones*/
 
-        private void cambiarImagenDelBoton(Button button, int opcion) // Terminado
-        {
-            if (opcion == 1)
-            {
-                System.Windows.MessageBoxResult result = MessageBox.Show("¿Estás seguro de que quieres añadir este participante a la ruta?", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
-                if (result == MessageBoxResult.OK)
-                {
-                    ImageBrush imagenCheck = new ImageBrush();
-                    imagenCheck.ImageSource = new BitmapImage(new Uri("check.png", UriKind.RelativeOrAbsolute));
-                    button.Background = imagenCheck;
-                    button.Content = "check";
-                }
-               
-            }
-            else if(opcion == 2)
-            {
-                System.Windows.MessageBoxResult result = MessageBox.Show("¿Estás seguro de que quieres eliminar este participante a la ruta?", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
-                if (result == MessageBoxResult.OK)
-                {
-                    ImageBrush imagenCross = new ImageBrush();
-                    imagenCross.ImageSource = new BitmapImage(new Uri("cross.png", UriKind.RelativeOrAbsolute));
-                    button.Background = imagenCross;
-                    button.Content = "cross";
-                }
-            }
-        }
         private void introducirEnLaListBox(ListBox listbox, List<string> listaAIntroducir)
         {
             if (listaAIntroducir != null)
