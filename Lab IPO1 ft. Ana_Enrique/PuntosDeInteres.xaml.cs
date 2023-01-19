@@ -1,6 +1,5 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -19,10 +18,11 @@ namespace Lab_IPO1_ft.Ana_Enrique
         /************************************************************************************************/
 
         /*Inicializacion de la ventana PuntosDeInteres*/
+
         public int indi = 1;
         Ruta rutaElegida;
         public ObservableCollection<Uri> galeriaAux;
-        public PuntosDeInteres(Ruta ruta)
+        public PuntosDeInteres(Ruta ruta) // Terminado
         {
             InitializeComponent();
             rutaElegida = ruta;
@@ -48,7 +48,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
             lblImagenes.Content = "0/0";
             btnDcha.IsEnabled = false;
             btnIzq.IsEnabled = false;  
-            
         }
 
         /************************************************************************************************/

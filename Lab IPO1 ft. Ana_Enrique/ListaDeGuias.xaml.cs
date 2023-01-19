@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-// FALTA: Poner Colores bien, Que salgan las rutas en las que aparecen los guias, Boton de ayuda
+// FALTA: Poner Colores bien y Boton de ayuda
 
 namespace Lab_IPO1_ft.Ana_Enrique
 {
@@ -20,7 +20,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         /*Inicializacion de la ventana ListaDeGuias*/
 
-        public ListaDeGuias(ObservableCollection<Guia> listadoGuias)
+        public ListaDeGuias(ObservableCollection<Guia> listadoGuias) // Terminado
         {
             InitializeComponent();
             listadoGuiasAux = listadoGuias;
