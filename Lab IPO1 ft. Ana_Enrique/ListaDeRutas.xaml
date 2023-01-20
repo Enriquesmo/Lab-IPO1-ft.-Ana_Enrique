@@ -87,7 +87,7 @@
                         <ImageBrush ImageSource="/anadir.png"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="Btn_BorrarRuta" Width="48" Height="48" Margin="704,0,48,1" BorderBrush="#FF7B7B7B" FontSize="30" Click="Btn_BorrarRuta_Click">
+                <Button x:Name="Btn_BorrarRuta" Width="48" Height="48" Margin="704,0,48,0" BorderBrush="#FF7B7B7B" FontSize="30" Click="Btn_BorrarRuta_Click" VerticalAlignment="Top">
                     <Button.Background>
                         <ImageBrush TileMode="None" Stretch="UniformToFill" ImageSource="/eliminar.png"/>
                     </Button.Background>
