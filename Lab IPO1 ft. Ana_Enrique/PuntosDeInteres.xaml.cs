@@ -56,6 +56,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         private void ListaPuntos_SelectionChanged(object sender, SelectionChangedEventArgs e) // Terminado
         {
+            btnAnadirImg.IsEnabled = true;
             ListaPuntos.Items.Refresh();
             PuntoDeInteres puntosel = ListaPuntos.SelectedItem as PuntoDeInteres;
             btnIzq.IsEnabled = false;
@@ -154,8 +155,10 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 }
             }
         }
+
         private void btnAnadirImg_Click(object sender, RoutedEventArgs e) // Terminado
         {
+            btnAnadirImg.IsEnabled = true;
             PuntoDeInteres seleccionada = ListaPuntos.SelectedItem as PuntoDeInteres ;
             if (seleccionada != null)
             {
@@ -170,6 +173,12 @@ namespace Lab_IPO1_ft.Ana_Enrique
                     {
                         btnDcha.IsEnabled = true;
                     }
+                    indi = seleccionada.galeria.Count;
+                    if (seleccionada.galeria.Count > 1)
+                    {
+                        btnIzq.IsEnabled = true;
+                    }
+                    lblImagenes.Content = indi + "/" + seleccionada.galeria.Count;
                 }
             }
             else
@@ -179,19 +188,15 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 {
                     Uri NuevaFoto = new Uri(openFileDialog.FileName);
                     galeriaAux.Add(NuevaFoto);
-                    
-                   
+                    BitmapImage nuevaImagen = new BitmapImage(new Uri(openFileDialog.FileName));
+                    Img.Source = nuevaImagen;
+                    btnAnadirImg.IsEnabled = false;
+                    lblImagenes.Content = "1/1";
                 }
             }
             Img.Visibility = Visibility.Visible;
-            indi = seleccionada.galeria.Count;
-            lblImagenes.Content = indi + "/" + seleccionada.galeria.Count;
             btnDcha.IsEnabled=false;
-            if(seleccionada.galeria.Count > 1)
-            {
-                btnIzq.IsEnabled = true;
-            }
-            
+
         }
         private void btnDcha_Click(object sender, RoutedEventArgs e) // Terminado
         {
