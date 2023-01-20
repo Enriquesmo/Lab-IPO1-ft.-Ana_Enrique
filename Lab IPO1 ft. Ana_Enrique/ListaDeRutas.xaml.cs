@@ -18,6 +18,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
     {
         ObservableCollection<Excursionista> listadoParticipantes;
         ObservableCollection<Guia> listadoGuias;
+        ObservableCollection<Ruta> original = new ObservableCollection<Ruta>();
 
         /************************************************************************************************/
 
@@ -110,6 +111,8 @@ namespace Lab_IPO1_ft.Ana_Enrique
             ruta2.Imagenlista = new Uri("/mapaMadrid.jpeg", UriKind.Relative);
             Listarutas.Items.Add(ruta1);
             Listarutas.Items.Add(ruta2);
+            original.Add(ruta1);
+            original.Add(ruta2);
 
         }
 
@@ -117,10 +120,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         /*Botones de la propia ventana ListaDeRutas*/
 
-        private void txbBuscar_KeyUp(object sender, KeyEventArgs e)
-        {
-            //implementar buscador
-        }
+       
         private void Listarutas_SelectionChanged(object sender, SelectionChangedEventArgs e) // Terminado
         {
             estadoBotones(true);
@@ -262,10 +262,49 @@ namespace Lab_IPO1_ft.Ana_Enrique
             btnPuntos.IsEnabled = estado;
             btnFinalizar.IsEnabled = estado;
         }
-        /*Metodo 6barra de busqueda, en este momento la mitad de mi teclado ha dejado de funcionar y no puedo borrar lo q escribo*/
+        /*Barra de busqueda*/
         private void txbBuscar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            vvvv
+            
+            Ruta b = new Ruta();
+            ObservableCollection<Ruta> aux = new ObservableCollection<Ruta>();
+            foreach (Ruta item in Listarutas.Items)
+            {
+              
+                
+                if (item.Nombre.ToString().ToLower().Contains(txbBuscar.Text.ToLower()))
+                {
+                    aux.Add(item);
+                }
+                
+            }
+            while(Listarutas.Items.Count > 0)
+            {
+                Listarutas.Items.RemoveAt(0);
+            }
+            foreach (Ruta item in aux)
+            {
+                Listarutas.Items.Add(item);
+            }
+
+           
         }
+        private void txbBuscar_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Back && txbBuscar.Text=="")
+            {
+                Listarutas.Items.Clear();
+                foreach (Ruta item in original)
+                {
+                    Listarutas.Items.Add(item);
+                }
+            }
+        }
+        private void txbBuscar_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txbBuscar.Text = "";
+
+        }
+       
     }
 }
