@@ -247,6 +247,9 @@ namespace Lab_IPO1_ft.Ana_Enrique
             btnIzq.IsEnabled=false;
             galeriaAux = new ObservableCollection<Uri>();
             lblImagenes.Content = "0/0";
+            btnAnadirP.IsEnabled = true;   
+            btnBorrarP.IsEnabled = false;   
+            btnModP.IsEnabled = false;  
         }
 
         /************************************************************************************************/
