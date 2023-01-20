@@ -193,5 +193,11 @@ namespace Eventos
             }
             return valido;
         }
+
+        private void btnCreditos_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Aplicación desarrollada por: \n Enrique Sánchez-Migallón Ochoa\n Ana Toledano Franco\n\n Acabado el 20/01/23 \n v.1.6.3 \n" , "Créditos", MessageBoxButton.OK, MessageBoxImage.Information);
+
+        }
     }
 }

@@ -211,6 +211,7 @@
 
             </Grid>
         </Viewbox>
+        <Button x:Name="btnCreditos" Grid.Column="5" Content="Créditos" HorizontalAlignment="Left" Height="35" Margin="96,43,0,0" Grid.Row="7" VerticalAlignment="Top" Grid.RowSpan="2" Background="#FF6E3EC7" FontWeight="Bold" Click="btnCreditos_Click" Foreground="#FFFBF8F8"/>
 
     </Grid>
 </Window>
