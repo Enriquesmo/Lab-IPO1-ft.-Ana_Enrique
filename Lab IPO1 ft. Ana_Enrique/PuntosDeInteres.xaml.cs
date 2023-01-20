@@ -179,11 +179,19 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 {
                     Uri NuevaFoto = new Uri(openFileDialog.FileName);
                     galeriaAux.Add(NuevaFoto);
-                    BitmapImage nuevaImagen = new BitmapImage(new Uri(openFileDialog.FileName));
-                    Img.Source = nuevaImagen;
+                    
+                   
                 }
             }
             Img.Visibility = Visibility.Visible;
+            indi = seleccionada.galeria.Count;
+            lblImagenes.Content = indi + "/" + seleccionada.galeria.Count;
+            btnDcha.IsEnabled=false;
+            if(seleccionada.galeria.Count > 1)
+            {
+                btnIzq.IsEnabled = true;
+            }
+            
         }
         private void btnDcha_Click(object sender, RoutedEventArgs e) // Terminado
         {

@@ -149,5 +149,15 @@
   <ItemGroup>
     <Resource Include="close.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EjemploHombre.jpeg" />
+    <Resource Include="ErmitaSL.jpeg" />
+    <Resource Include="LagunasRuidera1.jpeg" />
+    <Resource Include="LagunasRuidera2.jpeg" />
+    <Resource Include="mapaCiu.jpeg" />
+    <Resource Include="mapaMadrid.jpeg" />
+    <Resource Include="MolinoFuente.jpg" />
+    <Resource Include="TablasDaimiel.jpeg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

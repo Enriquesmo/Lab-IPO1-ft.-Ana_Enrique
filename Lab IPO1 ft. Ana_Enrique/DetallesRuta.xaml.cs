@@ -43,6 +43,13 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 AnadirMat.IsEnabled = false;
                 btnListaGuias.IsEnabled = false;  
                 btnLimpiar.IsEnabled = false;
+                if (Ruta.incidencias != null)
+                {
+                    foreach (string x in Ruta.incidencias)
+                    {
+                        ListBoxIncidencias.Items.Add(x);
+                    }
+                }
             }
 
             if (Ruta != null)
@@ -77,11 +84,8 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 {
                     ComboBoxGuia.Text = Ruta.guia.Nombre;
                 }
-                /*Este if se hace ya que solo si la ruta esta finalizada, entonces debemos mostrar las incidencias*/
-                if (Ruta.Finalizada == true)
-                {
-                    introducirEnLaListBox(ListBoxIncidencias, Ruta.incidencias);
-                }
+               
+                
             }
         }
 
@@ -302,9 +306,9 @@ namespace Lab_IPO1_ft.Ana_Enrique
         {
             if (listaAIntroducir != null)
             {
-                for (int i = 0; i < listaAIntroducir.Count; i++)
+                foreach( string x in listaAIntroducir)
                 {
-                    listbox.Items.Add(listaAIntroducir[i]);
+                    listbox.Items.Add(x);
                 }
             }
         }
@@ -322,9 +326,9 @@ namespace Lab_IPO1_ft.Ana_Enrique
         private void actualizarGuiasSeleccionables() // Terminado
         {
             ComboBoxGuia.Items.Clear();
-            for (int i = 0; i < listadoGuiasAux.Count; i++)
+            foreach( Guia g in listadoGuiasAux) 
             {
-                ComboBoxGuia.Items.Add(listadoGuiasAux[i].Nombre);
+                ComboBoxGuia.Items.Add(g.Nombre);
             }
         }
     }

@@ -17,7 +17,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         public int Edad { get; set; }
         public int Telefono { get; set; }
         public string DNI { get; set; }
-        public ObservableCollection<Ruta> Rutas { get; set; }
+       
 
         public Excursionista(string nombre, string apellidos, int edad, int telefono, String dni)
         {

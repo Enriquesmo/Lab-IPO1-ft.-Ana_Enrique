@@ -28,6 +28,8 @@ namespace Lab_IPO1_ft.Ana_Enrique
             Telefono = telefono;
             Correo = correo;
             Puntuacion = puntuacion;
+            Idiomas = new List<string>();
+            Rutas = new List<string>();
 
         }
     }
