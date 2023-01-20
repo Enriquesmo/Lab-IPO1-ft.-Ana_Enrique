@@ -262,5 +262,10 @@ namespace Lab_IPO1_ft.Ana_Enrique
             btnPuntos.IsEnabled = estado;
             btnFinalizar.IsEnabled = estado;
         }
+        /*Metodo 6barra de busqueda, en este momento la mitad de mi teclado ha dejado de funcionar y no puedo borrar lo q escribo*/
+        private void txbBuscar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            vvvv
+        }
     }
 }

@@ -93,7 +93,7 @@
                         <ImageBrush ImageSource="/ayuda.png"/>
                     </Button.Background>
                 </Button>
-                <TextBox x:Name="txbBuscar" HorizontalAlignment="Left" Margin="16,0,0,0" TextWrapping="Wrap" Text="Buscar una ruta" VerticalAlignment="Center" Width="564" Height="29" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Foreground="#FF888181" KeyUp="txbBuscar_KeyUp"/>
+                <TextBox x:Name="txbBuscar" HorizontalAlignment="Left" Margin="16,0,0,0" TextWrapping="Wrap" Text="Buscar una ruta" VerticalAlignment="Center" Width="564" Height="29" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Foreground="#FF888181" KeyUp="txbBuscar_KeyUp" TextChanged="txbBuscar_TextChanged"/>
             </Grid>
         </Grid>
     </Viewbox>
