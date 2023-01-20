@@ -159,5 +159,14 @@
     <Resource Include="MolinoFuente.jpg" />
     <Resource Include="TablasDaimiel.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="fondo marrón.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="fondoplanta.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="fondoverde.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

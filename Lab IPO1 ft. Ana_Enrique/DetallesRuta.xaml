@@ -27,7 +27,7 @@
                         <TranslateTransform X="0"/>
                     </TransformGroup>
                 </StackPanel.RenderTransform>
-                <Grid Height="434">
+                <Grid Height="434" Background="#FFC8B47B">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
@@ -74,7 +74,7 @@
                     <Label x:Name="lblMaterial" Content="Materiales" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="178" Grid.Column="1"/>
                     <TextBox x:Name="txbMaterial" TextWrapping="Wrap" Width="178" Height="24" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Margin="0,229,0,0"/>
                     <ListBox x:Name="ListBoxMaterial" Grid.Column="1" Margin="0,279,0,107"/>
-                    <Button x:Name="AnadirMat" Grid.Column="1" Content="Añadir Mat" HorizontalAlignment="Left" Margin="110,256,0,0" VerticalAlignment="Top" Width="66" Click="AnadirMaterial_Click"/>
+                    <Button x:Name="AnadirMat" Grid.Column="1" Content="Añadir Mat" HorizontalAlignment="Left" Margin="110,256,0,0" VerticalAlignment="Top" Width="66" Click="AnadirMaterial_Click" Background="#FFA3CC7C" FontWeight="Normal" Foreground="Black"/>
                     <Label x:Name="lblSeCome" Content="Se Come" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Height="26" Grid.Column="3"/>
                     <ComboBox x:Name="ComboBoxSeCome" Width="75" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Margin="0,229,0,0" Grid.Column="3"/>
                     <Label x:Name="lblFinalizada" Content="Finalizada" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Height="26" Grid.Column="3" Margin="98,0,0,0"/>
@@ -94,8 +94,8 @@
                     <ListBox x:Name="ListBoxIncidencias" Height="72" Width="178" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,353,0,0" Grid.Column="1"/>
                     <Label x:Name="lblGuia" Content="Guia" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,303,0,0" Grid.Column="2" Height="26" Width="174" Grid.ColumnSpan="2"/>
                     <ComboBox x:Name="ComboBoxGuia" Width="171" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,329,0,0" Grid.Column="3" Height="24"/>
-                    <Button x:Name="btnListaGuias" Content="Lista Guias" HorizontalAlignment="Center" VerticalAlignment="Top" Width="64" Height="42" Margin="0,368,0,0" Grid.Column="3" Click="btnListaGuias_Click"/>
-                    <Button x:Name="btnBorrarMaterial" Grid.Column="1" Content="Borrar Mat" HorizontalAlignment="Left" Margin="2,256,0,0" VerticalAlignment="Top" Width="66" Click="btnBorrarMaterial_Click"/>
+                    <Button x:Name="btnListaGuias" Content="Lista Guias" HorizontalAlignment="Center" VerticalAlignment="Top" Width="64" Height="42" Margin="0,368,0,0" Grid.Column="3" Click="btnListaGuias_Click" Background="#FFA3CC7C"/>
+                    <Button x:Name="btnBorrarMaterial" Grid.Column="1" Content="Borrar Mat" HorizontalAlignment="Left" Margin="2,256,0,0" VerticalAlignment="Top" Width="66" Click="btnBorrarMaterial_Click" Background="#FFA3CC7C"/>
                 </Grid>
             </StackPanel>
 
@@ -110,6 +110,12 @@
 
 
                 <Grid Height="434">
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF435D34" Offset="1"/>
+                            <GradientStop Color="#FF84BB66" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
                     <Image x:Name="mapa" 
                             Height="158"
                             Width="148" 
@@ -120,16 +126,16 @@
                             Margin="0,10,0,0"/>
                     <Label x:Name="lblDescripcion" 
                             Content="Descripcion" 
-                            Height="30" Width="383" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,168,0,0"/>
+                            Height="30" Width="383" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,168,0,0" Foreground="White"/>
                     <TextBox x:Name="txbDescripcion" HorizontalAlignment="Center" Margin="0,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397" Height="158"/>
-                    <Button x:Name="btnLimpiar" Content="Limpiar" Height="40" Width="64" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,384,0,0" Click="btnLimpiar_Click"/>
-                    <Button x:Name="btnFinalizar" Content="Guardar" HorizontalAlignment="Left" Margin="343,384,0,0" VerticalAlignment="Top" Height="40" Width="64" Click="btnFinalizar_Click"/>
+                    <Button x:Name="btnLimpiar" Content="Limpiar" Height="40" Width="64" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,384,0,0" Click="btnLimpiar_Click" Background="#FFDCCDAE"/>
+                    <Button x:Name="btnFinalizar" Content="Guardar" HorizontalAlignment="Left" Margin="343,384,0,0" VerticalAlignment="Top" Height="40" Width="64" Click="btnFinalizar_Click" Background="#FFDCCDAE"/>
                     <Button x:Name="btnAyuda" HorizontalAlignment="Left" Margin="359,10,0,0" VerticalAlignment="Top" Width="48" Height="48" Click="btnAyuda_Click" BorderBrush="{x:Null}">
                         <Button.Background>
                             <ImageBrush ImageSource="/ayuda.png"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnActualizarFoto" Content="Actualizar Foto" HorizontalAlignment="Left" Margin="288,143,0,0" VerticalAlignment="Top" Height="25" Width="96" Click="btnActualizarFoto_Click"/>
+                    <Button x:Name="btnActualizarFoto" Content="Actualizar Foto" HorizontalAlignment="Left" Margin="288,143,0,0" VerticalAlignment="Top" Height="25" Width="96" Click="btnActualizarFoto_Click" Background="#FFDCCDAE"/>
 
 
                 </Grid>
