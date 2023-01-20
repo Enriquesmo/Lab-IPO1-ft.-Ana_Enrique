@@ -47,7 +47,9 @@ namespace Lab_IPO1_ft.Ana_Enrique
             }
             lblImagenes.Content = "0/0";
             btnDcha.IsEnabled = false;
-            btnIzq.IsEnabled = false;  
+            btnIzq.IsEnabled = false; 
+            btnBorrarP.IsEnabled=false;
+            btnModP.IsEnabled=false;
         }
 
         /************************************************************************************************/
@@ -57,6 +59,9 @@ namespace Lab_IPO1_ft.Ana_Enrique
         private void ListaPuntos_SelectionChanged(object sender, SelectionChangedEventArgs e) // Terminado
         {
             btnAnadirImg.IsEnabled = true;
+            btnBorrarP.IsEnabled = true;
+            btnModP.IsEnabled=true;
+            btnAnadirP.IsEnabled=false;
             ListaPuntos.Items.Refresh();
             PuntoDeInteres puntosel = ListaPuntos.SelectedItem as PuntoDeInteres;
             btnIzq.IsEnabled = false;
@@ -120,7 +125,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
         private void btnBorrarP_Click(object sender, RoutedEventArgs e) // Terminado
         {
             PuntoDeInteres seleccionada = ListaPuntos.SelectedItem as PuntoDeInteres;
-            System.Windows.MessageBoxResult result = MessageBox.Show("¿Está seguro que quiere borrar el participante?.", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            System.Windows.MessageBoxResult result = MessageBox.Show("¿Está seguro que quiere borrar el Punto de Interés?.", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
             if (result == MessageBoxResult.OK)
             {
                 ListaPuntos.Items.Remove(seleccionada);

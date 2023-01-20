@@ -27,7 +27,7 @@
                         <TranslateTransform X="0"/>
                     </TransformGroup>
                 </StackPanel.RenderTransform>
-                <Grid Height="434" Background="#FFC8B47B">
+                <Grid Height="434" Background="#FFBFAA84">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
@@ -113,7 +113,7 @@
                     <Grid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF435D34" Offset="1"/>
-                            <GradientStop Color="#FF84BB66" Offset="0"/>
+                            <GradientStop Color="#FF93B97F" Offset="0"/>
                         </LinearGradientBrush>
                     </Grid.Background>
                     <Image x:Name="mapa" 

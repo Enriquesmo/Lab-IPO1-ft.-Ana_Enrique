@@ -14,7 +14,7 @@
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="392*"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="ListaParticipantes" SelectionChanged="ListaParticipantes_SelectionChanged">
+            <ListBox x:Name="ListaParticipantes" SelectionChanged="ListaParticipantes_SelectionChanged" Background="#FF93B97F">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" >
@@ -39,7 +39,7 @@
                 </StackPanel.RenderTransform>
 
 
-                <Grid x:Name="GridArriba" Height="136" Width="517">
+                <Grid x:Name="GridArriba" Height="136" Width="517" Background="#FFBFAA84">
                     <Image x:Name="Foto" Source="/Foto Persona1.jpg" Margin="196,8,195,8">
                         <Image.OpacityMask>
                             <ImageBrush ImageSource="/Foto Persona1.jpg"/>
@@ -55,31 +55,35 @@
                             <ImageBrush ImageSource="/close.png"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnActualizarFoto" Content="Actualizar Foto" HorizontalAlignment="Left" Margin="324,101,0,0" VerticalAlignment="Top" Height="25" Width="95" Click="btnActualizarFoto_Click"/>
+                    <Button x:Name="btnActualizarFoto" Content="Actualizar Foto" HorizontalAlignment="Left" Margin="324,101,0,0" VerticalAlignment="Top" Height="25" Width="95" Click="btnActualizarFoto_Click" Background="#FFB4CEAD"/>
                 </Grid>
 
 
-                <Grid x:Name="GridAbajo" Height="314">
-                    <Button x:Name="btnAnadir" Content="Añadir" Margin="376,261,77,13" Click="btnAnadir_Click" Width="64" Height="40"/>
-                    <Button x:Name="btnMod" Content="Modificar" Margin="292,261,161,13" Click="btnMod_Click" Width="64" Height="40"/>
-                    <Button x:Name="btnBorrar" Content="Borrar" Margin="100,261,353,13" Click="btnBorrar_Click" Width="64" Height="40"/>
+                <Grid x:Name="GridAbajo" Height="314" Background="#FFBFAA84">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180*"/>
+                        <ColumnDefinition Width="79*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnAnadir" Content="Añadir" Margin="16,261,77,13" Click="btnAnadir_Click" Width="64" Height="40" Grid.Column="1" Background="#FFB4CEAD"/>
+                    <Button x:Name="btnMod" Content="Modificar" Margin="292,261,4,13" Click="btnMod_Click" Width="64" Height="40" Background="#FFB4CEAD"/>
+                    <Button x:Name="btnBorrar" Content="Borrar" Margin="100,261,196,13" Click="btnBorrar_Click" Width="64" Height="40" Background="#FFB4CEAD"/>
                     <Label x:Name="lblNombre" Content="Nombre" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" Width="178"/>
                     <TextBox x:Name="txbNombre" HorizontalAlignment="Left" Margin="44,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="24"/>
-                    <Label x:Name="lblApellidos" Content="Apellidos" HorizontalAlignment="Left" Margin="277,10,0,0" VerticalAlignment="Top" Width="178"/>
-                    <TextBox x:Name="txbApellidos" HorizontalAlignment="Left" Margin="277,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="24"/>
+                    <Label x:Name="lblApellidos" Content="Apellidos" HorizontalAlignment="Left" Margin="277,10,0,0" VerticalAlignment="Top" Width="178" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txbApellidos" HorizontalAlignment="Left" Margin="277,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="24" Grid.ColumnSpan="2"/>
                     <Label x:Name="lblTelefono" Content="Teléfono                            " HorizontalAlignment="Left" Margin="43,60,0,0" VerticalAlignment="Top" Width="178"/>
                     <TextBox x:Name="txbTelefono" HorizontalAlignment="Left" Margin="44,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="24"/>
-                    <Label x:Name="lblCorreo" Content="Correo" HorizontalAlignment="Left" Margin="277,60,0,0" VerticalAlignment="Top" Width="178"/>
-                    <TextBox x:Name="txbCorreo" HorizontalAlignment="Left" Margin="277,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="24"/>
+                    <Label x:Name="lblCorreo" Content="Correo" HorizontalAlignment="Left" Margin="277,60,0,0" VerticalAlignment="Top" Width="178" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txbCorreo" HorizontalAlignment="Left" Margin="277,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="24" Grid.ColumnSpan="2"/>
                     <Label x:Name="lblPuntuacion" Content="Puntuacion" HorizontalAlignment="Left" Margin="44,110,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="txbPuntuacion" HorizontalAlignment="Left" Margin="43,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="24"/>
-                    <Label x:Name="lblIdiomas" Content="Idiomas" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="178" Margin="277,110,0,0"/>
-                    <TextBox x:Name="txbIdiomas" TextWrapping="Wrap" Width="178" Height="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="277,136,0,0"/>
-                    <ListBox x:Name="ListBoxIdiomas" Margin="277,189,62,72" Width="178"/>
-                    <Button x:Name="btnAnadirIdioma" Content="Añadir Idiom" HorizontalAlignment="Left" Margin="376,163,0,0" VerticalAlignment="Top" Width="75" Click="btnAnadirIdioma_Click"/>
+                    <Label x:Name="lblIdiomas" Content="Idiomas" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="178" Margin="277,110,0,0" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txbIdiomas" TextWrapping="Wrap" Width="178" Height="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="277,136,0,0" Grid.ColumnSpan="2"/>
+                    <ListBox x:Name="ListBoxIdiomas" Margin="277,189,62,72" Width="178" Grid.ColumnSpan="2"/>
+                    <Button x:Name="btnAnadirIdioma" Content="Añadir Idiom" HorizontalAlignment="Left" Margin="16,163,0,0" VerticalAlignment="Top" Width="75" Click="btnAnadirIdioma_Click" Background="#FFB4CEAD" Grid.Column="1"/>
                     <Label x:Name="lblRutas" Content="Rutas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="178" Margin="43,163,0,0" Height="26"/>
                     <ListBox x:Name="ListBoxRutas" Height="53" Width="178" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,189,0,0" />
-                    <Button x:Name="btnBorrarIdioma" Content="Borrar Idiom" HorizontalAlignment="Left" Margin="281,163,0,0" VerticalAlignment="Top" Width="75" Click="btnBorrarIdioma_Click"/>
+                    <Button x:Name="btnBorrarIdioma" Content="Borrar Idiom" HorizontalAlignment="Left" Margin="281,163,0,0" VerticalAlignment="Top" Width="75" Click="btnBorrarIdioma_Click" Background="#FFB4CEAD"/>
                 </Grid>
 
 

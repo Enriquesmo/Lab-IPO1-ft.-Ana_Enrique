@@ -59,15 +59,15 @@
                         <Label x:Name="lblApuntados" Content="Apuntados:" Canvas.Left="46" Canvas.Top="285" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <Label x:Name="lblpartic2" Content="x/y" Canvas.Left="121" Canvas.Top="285" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <Rectangle x:Name="btnInteres" Height="53" Stroke="Black" Canvas.Top="317" Width="472" Canvas.Left="46"/>
-                        <Button x:Name="btnRuta" Content="Info Ruta" Height="26" Canvas.Left="72" Canvas.Top="333" Width="56" Click="btnRuta_Click" Background="#FFB7DAAD" FontWeight="Bold" BorderBrush="#FF7F5A2D"/>
-                        <Button x:Name="btnParticipantes" Content="Participantes" Height="27" Canvas.Left="147" Canvas.Top="333" Width="82" Click="btnParticipantes_Click" Background="#FFB7DAAD" FontWeight="Bold" BorderBrush="#FF7F5A2D"/>
-                        <Button x:Name="btnPuntos" Content="Puntos Interes" Height="27" Canvas.Left="248" Canvas.Top="332" Width="88" Click="btnPuntos_Click" Background="#FFB7DAAD" FontWeight="Bold">
+                        <Button x:Name="btnRuta" Content="Info Ruta" Height="26" Canvas.Left="62" Canvas.Top="330" Width="90" Click="btnRuta_Click" Background="#FFB7DAAD" FontWeight="Bold" BorderBrush="#FF7F5A2D"/>
+                        <Button x:Name="btnParticipantes" Content="Participantes" Height="27" Canvas.Left="164" Canvas.Top="330" Width="90" Click="btnParticipantes_Click" Background="#FFB7DAAD" FontWeight="Bold" BorderBrush="#FF7F5A2D"/>
+                        <Button x:Name="btnPuntos" Content="Puntos Interes" Height="27" Canvas.Left="266" Canvas.Top="330" Width="90" Click="btnPuntos_Click" Background="#FFB7DAAD" FontWeight="Bold">
                             <Button.BorderBrush>
                                 <SolidColorBrush Color="#FF7F5A2D"/>
                             </Button.BorderBrush>
                         </Button>
                         <Label x:Name="lblNombreRuta" Content="Nombre Ruta:" Height="28" Width="88" Background="#FFB7DAAD" Canvas.Top="81" Canvas.Left="26"/>
-                        <Button x:Name="btnFinalizar" Content="Finalizar" Height="26" Canvas.Left="382" Canvas.Top="333" Width="117" Click="btnFinalizar_Click" Background="#FFB7DAAD" FontWeight="Bold" BorderBrush="#FF7F5A2D"/>
+                        <Button x:Name="btnFinalizar" Content="Finalizar" Height="26" Canvas.Left="404" Canvas.Top="330" Width="90" Click="btnFinalizar_Click" Background="#FFB7DAAD" FontWeight="Bold" BorderBrush="#FF7F5A2D"/>
                         <Button x:Name="btnX" Height="25" Width="25" BorderBrush="{x:Null}" Click="btnX_Click" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="10" Canvas.Top="10">
                             <Button.Background>
                                 <ImageBrush ImageSource="/close.png"/>

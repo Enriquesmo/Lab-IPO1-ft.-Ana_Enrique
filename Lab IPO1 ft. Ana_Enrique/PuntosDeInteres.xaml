@@ -14,7 +14,7 @@
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="392*"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="ListaPuntos" SelectionChanged="ListaPuntos_SelectionChanged" >
+            <ListBox x:Name="ListaPuntos" SelectionChanged="ListaPuntos_SelectionChanged" Background="#FF93B97F" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -40,29 +40,29 @@
                         <TranslateTransform X="0"/>
                     </TransformGroup>
                 </StackPanel.RenderTransform>
-                <Grid x:Name="GridArriba" Height="144">
+                <Grid x:Name="GridArriba" Height="144" Background="#FFBFAA84">
                     <Image x:Name="Img" Margin="160,6,187,7"/>
                     <Button x:Name="btnAyuda" Width="48" Height="48"  HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="{x:Null}" Click="btnAyuda_Click" Margin="441,10,0,0">
                         <Button.Background>
                             <ImageBrush ImageSource="/ayuda.png"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnIzq" Content="&lt;" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnIzq_Click" Margin="136,71,351,53"/>
-                    <Button x:Name="btnDcha" Content="&gt;" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnDcha_Click" Margin="319,72,168,52"/>
-                    <Label x:Name="lblImagenes" Content="" Margin="319,98,151,20"/>
-                    <Button x:Name="btnAnadirImg" Content="Añadir imagen" Background="#FFE6E4E4" Click="btnAnadirImg_Click" Width="95" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="353,98,0,0"/>
+                    <Button x:Name="btnIzq" Content="&lt;" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnIzq_Click" Margin="136,71,351,53" FontWeight="Bold"/>
+                    <Button x:Name="btnDcha" Content="&gt;" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnDcha_Click" Margin="319,72,168,52" FontWeight="Bold"/>
+                    <Label x:Name="lblImagenes" Content="" Margin="319,98,151,20" Background="#FFBFAA84"/>
+                    <Button x:Name="btnAnadirImg" Content="Añadir imagen" Background="#FFB4CEAD" Click="btnAnadirImg_Click" Width="95" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="353,98,0,0"/>
                     <Button x:Name="btnX" Content="" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="btnX_Click" Margin="13,10,462,110">
                         <Button.Background>
                             <ImageBrush ImageSource="/close.png"/>
                         </Button.Background>
                     </Button>
                 </Grid>
-                <Grid x:Name="GridAbajo" Height="291" Width="497">
+                <Grid x:Name="GridAbajo" Height="291" Width="497" Background="#FFBFAA84">
                     <TextBox x:Name="txbNombreP" TextWrapping="Wrap" Margin="32,32,315,236"/>
                     <Label x:Name="lblNombreApp" Content="Nombre" Margin="32,6,345,259"/>
-                    <Button x:Name="btnAnadirP" Content="Añadir" Click="btnAnadirP_Click" Margin="375,230,58,21" />
-                    <Button x:Name="btnModP" Content="Modificar" Click="btnModP_Click" Margin="288,230,145,21"/>
-                    <Button x:Name="btnBorrarP" Content="Borrar" Height="40" Width="64" Click="btnBorrarP_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,230,0,0" />
+                    <Button x:Name="btnAnadirP" Content="Añadir" Click="btnAnadirP_Click" Margin="375,230,58,21" Background="#FFB4CEAD" />
+                    <Button x:Name="btnModP" Content="Modificar" Click="btnModP_Click" Margin="288,230,145,21" Background="#FFB4CEAD"/>
+                    <Button x:Name="btnBorrarP" Content="Borrar" Height="40" Width="64" Click="btnBorrarP_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,230,0,0" Background="#FFB4CEAD" />
                     <Label Content="Tipo de Punto" Margin="200,6,212,259"/>
                     <Label Content="Descripción" Margin="32,55,393,210"/>
                     <ComboBox x:Name="cbTipo" Margin="200,32,58,236"/>

@@ -14,7 +14,7 @@
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="392*"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="ListaParticipantes" SelectionChanged="ListaParticipantes_SelectionChanged">
+            <ListBox x:Name="ListaParticipantes" SelectionChanged="ListaParticipantes_SelectionChanged" Background="#FF93B97F">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -39,7 +39,7 @@
                         <TranslateTransform X="0"/>
                     </TransformGroup>
                 </StackPanel.RenderTransform>
-                <Grid x:Name="GridArriba" Height="136" Width="498">
+                <Grid x:Name="GridArriba" Height="136" Width="498" Background="#FFBFAA84">
                     <Image x:Name="Foto" Source="/Foto Persona1.jpg" Margin="189,8,189,8" Width="120" Height="120">
                         <Image.OpacityMask>
                             <ImageBrush ImageSource="/Foto Persona1.jpg"/>
@@ -55,9 +55,9 @@
                             <ImageBrush ImageSource="/close.png"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="btnActualizarFoto" Content="Actualizar Foto" HorizontalAlignment="Left" Margin="314,104,0,0" VerticalAlignment="Top" Height="25" Width="95" Click="btnActualizarFoto_Click"/>
+                    <Button x:Name="btnActualizarFoto" Content="Actualizar Foto" HorizontalAlignment="Left" Margin="314,104,0,0" VerticalAlignment="Top" Height="25" Width="95" Click="btnActualizarFoto_Click" Background="#FFB4CEAD"/>
                 </Grid>
-                <Grid x:Name="GridAbajo" Height="297" Width="499">
+                <Grid x:Name="GridAbajo" Height="297" Width="499" Background="#FFBFAA84">
                     <Label
                     Content="Nombre" Margin="36,12,285,261" x:Name="lblNombre" Width="178" Height="24"/>
                     <TextBox
@@ -78,11 +78,11 @@
                     <TextBox
                     Margin="278,86,43,187" x:Name="txbDni" TextWrapping="Wrap" Width="178" Height="24"/>
                     <Button
-                    x:Name="btnAnadir" Margin="377,247,58,10" Content="Añadir" Click="btnAnadir_Click" Height="40" Width="64"/>
+                    x:Name="btnAnadir" Margin="377,247,58,10" Content="Añadir" Click="btnAnadir_Click" Height="40" Width="64" Background="#FFB4CEAD"/>
                     <Button
-                    x:Name="btnMod" Margin="293,247,142,10" Content="Modificar" Click="btnMod_Click" Height="40" Width="64"/>
+                    x:Name="btnMod" Margin="293,247,142,10" Content="Modificar" Click="btnMod_Click" Height="40" Width="64" Background="#FFB4CEAD"/>
                     <Button
-                    x:Name="btnBorrar" Margin="93,247,342,10" Content="Borrar" Click="btnBorrar_Click" Height="40" Width="64"/>
+                    x:Name="btnBorrar" Margin="93,247,342,10" Content="Borrar" Click="btnBorrar_Click" Height="40" Width="64" Background="#FFB4CEAD"/>
                 </Grid>
 
 
