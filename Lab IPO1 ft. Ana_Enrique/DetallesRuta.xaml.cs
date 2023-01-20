@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-// FALTA: Poner colores bien
+// TERMINADA
 
 namespace Lab_IPO1_ft.Ana_Enrique
 {

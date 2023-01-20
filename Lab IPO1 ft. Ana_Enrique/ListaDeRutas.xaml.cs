@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
-// FALTA: poner colores bien, el buscador, añadir las fotos a los datos de ejemplo (rutas, participantes, puntos de interes...)
+// TERMINADA
 
 namespace Lab_IPO1_ft.Ana_Enrique
 {
@@ -24,7 +24,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         /*Inicializacion de la ventana ListaDeRutas*/
 
-        public ListaDeRutas()
+        public ListaDeRutas() // Terminado
         {
             InitializeComponent();
             /*Inicialización de los listados de rutas, participantes y guias*/
@@ -120,7 +120,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
 
         /*Botones de la propia ventana ListaDeRutas*/
 
-       
         private void Listarutas_SelectionChanged(object sender, SelectionChangedEventArgs e) // Terminado
         {
             estadoBotones(true);
@@ -137,7 +136,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
             lblDescripcion2.Content = "";
             lblpartic2.Content = "";
         }
-        private void Btn_Ayuda_Click(object sender, RoutedEventArgs e)
+        private void Btn_Ayuda_Click(object sender, RoutedEventArgs e) // Terminado
         {
             MessageBox.Show("Para consultar los detalles, participantes y demás datos de una ruta, seleccione una de la lista de la izquierda\n", "Ayuda", MessageBoxButton.OK, MessageBoxImage.Information);
         }
@@ -162,6 +161,52 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 Listarutas.Items.Remove(seleccionada);
             }
         }
+        private void txbBuscar_TextChanged(object sender, TextChangedEventArgs e) // Terminado
+        {
+            Listarutas.SelectedItem = null;
+            mapa.Visibility = Visibility.Hidden;
+            estadoBotones(false);
+            lblNombreruta2.Content = "";
+            lblDescripcion2.Content = "";
+            lblpartic2.Content = "";
+            Ruta b = new Ruta();
+            ObservableCollection<Ruta> aux = new ObservableCollection<Ruta>();
+            foreach (Ruta item in Listarutas.Items)
+            {
+
+
+                if (item.Nombre.ToString().ToLower().Contains(txbBuscar.Text.ToLower()))
+                {
+                    aux.Add(item);
+                }
+
+            }
+            while (Listarutas.Items.Count > 0)
+            {
+                Listarutas.Items.RemoveAt(0);
+            }
+            foreach (Ruta item in aux)
+            {
+                Listarutas.Items.Add(item);
+            }
+
+
+        }
+        private void txbBuscar_KeyUp(object sender, KeyEventArgs e) // Terminado
+        {
+            if (e.Key == Key.Back && txbBuscar.Text == "")
+            {
+                Listarutas.Items.Clear();
+                foreach (Ruta item in original)
+                {
+                    Listarutas.Items.Add(item);
+                }
+            }
+        }
+        private void txbBuscar_GotFocus(object sender, RoutedEventArgs e) // Terminado
+        {
+            txbBuscar.Text = "";
+        }
 
         /**************************************************************/
 
@@ -176,7 +221,7 @@ namespace Lab_IPO1_ft.Ana_Enrique
             ActualizarVentana();
         }
         /*Boton reservado para la Ventana PuntosDeInteres*/
-        private void btnPuntos_Click(object sender, RoutedEventArgs e)
+        private void btnPuntos_Click(object sender, RoutedEventArgs e) // Terminado
         {
             Ruta seleccionada = Listarutas.SelectedItem as Ruta;
             PuntosDeInteres ventanaPuntosDeInteres = new PuntosDeInteres(seleccionada);
@@ -262,49 +307,5 @@ namespace Lab_IPO1_ft.Ana_Enrique
             btnPuntos.IsEnabled = estado;
             btnFinalizar.IsEnabled = estado;
         }
-        /*Barra de busqueda*/
-        private void txbBuscar_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
-            Ruta b = new Ruta();
-            ObservableCollection<Ruta> aux = new ObservableCollection<Ruta>();
-            foreach (Ruta item in Listarutas.Items)
-            {
-              
-                
-                if (item.Nombre.ToString().ToLower().Contains(txbBuscar.Text.ToLower()))
-                {
-                    aux.Add(item);
-                }
-                
-            }
-            while(Listarutas.Items.Count > 0)
-            {
-                Listarutas.Items.RemoveAt(0);
-            }
-            foreach (Ruta item in aux)
-            {
-                Listarutas.Items.Add(item);
-            }
-
-           
-        }
-        private void txbBuscar_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Back && txbBuscar.Text=="")
-            {
-                Listarutas.Items.Clear();
-                foreach (Ruta item in original)
-                {
-                    Listarutas.Items.Add(item);
-                }
-            }
-        }
-        private void txbBuscar_GotFocus(object sender, RoutedEventArgs e)
-        {
-            txbBuscar.Text = "";
-
-        }
-       
     }
 }

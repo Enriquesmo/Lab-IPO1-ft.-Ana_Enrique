@@ -82,7 +82,7 @@
                     <Button
                     x:Name="btnMod" Margin="293,247,142,10" Content="Modificar" Click="btnMod_Click" Height="40" Width="64"/>
                     <Button
-                    x:Name="btnBorrar" Margin="36,247,399,10" Content="Borrar" Click="btnBorrar_Click" Height="40" Width="64"/>
+                    x:Name="btnBorrar" Margin="93,247,342,10" Content="Borrar" Click="btnBorrar_Click" Height="40" Width="64"/>
                 </Grid>
 
 

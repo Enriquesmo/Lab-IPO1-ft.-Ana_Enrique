@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-// FALTA: Poner Colores bien y Boton de ayuda
+// FALTA: Poner Colores bien
 
 namespace Lab_IPO1_ft.Ana_Enrique
 {
@@ -138,22 +138,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 }
             }
         }
-        private void btnLimpiar_Click(object sender, RoutedEventArgs e) // Terminado
-        {
-            System.Windows.MessageBoxResult result = MessageBox.Show("¿Estás seguro de que quieres limpiar todos los campos?", "Confirmación", MessageBoxButton.OKCancel, MessageBoxImage.Question);
-            if (result == MessageBoxResult.OK)
-            {
-                txbNombre.Text = "";
-                txbApellidos.Text = "";
-                txbTelefono.Text = "";
-                txbCorreo.Text = "";
-                txbPuntuacion.Text = "";
-                txbIdiomas.Text = "";
-                ListBoxIdiomas.Items.Clear();
-                ListBoxRutas.Items.Clear();
-                Foto.Source = null;
-            }
-        }
         private void btnAnadir_Click(object sender, RoutedEventArgs e) // Terminado
         {
             Guia guiaAAnadir = new Guia("","",null,0,"",0);
@@ -237,7 +221,6 @@ namespace Lab_IPO1_ft.Ana_Enrique
                 btnMod.IsEnabled = true;
                 btnBorrar.IsEnabled = true;
             }
-            btnLimpiar.IsEnabled = true;
         }
         private bool esNumero(TextBox textbox, string mensaje) // Terminado
         {
